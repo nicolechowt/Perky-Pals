@@ -1,0 +1,11 @@
+.activity-box
+{
+  position: relative;
+}
+
+.activity-box__plus
+{
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}

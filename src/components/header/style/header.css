@@ -1,0 +1,14 @@
+.header__name-and-menu
+{
+  display: flex;
+  justify-content: space-between;
+}
+.header__name
+{
+  margin: 0;
+}
+
+.header__link
+{
+  padding: 0 2px;
+}

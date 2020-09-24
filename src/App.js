@@ -3,15 +3,19 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useRouteMatch,
-  useParams
 } from "react-router-dom";
 
-import Home from './components/home';
+import BetterTogether from './components/better-together';
 import CreateAccount from './components/create-account';
-import Login from './components/login';
+import Dashboard from './components/dashboard';
 import Goal from './components/goal';
+import Header from './components/header';
+import Home from './components/home';
+import Library from './components/library';
+import Login from './components/login';
+import Notifications from './components/notifications';
+import Points from './components/points';
+import Redeem from './components/redeem';
 
 import './App.css';
 
@@ -77,11 +81,19 @@ export default function App() {
 
   return (
     <div className="app">
+      <Header />
+
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/create-account" component={CreateAccount} />
         <Route path="/login" component={Login} />
         <Route path="/goals" component={Goal} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/notifications" component={Notifications} />
+        <Route path="/better-together" component={BetterTogether} />
+        <Route path="/points" component={Points} />
+        <Route path="/redeem" component={Redeem} />
+        <Route path="/library" component={Library} />
       </Switch>
     </div>
     //   {/* <button
