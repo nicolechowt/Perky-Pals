@@ -6,7 +6,6 @@ import close from '../../assets/close.svg';
 import Overlay from '../overlay';
 
 export default function HamburgerMenu() {
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -14,17 +13,12 @@ export default function HamburgerMenu() {
       {isMenuOpen? 
         (
           <div className="hamburger-menu--open">
-            {/* <button onClick={()=> setIsMenuOpen(false)}>
-              <img src={close}/>
-            </button> */}
-            
             <Overlay onClose={()=>{setIsMenuOpen(false)}}>
               <Link to="/">HOME > </Link>
               <Link to="/goals">EDIT GOALS > </Link>
               <Link to="/redeem">REDEEM POINTS ></Link>
               <Link to="/library">LIBRARY ></Link>
             </Overlay>
-
           </div>
         ):
         (
