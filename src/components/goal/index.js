@@ -7,9 +7,7 @@ export default function Goal(props) {
   return (
     <div>
       goalsssss
-      <Button>
-        <Link to="/notifications">DONE</Link>
-      </Button>
+      <Button to="/notifications">DONE</Button>
     </div>
   );
 }

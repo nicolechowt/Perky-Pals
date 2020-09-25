@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
 import './style/create-account.css';
 import ProfileSetup from './component/profile-setup';
 import MoreInfo from './component/more-info';
@@ -21,9 +20,7 @@ export default function CreateAccount(){
       {viewState==='MORE_INFO' &&
         <div>
           <MoreInfo />
-          <Button>
-            <Link to="/goals">NEXT</Link>
-          </Button>
+          <Button to="/goals">NEXT</Button>
         </div>
       }
     </div>

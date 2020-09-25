@@ -7,13 +7,9 @@ export default function Home() {
   return (
     <div className="home">
       <h2>Tatas</h2>
-      <Button>
-        <Link to="/create-account">Create Account</Link>
-      </Button>
+      <Button to="/create-account">Create Account</Button>
 
-      <Button>
-        <Link to="/login">Login</Link>
-      </Button>
+      <Button to="/login">Login</Button>
     </div>
   );
 }

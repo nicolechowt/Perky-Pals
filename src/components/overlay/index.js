@@ -20,7 +20,7 @@ export default function Overlay(props) {
       </button>
 
       <div 
-        className="overlay-links"
+        className="overlay__links"
         onClick={handleOnClick}
       >
         {props.children}

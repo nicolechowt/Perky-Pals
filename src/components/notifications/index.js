@@ -7,16 +7,12 @@ export default function Notifications() {
   return (
     <div>
       TURN ON Notifications
-      <Button>
-        <Link to="/better-together">
-          ALL SET
-        </Link> 
+      <Button to ="/better-together">
+        ALL SET
       </Button>
 
-      <Button>
-        <Link to="/better-together">
-          SKIP
-        </Link> 
+      <Button to="/better-together">
+        SKIP
       </Button>
     </div>
   );
