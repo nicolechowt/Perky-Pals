@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 import './style/dashboard.css';
-import Button from '../button';
-import Header from '../header';
 import ActivityBox from '../activity-box';
 import Box from '../box';
 
-export default function Dashboard(props) {
+function Dashboard(props) {
   return (
     <div className="dashboard">
       <div>
@@ -40,7 +38,7 @@ export default function Dashboard(props) {
       />
 
       <div>
-        julians progress
+        juliannas progress
       </div>
 
       <ActivityBox 
@@ -53,3 +51,14 @@ export default function Dashboard(props) {
     </div>
   );
 }
+
+function mapStateToProps(state) {
+  const { userReducer } = state
+  return { 
+    users: userReducer[0].users,
+  }
+}
+
+export default connect(
+  mapStateToProps,
+)(Dashboard)

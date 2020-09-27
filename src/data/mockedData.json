@@ -1,0 +1,299 @@
+[
+  {
+    "id": 1,
+    "name": "Bella",
+    "email": "bella@yopmail.com",
+    "age": 30,
+    "gender": "female",
+    "ethnicity": "african-american",
+    "goals": {
+      "exercise": "",
+      "mindfulness": "",
+      "sleep": ""
+    },
+    "friendsWith": [
+      {
+        "name": "Juliana",
+        "id": 2
+      },
+      {
+        "name": "Bob",
+        "id": 3
+      }
+    ],
+    "doneSelfCheckThisMonth": true,
+    "scheduledMammogram": true,
+    "data": [
+      {
+        "date": "09/24/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/23/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/22/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/21/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/20/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/19/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/18/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/17/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Juliana",
+    "email": "juliana@yopmail.com",
+    "age": 36,
+    "gender": "female",
+    "ethnicity": "hispanic",
+    "goals": {
+      "exercise": "",
+      "mindfulness": "",
+      "sleep": ""
+    },
+    "friendsWith": [
+      {
+        "name": "Bella",
+        "id": 1
+      },
+      {
+        "name": "Bob",
+        "id": 3
+      }
+    ],
+    "doneSelfCheckThisMonth": true,
+    "scheduledMammogram": true,
+    "data": [
+      {
+        "date": "09/24/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/23/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/22/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/21/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/20/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/19/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/18/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/17/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Bob",
+    "email": "bobobo@yopmail.com",
+    "age": 39,
+    "gender": "male",
+    "ethnicity": "white",
+    "goals": {
+      "exercise": "",
+      "mindfulness": "",
+      "sleep": ""
+    },
+    "friendsWith": [
+      {
+        "name": "Bella",
+        "id": 1
+      },
+      {
+        "name": "Juliana",
+        "id": 2
+      }
+    ],
+    "doneSelfCheckThisMonth": true,
+    "scheduledMammogram": true,
+    "data": [
+      {
+        "date": "09/24/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/23/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/22/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/21/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/20/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/19/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/18/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      },
+      {
+        "date": "09/17/2020",
+        "exercise": "",
+        "mindfulness": "",
+        "sleep": "",
+        "water": "",
+        "selfCheck": true,
+        "mammogram": false
+      }
+    ]
+  }
+]

@@ -1,13 +1,18 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+
 import './style/header.css';
+
 import HamburgerMenu from '../hamburger-menu';
 
-export default function Header(props) {
+function Header(props) {
+  const { currentUser } = props;
+
   return (
     <div>
       <div className="header__name-and-menu">
-        <h1 className="header__name">Hi, BELLA</h1>
+        <h1 className="header__name">Hi, {currentUser.name}</h1>
         <HamburgerMenu />
       </div>
       <Link 
@@ -39,3 +44,14 @@ export default function Header(props) {
     </div>
   );
 }
+
+function mapStateToProps(state) {
+  const { currentUserReducer } = state
+  return { 
+    currentUser: currentUserReducer.currentUser,
+  }
+}
+
+export default connect(
+  mapStateToProps,
+)(Header)

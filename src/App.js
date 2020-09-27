@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Route, Switch } from "react-router-dom";
+
+import { saveCurrentUser } from './reducers/actions'
 
 import Dashboard from './components/dashboard';
 import Header from './components/header';
 import Library from './components/library';
 import Points from './components/points';
 import Redeem from './components/redeem';
-
 import './App.css';
 
 const check = () => {
@@ -68,9 +66,22 @@ const getPushNotifications = async () => {
   })
 }
 
-export default function App() {
+function App(props) {
+  // get query param and send user id along, id defaults to 1
+
+  const { dispatch, location, users }  = props;
+
+  const search = location.search;
+  const urlParams = new URLSearchParams(search);
+
+  const param = urlParams.get('user');
+  const userId = parseInt(param) || 1;
+
+  const currentUser = users.filter(user=>user.id===userId);
+
   useEffect(()=>{
     main();
+    dispatch(saveCurrentUser(currentUser[0]));
   }, []);
 
   return (
@@ -91,3 +102,14 @@ export default function App() {
     //   </button> */}
   );
 }
+
+function mapStateToProps(state) {
+  const { userReducer } = state
+  return { 
+    users: userReducer,
+  }
+}
+
+export default connect(
+  mapStateToProps,
+)(App)
