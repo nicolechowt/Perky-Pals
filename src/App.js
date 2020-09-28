@@ -81,7 +81,6 @@ function App(props) {
 
   useEffect(()=>{
     main();
-    dispatch(saveCurrentUser(currentUser[0]));
   }, []);
 
   return (

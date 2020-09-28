@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux'
 
 import configureStore from './configure-store'
@@ -10,8 +10,9 @@ import BetterTogether from './components/better-together';
 import CreateAccount from './components/create-account';
 import Goal from './components/goal';
 import Home from './components/home';
-import Login from './components/login';
 import Notifications from './components/notifications';
+
+import AddExercise from './pages/add-exercise/';
 
 const store = configureStore();
 
@@ -22,11 +23,13 @@ const renderApp = () =>
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/create-account" component={CreateAccount} />
-          <Route path="/login" component={Login} />
+          <Route path="/login">
+            <Redirect to="/dashboard" />
+          </Route>
           <Route path="/goals" component={Goal} />
           <Route path="/notifications" component={Notifications} />
           <Route path="/better-together" component={BetterTogether} />
-
+          <Route path="/add-exercise" component={AddExercise} />
           <App />
         </Switch>
       </BrowserRouter>

@@ -7,12 +7,14 @@ import './style/header.css';
 import HamburgerMenu from '../hamburger-menu';
 
 function Header(props) {
-  const { currentUser } = props;
+  const currentUser = props && props.currentUser;
+
+  const name = currentUser && currentUser[0].name;
 
   return (
     <div>
       <div className="header__name-and-menu">
-        <h1 className="header__name">Hi, {currentUser.name}</h1>
+        <h1 className="header__name">Hi, {name}</h1>
         <HamburgerMenu />
       </div>
       <Link 
