@@ -17,13 +17,15 @@ export default function ActivityBox(props) {
     unit,
   } = props;
 
+  const link = `/add-${header.toLowerCase()}`;
+
   return (
     <div className="activity-box">
       <Box>
         <h2>{header}</h2>
         <p>{length}</p>{unit}
         <p>of your {goal} min weekly goal</p>
-        <Button to="/add-exercise"
+        <Button to={link}
           className="activity-box__plus"
         >
           +

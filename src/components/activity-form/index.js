@@ -11,11 +11,12 @@ import './style/activity-form.css';
 function ActivityForm(props) {
 
   console.log('****activity props', props)
-  const { addExerciseMinute, exerciseMinutes, type } = props;
+  const { addExerciseMinute, addModal, exerciseMinutes, type } = props;
 
   const onClick = () => {
     addExerciseMinute(30);
     setRedirect(true);
+    addModal('yay points');
   }
 
   const [redirect, setRedirect] = useState(false);
@@ -75,6 +76,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return { 
     addExerciseMinute: (data) => dispatch({ type: ADD_EXERCISE_MINUTES, data}),
+    addModal: (data) => dispatch({ type: 'ADD_MODAL', data}),
   }
 }
 

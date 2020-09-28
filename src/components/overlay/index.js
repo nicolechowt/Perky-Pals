@@ -7,7 +7,8 @@ export default function Overlay(props) {
 
   const handleOnClick = () => {
     setIsOverlayOpen(false);
-    props.onClose();
+    
+    props.onClose && props.onClose();
   }
 
   return (

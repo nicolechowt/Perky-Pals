@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './style/dashboard.css';
 import ActivityBox from '../activity-box';
 import Box from '../box';
+import Overlay from '../overlay';
 
 import { 
   SAVE_CURRENT_USER,
@@ -10,19 +11,17 @@ import {
 } from '../../reducers/actions'
 
 function Dashboard(props) {
-  console.log('DASHBOARD props', props)
-
   const { 
     saveToDashboard, 
     saveCurrentUser,
+    removeModal,
 
     currentUser = [],
     dashboard, 
     location, 
     users, 
+    modal,
   } = props;
-
-  console.log('currentUser', currentUser);
 
   const search = location.search;
   const urlParams = new URLSearchParams(search);
@@ -47,6 +46,11 @@ function Dashboard(props) {
   const exercise = dashboard && dashboard.exercise;
   const exerciseGoal = dashboard.goals && dashboard.goals.exercise;
 
+  const mindfulness = dashboard && dashboard.mindfulness;
+  const mindfulnesseGoal = dashboard.goals && dashboard.goals.mindfulness;
+
+  const message = modal && modal.message;
+
   useEffect(()=>{ 
     // based on the query param, load that user's hardcoded data from store
     if(Object.entries(currentUser).length === 0) {
@@ -64,6 +68,18 @@ function Dashboard(props) {
 
   return (
     <div className="dashboard">
+      {(() => {
+        if(message) {
+          return (
+            <Overlay onClose={()=>{
+              removeModal();
+            }}>
+              {message}
+            </Overlay>
+          );
+        }
+      })()}
+
       <div>
         Activity overview
       </div>
@@ -83,7 +99,11 @@ function Dashboard(props) {
       />
 
       <ActivityBox 
+        display="number"
+        goal={mindfulnesseGoal}
         header="MEDITATION"
+        length={mindfulness}
+        unit="minutes"
       />
 
       <ActivityBox 
@@ -117,12 +137,14 @@ function mapStateToProps(state) {
   const { 
     currentUserReducer, 
     dashboardReducer,
+    modalReducer,
     userReducer, 
   } = state;
 
   return { 
     currentUser: currentUserReducer.currentUser,
     dashboard: dashboardReducer,    
+    modal: modalReducer,
     users: userReducer,
   }
 }
@@ -130,7 +152,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return { 
     saveCurrentUser: (data) => dispatch({ type: SAVE_CURRENT_USER, data}),
-    saveToDashboard: (data) => dispatch({ type: SAVE_TO_DASHBOARD, data})
+    saveToDashboard: (data) => dispatch({ type: SAVE_TO_DASHBOARD, data}),
+    removeModal: () => dispatch({ type: 'REMOVE_MODAL'})
   }
 }
 
