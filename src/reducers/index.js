@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import {
   ADD_EXERCISE_MINUTES,
+  ADD_MINDFULNESS_MINUTES,
   ADD_MODAL,
   REMOVE_MODAL,
   SAVE_CURRENT_USER,
@@ -40,6 +41,12 @@ function dashboardReducer(state={}, action) {
       return {
         ...state,
         exercise: state.exercise + action.data,
+      }
+
+    case ADD_MINDFULNESS_MINUTES:
+      return {
+        ...state,
+        mindfulness: state.mindfulness + action.data,
       }
 
     default:

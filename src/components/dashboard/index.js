@@ -101,7 +101,7 @@ function Dashboard(props) {
       <ActivityBox 
         display="number"
         goal={mindfulnesseGoal}
-        header="MEDITATION"
+        header="MINDFULNESS"
         length={mindfulness}
         unit="minutes"
       />

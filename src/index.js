@@ -13,6 +13,7 @@ import Home from './components/home';
 import Notifications from './components/notifications';
 
 import AddExercise from './pages/add-exercise/';
+import AddMindfulness from './pages/add-mindfulness';
 
 const store = configureStore();
 
@@ -30,6 +31,7 @@ const renderApp = () =>
           <Route path="/notifications" component={Notifications} />
           <Route path="/better-together" component={BetterTogether} />
           <Route path="/add-exercise" component={AddExercise} />
+          <Route path="/add-mindfulness" component={AddMindfulness} />
           <App />
         </Switch>
       </BrowserRouter>

@@ -3,6 +3,7 @@
  */
 
 export const ADD_EXERCISE_MINUTES = 'ADD_EXERCISE_MINUTES';
+export const ADD_MINDFULNESS_MINUTES = 'ADD_MINDFULNESS_MINUTES';
 export const ADD_MODAL = 'ADD_MODAL';
 export const REMOVE_MODAL = 'REMOVE_MODAL';
 export const SAVE_CURRENT_USER = 'SAVE_CURRENT_USER';
@@ -19,6 +20,10 @@ export const SAVE_TO_DASHBOARD = 'SAVE_TO_DASHBOARD';
 
 export function addExerciseMinutes(data) {
   return {type: ADD_EXERCISE_MINUTES, data}
+}
+
+export function addMindfulnessMinutes(data) {
+  return {type: ADD_MINDFULNESS_MINUTES, data}
 }
 
 export function saveCurrentUser(data) {

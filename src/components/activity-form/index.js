@@ -4,6 +4,7 @@ import {  Redirect } from 'react-router-dom';
 
 import { 
   ADD_EXERCISE_MINUTES,
+  ADD_MINDFULNESS_MINUTES,
 } from '../../reducers/actions'
 
 import './style/activity-form.css';
@@ -11,12 +12,63 @@ import './style/activity-form.css';
 function ActivityForm(props) {
 
   console.log('****activity props', props)
-  const { addExerciseMinute, addModal, exerciseMinutes, type } = props;
+  const { 
+    // dispatch props
+    addExerciseMinute, 
+    addMindfulnessMinute, 
+    addModal, 
+    
+    // props
+    exerciseMinutes, 
+    type
+  } = props;
 
   const onClick = () => {
-    addExerciseMinute(30);
-    setRedirect(true);
-    addModal('yay points');
+    switch(type) {
+      case "EXERCISE" :
+        addExerciseMinute(30);
+        setRedirect(true);
+        addModal('yay points');
+        break;
+
+      case "MINDFULNESS":
+        addMindfulnessMinute(30);
+        setRedirect(true);
+        addModal('yay points');
+        break;
+        
+      case "SLEEP":
+        addExerciseMinute(30);
+        setRedirect(true);
+        addModal('yay points'); 
+        break;
+      
+      case "WATER":
+        addExerciseMinute(30);
+        setRedirect(true);
+        addModal('yay points');
+        break;
+      
+      case "FRUITS":
+        addExerciseMinute(30);
+        setRedirect(true);
+        addModal('yay points');
+        break;
+
+      case "SELF_CHECK":
+        addExerciseMinute(30);
+        setRedirect(true);
+        addModal('yay points');
+        break;
+  
+      case "MAMMOGRAM":
+        addExerciseMinute(30);
+        setRedirect(true);
+        addModal('yay points');
+        break;
+      
+      default:
+    }
   }
 
   const [redirect, setRedirect] = useState(false);
@@ -37,7 +89,6 @@ function ActivityForm(props) {
         <label htmlFor="date">DATE</label>
         <select name="date" id="date">
           "date"
-          {/* {ages.map(age => <option id={age} value={age}>{age}</option>)} */}
         </select>
       </div>
 
@@ -76,6 +127,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return { 
     addExerciseMinute: (data) => dispatch({ type: ADD_EXERCISE_MINUTES, data}),
+    addMindfulnessMinute: (data) => dispatch({ type: ADD_MINDFULNESS_MINUTES, data}),
     addModal: (data) => dispatch({ type: 'ADD_MODAL', data}),
   }
 }
