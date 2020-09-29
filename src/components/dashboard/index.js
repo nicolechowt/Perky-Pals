@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import './style/dashboard.css';
 import ActivityBox from '../activity-box';
@@ -9,6 +9,7 @@ import {
   SAVE_CURRENT_USER,
   SAVE_TO_DASHBOARD, 
 } from '../../reducers/actions'
+import ProgressRing from '../progress-ring';
 
 function Dashboard(props) {
   const { 
@@ -75,6 +76,11 @@ function Dashboard(props) {
     }
   }, [id]);
 
+  const svgWidth = 150;
+  const arcWidth = 12;
+  const [progressPercentage, setProgressPercentage] = useState(50);
+  const colorIndicator = '#56c4d3';
+
   return (
     <div className="dashboard">
       {(() => {
@@ -92,6 +98,13 @@ function Dashboard(props) {
       <div>
         Activity overview
       </div>
+
+      <ProgressRing
+        svgWidth={svgWidth}
+        arcWidth={arcWidth}
+        progressPercentage={progressPercentage}
+        colorIndicator={colorIndicator}
+      />
 
       <Box>
         <div>
