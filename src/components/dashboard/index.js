@@ -49,6 +49,15 @@ function Dashboard(props) {
   const mindfulness = dashboard && dashboard.mindfulness;
   const mindfulnesseGoal = dashboard.goals && dashboard.goals.mindfulness;
 
+  const sleep = dashboard && dashboard.sleep;
+  const sleepGoal = dashboard.goals && dashboard.goals.sleep;
+
+  const water = dashboard && dashboard.water;
+  const waterGoal = dashboard.goals && dashboard.goals.water;
+
+  const fruitsAndVeggies = dashboard && dashboard.fruitsAndVeggies;
+  const fruitsAndVeggiesGoal = dashboard.goals && dashboard.goals.fruitsAndVeggies;
+
   const message = modal && modal.message;
 
   useEffect(()=>{ 
@@ -96,6 +105,7 @@ function Dashboard(props) {
         header="EXERCISE"
         length={exercise}
         unit="minutes"
+        frequency="weekly"
       />
 
       <ActivityBox 
@@ -104,18 +114,32 @@ function Dashboard(props) {
         header="MINDFULNESS"
         length={mindfulness}
         unit="minutes"
+        frequency="weekly"
       />
 
       <ActivityBox 
+        display="bar"
         header="SLEEP"
+        goal={sleepGoal}
+        length={sleep}
+        unit="hours"
+        frequency="daily"
       />
 
       <ActivityBox 
         header="WATER"
+        goal={waterGoal}
+        length={water}
+        unit="oz"
+        frequency="daily"
       />
 
       <ActivityBox 
-        header="FRUITS AND VEG"
+        header="FRUITS-AND-VEGGIES"
+        goal={fruitsAndVeggiesGoal}
+        length={fruitsAndVeggies}
+        unit="servings"
+        frequency="daily"
       />
 
       <div>

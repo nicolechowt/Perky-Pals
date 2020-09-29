@@ -5,6 +5,10 @@ import {  Redirect } from 'react-router-dom';
 import { 
   ADD_EXERCISE_MINUTES,
   ADD_MINDFULNESS_MINUTES,
+  ADD_SLEEP_HOURS,
+  ADD_MODAL,
+  ADD_WATER_OZ,
+  ADD_FRUITS_AND_VEGGIES,
 } from '../../reducers/actions'
 
 import './style/activity-form.css';
@@ -17,6 +21,9 @@ function ActivityForm(props) {
     addExerciseMinute, 
     addMindfulnessMinute, 
     addModal, 
+    addSleepHours,
+    addWaterOz,
+    addFruitsAndVeggies,
     
     // props
     exerciseMinutes, 
@@ -38,19 +45,19 @@ function ActivityForm(props) {
         break;
         
       case "SLEEP":
-        addExerciseMinute(30);
+        addSleepHours(8);
         setRedirect(true);
         addModal('yay points'); 
         break;
       
       case "WATER":
-        addExerciseMinute(30);
+        addWaterOz(12);
         setRedirect(true);
         addModal('yay points');
         break;
       
-      case "FRUITS":
-        addExerciseMinute(30);
+      case "FRUITS_AND_VEGGIES":
+        addFruitsAndVeggies(2);
         setRedirect(true);
         addModal('yay points');
         break;
@@ -128,7 +135,10 @@ function mapDispatchToProps(dispatch) {
   return { 
     addExerciseMinute: (data) => dispatch({ type: ADD_EXERCISE_MINUTES, data}),
     addMindfulnessMinute: (data) => dispatch({ type: ADD_MINDFULNESS_MINUTES, data}),
-    addModal: (data) => dispatch({ type: 'ADD_MODAL', data}),
+    addSleepHours: (data) => dispatch({ type: ADD_SLEEP_HOURS, data}),
+    addFruitsAndVeggies: (data) => dispatch({ type: ADD_FRUITS_AND_VEGGIES, data}),
+    addWaterOz: (data) => dispatch({ type: ADD_WATER_OZ, data}),
+    addModal: (data) => dispatch({ type: ADD_MODAL, data}),
   }
 }
 

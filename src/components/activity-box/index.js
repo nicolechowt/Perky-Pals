@@ -15,6 +15,7 @@ export default function ActivityBox(props) {
     header,
     length,
     unit,
+    frequency,
   } = props;
 
   const link = `/add-${header.toLowerCase()}`;
@@ -24,7 +25,7 @@ export default function ActivityBox(props) {
       <Box>
         <h2>{header}</h2>
         <p>{length}</p>{unit}
-        <p>of your {goal} min weekly goal</p>
+        <p>of your {goal} {unit} {frequency} goal</p>
         <Button to={link}
           className="activity-box__plus"
         >

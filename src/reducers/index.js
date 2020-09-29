@@ -6,6 +6,9 @@ import {
   REMOVE_MODAL,
   SAVE_CURRENT_USER,
   SAVE_TO_DASHBOARD,
+  ADD_SLEEP_HOURS, 
+  ADD_WATER_OZ,
+  ADD_FRUITS_AND_VEGGIES,
 } from './actions'
 
 
@@ -49,6 +52,24 @@ function dashboardReducer(state={}, action) {
         mindfulness: state.mindfulness + action.data,
       }
 
+    case ADD_SLEEP_HOURS:
+        return {
+          ...state,
+          sleep: state.sleep + action.data,
+        }  
+
+    case ADD_WATER_OZ:
+        return {
+          ...state,
+          water: state.water + action.data,
+        }  
+
+    case ADD_FRUITS_AND_VEGGIES:
+        return {
+          ...state,
+          fruitsAndVeggies: state.fruitsAndVeggies + action.data,
+        }  
+    
     default:
       return state
   }

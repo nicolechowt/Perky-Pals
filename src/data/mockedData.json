@@ -10,7 +10,9 @@
     "goals": {
       "exercise": 10,
       "mindfulness": 20,
-      "sleep": 4
+      "sleep": 4,
+      "fruitsAndVeggies": 2,
+      "water": 64
     },
     "friendsWith": [
       {
@@ -118,7 +120,9 @@
     "goals": {
       "exercise": 200,
       "mindfulness": 120,
-      "sleep": 8
+      "sleep": 8,
+      "fruitsAndVeggies": 5,
+      "water": 100
     },
     "friendsWith": [
       {
@@ -236,7 +240,9 @@
     "goals": {
       "exercise": "",
       "mindfulness": "",
-      "sleep": ""
+      "sleep": "",
+      "fruitsAndVeggies": 1,
+      "water": 50
     },
     "friendsWith": [
       {

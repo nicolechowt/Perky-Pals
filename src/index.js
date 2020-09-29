@@ -14,6 +14,9 @@ import Notifications from './components/notifications';
 
 import AddExercise from './pages/add-exercise/';
 import AddMindfulness from './pages/add-mindfulness';
+import AddSleep from './pages/add-sleep';
+import AddWater from './pages/add-water';
+import AddFruitsAndVeggies from './pages/add-fruits-and-veggies';
 
 const store = configureStore();
 
@@ -32,6 +35,9 @@ const renderApp = () =>
           <Route path="/better-together" component={BetterTogether} />
           <Route path="/add-exercise" component={AddExercise} />
           <Route path="/add-mindfulness" component={AddMindfulness} />
+          <Route path="/add-sleep" component={AddSleep} />
+          <Route path="/add-water" component={AddWater} />
+          <Route path="/add-fruits-and-veggies" component={AddFruitsAndVeggies} />
           <App />
         </Switch>
       </BrowserRouter>
