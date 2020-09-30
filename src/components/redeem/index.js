@@ -1,98 +1,56 @@
 import React from 'react';
 import './style/redeem.css';
 import RedeemCard from '../redeem-card';
+import Overlay from '../overlay';
+import { connect } from 'react-redux';
+import { 
+  ADD_MODAL,
+  REMOVE_MODAL,
+} from '../../reducers/actions'
 
-const items = [
-  {
-    title: 'A thing', 
-    description: 'A description of why the thing is so cool',
-    points: 10,
-  },
-  {
-    title: 'A thing 2 ', 
-    description: 'A description of why the thing is so cool',
-    points: 10,
-  },
-  {
-    title: 'A thing 3', 
-    description: 'A description of why the thing is so cool',
-    points: 10,
-  },
-  {
-    title: 'A thing 4', 
-    description: 'A description of why the thing is so cool',
-    points: 10,
-  },
-  {
-    title: 'A thing 5', 
-    description: 'A description of why the thing is so cool',
-    points: 10,
-  },
-  {
-    title: 'A thing 6', 
-    description: 'A description of why the thing is so cool',
-    points: 10,
-  },
-  {
-    title: 'A thing 7', 
-    description: 'A description of why the thing is so cool',
-    points: 10,
-  },
-  {
-    title: 'A thing 8', 
-    description: 'A description of why the thing is so cool',
-    points: 10,
-  },
-  {
-    title: 'A thing', 
-    description: 'A description of why the thing is so cool',
-    points: 20,
-  },
-  {
-    title: 'A thing 2 ', 
-    description: 'A description of why the thing is so cool',
-    points: 20,
-  },
-  {
-    title: 'A thing 3', 
-    description: 'A description of why the thing is so cool',
-    points: 20,
-  },
-  {
-    title: 'A thing 4', 
-    description: 'A description of why the thing is so cool',
-    points: 30,
-  },
-  {
-    title: 'A thing 5', 
-    description: 'A description of why the thing is so cool',
-    points: 30,
-  },
-  {
-    title: 'A thing 6', 
-    description: 'A description of why the thing is so cool',
-    points: 40,
-  },
-  {
-    title: 'A thing 7', 
-    description: 'A description of why the thing is so cool',
-    points: 100,
-  },
-  {
-    title: 'A thing 8', 
-    description: 'A description of why the thing is so cool',
-    points: 100,
-  },
-];
-export default function Redeem(props) {
+import { items } from '../../data/redeemItems';
+
+function Redeem(props) {
+  const { 
+    // dispatch props
+    addModal,
+    removeModal,
+
+    // props
+    modal, 
+  } = props;
+
+  const content = modal && modal.content;
+
+  const handleOnClick = (filteredItem) => {
+    addModal(filteredItem);
+  }
+
   return (
     <div className="redeem">
       Redeem
+
+      {(()=> {
+        if(!content) return;
+
+        if(content.title){
+          return(
+            <Overlay onClose={()=>{
+              removeModal();
+            }}>
+              {content.title}
+              {content.description}
+              {content.points}
+            </Overlay>
+          )
+        }
+      })()}
 
       <h4>10 points</h4>
       {items.filter(item => item.points===10).map(filteredItem => (
         <RedeemCard 
           description={filteredItem.description}
+          onClick={()=> handleOnClick(filteredItem)}
           points={filteredItem.points}
           title={filteredItem.title}
         />
@@ -102,6 +60,7 @@ export default function Redeem(props) {
       {items.filter(item => item.points===20).map(filteredItem => (
         <RedeemCard 
           description={filteredItem.description}
+          onClick={()=> handleOnClick(filteredItem)}
           points={filteredItem.points}
           title={filteredItem.title}
         />
@@ -111,6 +70,7 @@ export default function Redeem(props) {
       {items.filter(item => item.points>=30).map(filteredItem => (
         <RedeemCard 
           description={filteredItem.description}
+          onClick={()=> handleOnClick(filteredItem)}
           points={filteredItem.points}
           title={filteredItem.title}
         />
@@ -118,3 +78,29 @@ export default function Redeem(props) {
     </div>
   );
 }
+
+function mapStateToProps(state) {
+  const { 
+    currentUserReducer, 
+    dashboardReducer,
+    modalReducer,
+  } = state;
+
+  return { 
+    currentUser: currentUserReducer.currentUser,
+    dashboard: dashboardReducer,    
+    modal: modalReducer,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return { 
+    addModal: (data) => dispatch({ type: ADD_MODAL, data}),
+    removeModal: () => dispatch({ type: REMOVE_MODAL})
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Redeem)

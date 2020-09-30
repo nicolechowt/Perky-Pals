@@ -80,13 +80,13 @@ function modalReducer(state={}, action) {
     case ADD_MODAL:
       return {
         ...state,
-        message: action.data,
+        content: {...action.data}
       }
 
     case REMOVE_MODAL:
       return {
         ...state,
-        message: '',
+        content: {},
       }
 
     default:

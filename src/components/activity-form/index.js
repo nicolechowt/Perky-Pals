@@ -35,43 +35,57 @@ function ActivityForm(props) {
       case "EXERCISE" :
         addExerciseMinute(30);
         setRedirect(true);
-        addModal('yay points');
+        addModal(  {
+          title: 'yay points', 
+        });
         break;
 
       case "MINDFULNESS":
         addMindfulnessMinute(30);
         setRedirect(true);
-        addModal('yay points');
+        addModal(  {
+          title: 'yay points', 
+        });
         break;
         
       case "SLEEP":
         addSleepHours(8);
         setRedirect(true);
-        addModal('yay points'); 
+        addModal(  {
+          title: 'yay points', 
+        });
         break;
       
       case "WATER":
         addWaterOz(12);
         setRedirect(true);
-        addModal('yay points');
+        addModal(  {
+          title: 'yay points', 
+        });
         break;
       
       case "FRUITS_AND_VEGGIES":
         addFruitsAndVeggies(2);
         setRedirect(true);
-        addModal('yay points');
+        addModal(  {
+          title: 'yay points', 
+        });
         break;
 
       case "SELF_CHECK":
         addExerciseMinute(30);
         setRedirect(true);
-        addModal('yay points');
+        addModal(  {
+          title: 'yay points', 
+        });
         break;
   
       case "MAMMOGRAM":
         addExerciseMinute(30);
         setRedirect(true);
-        addModal('yay points');
+        addModal(  {
+          title: 'yay points', 
+        });
         break;
       
       default:

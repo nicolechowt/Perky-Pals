@@ -4,6 +4,7 @@
   border-radius: 4px;
   margin: 4px;
   max-width: 120px;
+  cursor: pointer;
 }
 
 .redeem-card__image

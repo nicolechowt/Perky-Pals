@@ -59,7 +59,7 @@ function Dashboard(props) {
   const fruitsAndVeggies = dashboard && dashboard.fruitsAndVeggies;
   const fruitsAndVeggiesGoal = dashboard.goals && dashboard.goals.fruitsAndVeggies;
 
-  const message = modal && modal.message;
+  const content = modal && modal.content;
 
   useEffect(()=>{ 
     // based on the query param, load that user's hardcoded data from store
@@ -83,15 +83,17 @@ function Dashboard(props) {
 
   return (
     <div className="dashboard">
-      {(() => {
-        if(message) {
-          return (
+      {(()=> {
+        if(!content) return;
+
+        if(content.title){
+          return(
             <Overlay onClose={()=>{
               removeModal();
             }}>
-              {message}
+              {content.title}
             </Overlay>
-          );
+          )
         }
       })()}
 
