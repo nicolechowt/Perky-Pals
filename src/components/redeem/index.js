@@ -1,7 +1,4 @@
 import React from 'react';
-import './style/redeem.css';
-import RedeemCard from '../redeem-card';
-import Overlay from '../overlay';
 import { connect } from 'react-redux';
 import { 
   ADD_MODAL,
@@ -10,7 +7,12 @@ import {
 } from '../../reducers/actions'
 
 import { items } from '../../data/redeemItems';
+
+import Overlay from '../overlay';
+import RedeemCard from './components/redeem-card';
 import RedeemPreview from './components/redeem-preview';
+
+import './style/redeem.css';
 
 function Redeem(props) {
   const { 
