@@ -8,6 +8,7 @@ export const ADD_MINDFULNESS_MINUTES = 'ADD_MINDFULNESS_MINUTES';
 export const ADD_MODAL = 'ADD_MODAL';
 export const ADD_SLEEP_HOURS = 'ADD_SLEEP_HOURS';
 export const ADD_WATER_OZ = 'ADD_WATER_OZ';
+export const REDEEM_ITEM = 'REDEEM_ITEM';
 export const REMOVE_MODAL = 'REMOVE_MODAL';
 export const SAVE_CURRENT_USER = 'SAVE_CURRENT_USER';
 export const SAVE_TO_DASHBOARD = 'SAVE_TO_DASHBOARD';
@@ -54,4 +55,8 @@ export function addModal(data) {
 
 export function removeModal() {
   return {type: REMOVE_MODAL}
+}
+
+export function redeemItem(data) {
+  return {type: REDEEM_ITEM, data}
 }

@@ -6,21 +6,27 @@ import { connect } from 'react-redux';
 import { 
   ADD_MODAL,
   REMOVE_MODAL,
+  REDEEM_ITEM,
 } from '../../reducers/actions'
 
 import { items } from '../../data/redeemItems';
+import RedeemPreview from './components/redeem-preview';
 
 function Redeem(props) {
   const { 
     // dispatch props
     addModal,
     removeModal,
+    redeemItem,
 
     // props
     modal, 
+    dashboard,
   } = props;
 
   const content = modal && modal.content;
+
+  const userCurrentPoints = dashboard && dashboard.points;
 
   const handleOnClick = (filteredItem) => {
     addModal(filteredItem);
@@ -38,9 +44,16 @@ function Redeem(props) {
             <Overlay onClose={()=>{
               removeModal();
             }}>
-              {content.title}
-              {content.description}
-              {content.points}
+              <RedeemPreview 
+                title={content.title}
+                description={content.description}
+                points={content.points}
+                userCurrentPoints={userCurrentPoints}
+                handleCancleClick={()=>{
+                  removeModal();
+                }}
+                redeemItem={redeemItem}
+              />
             </Overlay>
           )
         }
@@ -96,7 +109,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return { 
     addModal: (data) => dispatch({ type: ADD_MODAL, data}),
-    removeModal: () => dispatch({ type: REMOVE_MODAL})
+    removeModal: () => dispatch({ type: REMOVE_MODAL}),
+    redeemItem: (data) => dispatch({ type: REDEEM_ITEM, data})
   }
 }
 

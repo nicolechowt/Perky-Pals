@@ -20,12 +20,25 @@ export default function Overlay(props) {
         <img src={close}/>
       </button>
 
-      <div 
-        className="overlay__links"
-        onClick={handleOnClick}
-      >
-        {props.children}
-      </div>
+      {/* only close overlay on click if this is the hamburger menu */}
+      {(()=>{
+        if(props.name === 'HAMBURGER_MENU') {
+          return(
+            <div 
+              className="overlay__links"
+              onClick={handleOnClick}
+            >
+              {props.children}
+            </div>
+          );
+        } 
+        
+        return(
+          <div className="overlay__links">
+            {props.children}
+          </div>
+        )
+      })()}
     </div>
   );
 }

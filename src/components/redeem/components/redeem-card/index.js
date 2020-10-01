@@ -22,6 +22,7 @@ function RedeemCard(props) {
   return (
     <div 
       className="redeem-card"
+      id={title+points}
       onClick={onClick}
     >
       <img 

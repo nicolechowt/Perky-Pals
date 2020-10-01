@@ -35,11 +35,14 @@ function Dashboard(props) {
   const goals = currentUser[0] && currentUser[0].goals;
   const data =  currentUser[0] && currentUser[0].data;
 
+  const points = currentUser[0] && currentUser[0].points;
+  
   const todaysData = data && data[0];
 
   const dashboardData = {
     todaysData,
     goals,
+    points,
   }
 
   const id = currentUser[0] && currentUser[0].id;

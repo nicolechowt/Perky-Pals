@@ -9,6 +9,8 @@ import Header from './components/header';
 import Library from './components/library';
 import Points from './components/points';
 import Redeem from './components/redeem';
+import Nav from './components/nav';
+
 import './App.css';
 
 const check = () => {
@@ -93,6 +95,10 @@ function App(props) {
         <Route path="/redeem" component={Redeem} />
         <Route path="/library" component={Library} />
       </Switch>
+
+      <div className="app__nav">
+        <Nav />
+      </div>
     </div>
     //   {/* <button
     //     onClick={getPushNotifications}

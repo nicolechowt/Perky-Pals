@@ -11,46 +11,27 @@ function Header(props) {
 
   const name = currentUser && currentUser[0].name;
 
+  const points = props && props.points;
+
   return (
     <div>
       <div className="header__name-and-menu">
-        <h1 className="header__name">Hi, {name}</h1>
+        <div>
+          <h1 className="header__name">Hi, {name}</h1>
+          <p>{points} POINTS</p>
+        </div>
+
         <HamburgerMenu />
       </div>
-      <Link 
-        className="header__link"
-        to="/dashboard">
-          DASHBOARD
-      </Link>
-
-      <Link 
-        className="header__link"
-        to="/points"
-      >
-        POINTS
-      </Link>
-
-      <Link 
-        className="header__link"
-        to="redeem"
-      >
-        REDEEM
-      </Link>
-
-      <Link 
-        className="header__link"
-        to="library"
-      >
-        LIBRARY
-      </Link>
     </div>
   );
 }
 
 function mapStateToProps(state) {
-  const { currentUserReducer } = state
+  const { currentUserReducer, dashboardReducer, } = state
   return { 
     currentUser: currentUserReducer.currentUser,
+    points: dashboardReducer.points,
   }
 }
 

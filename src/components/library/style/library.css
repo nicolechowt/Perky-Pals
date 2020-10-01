@@ -2,3 +2,8 @@
 {
   height: 100%;
 }
+
+.library__exercise
+{
+  cursor: pointer;
+}

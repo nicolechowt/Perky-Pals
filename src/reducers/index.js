@@ -1,14 +1,15 @@
 import { combineReducers } from 'redux'
 import {
   ADD_EXERCISE_MINUTES,
+  ADD_FRUITS_AND_VEGGIES,
   ADD_MINDFULNESS_MINUTES,
   ADD_MODAL,
+  ADD_SLEEP_HOURS, 
+  ADD_WATER_OZ,
+  REDEEM_ITEM,
   REMOVE_MODAL,
   SAVE_CURRENT_USER,
   SAVE_TO_DASHBOARD,
-  ADD_SLEEP_HOURS, 
-  ADD_WATER_OZ,
-  ADD_FRUITS_AND_VEGGIES,
 } from './actions'
 
 
@@ -38,6 +39,7 @@ function dashboardReducer(state={}, action) {
         ...state,
         ...action.data.todaysData,
         goals: action.data.goals,
+        points: action.data.points,
       }
 
     case ADD_EXERCISE_MINUTES:
@@ -69,6 +71,12 @@ function dashboardReducer(state={}, action) {
           ...state,
           fruitsAndVeggies: state.fruitsAndVeggies + action.data,
         }  
+
+    case REDEEM_ITEM:
+      return {
+        ...state,
+        points: state.points - action.data,
+      }    
     
     default:
       return state

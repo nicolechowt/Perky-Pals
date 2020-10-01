@@ -13,7 +13,10 @@ export default function HamburgerMenu() {
       {isMenuOpen? 
         (
           <div className="hamburger-menu--open">
-            <Overlay onClose={()=>{setIsMenuOpen(false)}}>
+            <Overlay 
+              name="HAMBURGER_MENU"
+              onClose={()=>{setIsMenuOpen(false)}}
+            >
               <Link to="/goals">EDIT GOALS > </Link>
               <Link to="/redeem">REDEEM POINTS ></Link>
               <Link to="/library">LIBRARY ></Link>
