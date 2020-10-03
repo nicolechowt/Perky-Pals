@@ -16,8 +16,6 @@ function RedeemCard(props) {
     title,
   } = props;
 
-  // const [set]
-
   return (
     <div 
       className="redeem-card"

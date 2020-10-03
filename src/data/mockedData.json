@@ -3,16 +3,18 @@
     "id": 1,
     "name": "Bella",
     "email": "bella@yopmail.com",
-    "age": 30,
+    "age": 33,
     "gender": "female",
     "ethnicity": "african-american",
     "points": 4,
     "goals": {
-      "exercise": 10,
-      "mindfulness": 20,
-      "sleep": 4,
-      "fruitsAndVeggies": 2,
-      "water": 64
+      "exercise": 80,
+      "mindfulness": 2,
+      "sleep": 7,
+      "fruitsAndVeggies": 5,
+      "water": 70,
+      "selfCheck": 1,
+      "mammogram": 1
     },
     "friendsWith": [
       {
@@ -24,8 +26,8 @@
         "id": 3
       }
     ],
-    "doneSelfCheckThisMonth": true,
-    "scheduledMammogram": true,
+    "doneSelfCheckThisMonth": false,
+    "scheduledMammogram": false,
     "data": [
       {
         "date": "09/24/2020",
@@ -33,79 +35,93 @@
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
-        "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
-      },
+        "fruitsAndVeggies": 1,
+        "selfCheck": 0,
+        "mammogram": 0
+      }
+    ],
+    "weeklyData": [
       {
         "date": "09/23/2020",
         "exercise": 0,
+        "exercises": [],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/22/2020",
-        "exercise": 0,
+        "exercise": 10,
+        "exercises": [
+          {
+            "activity": "Walk",
+            "duation": 10
+          }
+        ],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/21/2020",
         "exercise": 0,
+        "exercises": [],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/20/2020",
         "exercise": 0,
+        "exercises": [],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/19/2020",
         "exercise": 0,
+        "exercises": [],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/18/2020",
         "exercise": 0,
+        "exercises": [],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/17/2020",
         "exercise": 0,
-        "mindfulness": 0,
+        "exercises": [],
+        "mindfulness": 1,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       }
     ]
   },
@@ -118,11 +134,13 @@
     "ethnicity": "hispanic",
     "points": 354,
     "goals": {
-      "exercise": 200,
-      "mindfulness": 120,
+      "exercise": 400,
+      "mindfulness": 7,
       "sleep": 8,
       "fruitsAndVeggies": 5,
-      "water": 100
+      "water": 100,
+      "selfCheck": 1,
+      "mammogram": 1
     },
     "friendsWith": [
       {
@@ -135,95 +153,149 @@
       }
     ],
     "doneSelfCheckThisMonth": true,
-    "scheduledMammogram": true,
+    "scheduledMammogram": "2020, 10, 27",
     "data": [
       {
         "date": "09/24/2020",
-        "exerciseDetails": [
-          {
-            "activity": "hike",
-            "length": 60
-          },
-          {
-            "activity": "run",
-            "length": 10
-          }
-        ],
-        "exercise": 70,
-        "mindfulness": 23,
+        "exercise": 10,
+        "mindfulness": 1,
         "sleep": 7,
-        "water": 4,
+        "water": 84,
         "fruitsAndVeggies": 3,
         "selfCheck": true,
         "mammogram": false
-      },
+      }
+    ],
+    "weeklyData" : [
       {
         "date": "09/23/2020",
-        "exercise": 0,
-        "mindfulness": 0,
-        "sleep": 0,
-        "water": 0,
-        "fruitsAndVeggies": 3,
-        "selfCheck": true,
+        "exercise": 10,
+        "exercises": [
+          {
+            "activity": "Yoga",
+            "duation": 10
+          }
+        ],
+        "mindfulness": 1,
+        "sleep": 9,
+        "water": 100,
+        "fruitsAndVeggies": 5,
+        "selfCheck": false,
         "mammogram": false
       },
       {
         "date": "09/22/2020",
-        "exercise": 0,
+        "exercise": 30,
+        "exercises": [
+          {
+            "activity": "Hike",
+            "duation": 10
+          },
+          {
+            "activity": "HIIT",
+            "duation": 20
+          }
+        ],
         "mindfulness": 0,
-        "sleep": 0,
-        "water": 0,
-        "fruitsAndVeggies": 3,
-        "selfCheck": true,
+        "sleep": 7,
+        "water": 92,
+        "fruitsAndVeggies": 6,
+        "selfCheck": false,
         "mammogram": false
       },
       {
         "date": "09/21/2020",
-        "exercise": 0,
+        "exercise": 50,
+        "exercises": [
+          {
+            "activity": "Weights",
+            "duation": 30
+          },
+          {
+            "activity": "Walk",
+            "duation": 20
+          }
+        ],
         "mindfulness": 0,
-        "sleep": 0,
-        "water": 0,
-        "fruitsAndVeggies": 3,
-        "selfCheck": true,
+        "sleep": 9,
+        "water": 120,
+        "fruitsAndVeggies": 4,
+        "selfCheck": false,
         "mammogram": false
       },
       {
         "date": "09/20/2020",
-        "exercise": 0,
-        "mindfulness": 0,
-        "sleep": 0,
-        "water": 0,
+        "exercise": 100,
+        "exercises": [
+          {
+            "activity": "Run",
+            "duation": 30
+          },
+          {
+            "activity": "Walk",
+            "duation": 20
+          },
+          {
+            "activity": "HIIT",
+            "duation": 50
+          }
+        ],
+        "mindfulness": 1,
+        "sleep": 8,
+        "water": 70,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
+        "selfCheck": false,
         "mammogram": false
       },
       {
         "date": "09/19/2020",
-        "exercise": 0,
-        "mindfulness": 0,
-        "sleep": 0,
-        "water": 0,
-        "fruitsAndVeggies": 3,
-        "selfCheck": true,
+        "exercise": 120,
+        "exercises": [
+          {
+            "activity": "Hike",
+            "duation": 120
+          }
+        ],
+        "mindfulness": 1,
+        "sleep": 6,
+        "water": 110,
+        "fruitsAndVeggies": 4,
+        "selfCheck": false,
         "mammogram": false
       },
       {
         "date": "09/18/2020",
-        "exercise": 0,
-        "mindfulness": 0,
-        "sleep": 0,
-        "water": 0,
-        "fruitsAndVeggies": 3,
-        "selfCheck": true,
+        "exercise": 30,
+        "exercises": [
+          {
+            "activity": "Yoga",
+            "duation": 30
+          }
+        ],
+        "mindfulness": 1,
+        "sleep": 8,
+        "water": 102,
+        "fruitsAndVeggies": 5,
+        "selfCheck": false,
         "mammogram": false
       },
       {
         "date": "09/17/2020",
-        "exercise": 0,
-        "mindfulness": 0,
-        "sleep": 0,
-        "water": 0,
-        "fruitsAndVeggies": 3,
+        "exercise": 45,
+        "exercises": [
+          {
+            "activity": "Run",
+            "duation": 30
+          },
+          {
+            "activity": "Walk",
+            "duation": 15
+          }
+        ],
+        "mindfulness": 1,
+        "sleep": 8,
+        "water": 85,
+        "fruitsAndVeggies": 5,
         "selfCheck": true,
         "mammogram": false
       }
@@ -238,11 +310,13 @@
     "ethnicity": "white",
     "points": 29,
     "goals": {
-      "exercise": "",
-      "mindfulness": "",
-      "sleep": "",
-      "fruitsAndVeggies": 1,
-      "water": 50
+      "exercise": 120,
+      "mindfulness": 5,
+      "sleep": 7,
+      "fruitsAndVeggies": 5,
+      "water": 50,
+      "selfCheck": 1,
+      "mammogram": 1
     },
     "friendsWith": [
       {
@@ -255,7 +329,7 @@
       }
     ],
     "doneSelfCheckThisMonth": true,
-    "scheduledMammogram": true,
+    "scheduledMammogram": false,
     "data": [
       {
         "date": "09/24/2020",
@@ -263,79 +337,103 @@
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
-        "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
-      },
+        "fruitsAndVeggies": 1,
+        "selfCheck": 0,
+        "mammogram": 0
+      }
+    ],
+    "weeklyData": [
       {
         "date": "09/23/2020",
         "exercise": 0,
+        "exercises": [],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/22/2020",
-        "exercise": 0,
+        "exercise": 10,
+        "exercises": [
+          {
+            "activity": "Walk",
+            "duation": 10
+          }
+        ],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/21/2020",
         "exercise": 0,
+        "exercises": [],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/20/2020",
-        "exercise": 0,
+        "exercise": 20,
+        "exercises": [
+          {
+            "activity": "HIIT",
+            "duation": 20
+          }
+        ],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/19/2020",
         "exercise": 0,
+        "exercises": [],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/18/2020",
         "exercise": 0,
+        "exercises": [],
         "mindfulness": 0,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
         "date": "09/17/2020",
-        "exercise": 0,
-        "mindfulness": 0,
+        "exercise": 20,
+        "exercises": [
+          {
+            "activity": "Yoga",
+            "duation": 20
+          }
+        ],
+        "mindfulness": 1,
         "sleep": 0,
         "water": 0,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       }
     ]
   }

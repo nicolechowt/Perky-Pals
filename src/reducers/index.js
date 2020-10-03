@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
 import {
+  ADD_EXERCISE_DETAILS,
   ADD_EXERCISE_MINUTES,
   ADD_FRUITS_AND_VEGGIES,
-  ADD_MINDFULNESS_MINUTES,
+  ADD_MINDFULNESS_TIMES,
   ADD_MODAL,
   ADD_SLEEP_HOURS, 
   ADD_WATER_OZ,
@@ -32,6 +33,7 @@ function currentUserReducer(state={}, action) {
   }
 }
 
+// basically all the info for "today"
 function dashboardReducer(state={}, action) {
   switch (action.type) {
     case SAVE_TO_DASHBOARD:
@@ -40,6 +42,10 @@ function dashboardReducer(state={}, action) {
         ...action.data.todaysData,
         goals: action.data.goals,
         points: action.data.points,
+        exercises: [],
+        pointsClaimed: [],
+        doneSelfCheckThisMonth: action.data.doneSelfCheckThisMonth,
+        scheduledMammogram: action.data.scheduledMammogram,
       }
 
     case ADD_EXERCISE_MINUTES:
@@ -48,10 +54,45 @@ function dashboardReducer(state={}, action) {
         exercise: state.exercise + action.data,
       }
 
-    case ADD_MINDFULNESS_MINUTES:
+    case "ADD_POINTS":
+      return {
+        ...state,
+        points: state.points + action.data,
+      }
+    
+    case "ADD_POINTS_DETAILS":
+      return {
+        ...state,
+        pointsClaimed: [...state.pointsClaimed, action.data],
+      }    
+
+    case ADD_EXERCISE_DETAILS:
+      return {
+        ...state,
+        exercises: [...state.exercises, {
+          activity: action.data.activity,
+          duration: action.data.duration,
+        }]
+      }  
+
+    case ADD_MINDFULNESS_TIMES:
       return {
         ...state,
         mindfulness: state.mindfulness + action.data,
+      }
+
+    case "ADD_SELF_CHECK_TIMES":
+      return {
+        ...state,
+        selfCheck: state.selfCheck + action.data,
+        doneSelfCheckThisMonth: true,
+      }
+
+    case "ADD_MAMMOGRAM":
+      return {
+        ...state,
+        mammogram: state.mammogram + action.data.mammogram,
+        scheduledMammogram: action.data.date,
       }
 
     case ADD_SLEEP_HOURS:

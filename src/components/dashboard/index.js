@@ -37,14 +37,37 @@ function Dashboard(props) {
 
   const points = currentUser[0] && currentUser[0].points;
   
+  const doneSelfCheckThisMonthInitial = currentUser[0] && currentUser[0].doneSelfCheckThisMonth;
+
+  const scheduledMammogramInitial = currentUser[0] && currentUser[0].scheduledMammogram;
+
   const todaysData = data && data[0];
 
   const dashboardData = {
     todaysData,
     goals,
     points,
+    doneSelfCheckThisMonth: doneSelfCheckThisMonthInitial,
+    scheduledMammogram: scheduledMammogramInitial,
   }
 
+  const weeklyData = currentUser[0] && currentUser[0].weeklyData;
+
+  let mindfullnessWeek = 0;
+  let exerciseWeek = 0;
+
+  if(weeklyData){
+    weeklyData.forEach(day => {
+      if(day.mindfulness) {
+        mindfullnessWeek++;
+      }
+
+      if(day.exercise) {
+        exerciseWeek+= day.exercise;
+      }
+    })
+  }
+  
   const id = currentUser[0] && currentUser[0].id;
 
   const exercise = dashboard && dashboard.exercise;
@@ -62,14 +85,20 @@ function Dashboard(props) {
   const fruitsAndVeggies = dashboard && dashboard.fruitsAndVeggies;
   const fruitsAndVeggiesGoal = dashboard.goals && dashboard.goals.fruitsAndVeggies;
 
+  const selfCheck = dashboard && dashboard.doneSelfCheckThisMonth;
+  const mammogram = dashboard && dashboard.scheduledMammogram;
+
   const content = modal && modal.content;
+
+
+  const nextMonth = (new Date().getMonth()+1)%12 + 1;
 
   useEffect(()=>{ 
     // based on the query param, load that user's hardcoded data from store
     if(Object.entries(currentUser).length === 0) {
       saveCurrentUser(user)
     };
-  }, []);
+  }, [currentUser, saveCurrentUser, user]);
 
   useEffect(()=> {
     // when the id changes, that's when we know which user's data to display
@@ -77,7 +106,8 @@ function Dashboard(props) {
     if(id && Object.entries(dashboard).length === 0) {
       saveToDashboard(dashboardData);
     }
-  }, [id]);
+  }, [dashboard, dashboardData, id, saveToDashboard]);
+
 
   const svgWidth = 150;
   const arcWidth = 12;
@@ -95,13 +125,14 @@ function Dashboard(props) {
               removeModal();
             }}>
               {content.title}
+              {content.body}
             </Overlay>
           )
         }
       })()}
 
       <div>
-        Activity overview
+        YOUR DAY SO FAR
       </div>
 
       <ProgressRing
@@ -121,22 +152,20 @@ function Dashboard(props) {
         display="number"
         goal={exerciseGoal}
         header="EXERCISE"
-        length={exercise}
+        length={exerciseWeek+exercise || 0}
         unit="minutes"
         frequency="weekly"
       />
 
       <ActivityBox 
-        display="number"
         goal={mindfulnesseGoal}
         header="MINDFULNESS"
-        length={mindfulness}
-        unit="minutes"
+        length={mindfullnessWeek+mindfulness || 0}
+        unit="times"
         frequency="weekly"
       />
 
       <ActivityBox 
-        display="bar"
         header="SLEEP"
         goal={sleepGoal}
         length={sleep}
@@ -160,17 +189,48 @@ function Dashboard(props) {
         frequency="daily"
       />
 
-      <div>
-        juliannas progress
-      </div>
-
       <ActivityBox 
-        header="SELF CHECK"
-      />
+        header="SELF-CHECK"
+        hideAdd={selfCheck}
+      >
+        {selfCheck ? 
+          (
+            <div>Yay, it is so important that you perform this monthly bleh bleh bleh bleh <p>next check: {nextMonth}/1</p></div>
+          ): 
+          (
+            <div>Time to check your boobs! We’ll walk you through the process</div>
+          )
+        }
+      </ActivityBox>
 
       <ActivityBox 
         header="MAMMOGRAM"
-      />
+        hideAdd={mammogram}
+      >
+        {(()=> {
+          let mammogramDateObj;
+
+          if(mammogram) {
+            if(typeof mammogram==='string'){
+              mammogramDateObj = new Date(mammogram);
+
+              return (
+                <div>yay scheduled for {
+                  mammogramDateObj.getMonth()+1}/{mammogramDateObj.getDate()
+                } </div>
+              )
+            }
+
+            return (
+              <div>yay scheduled for {
+                mammogram.getMonth()+1}/{mammogram.getDate()
+              } </div>
+            )
+          }
+
+          return (<div>Don’t forget about your annual mammogram</div>)
+        })()}
+      </ActivityBox>
     </div>
   );
 }

@@ -13,10 +13,14 @@ import Home from './components/home';
 import Notifications from './components/notifications';
 
 import AddExercise from './pages/add-exercise/';
+import AddFruitsAndVeggies from './pages/add-fruits-and-veggies';
+import AddMammogram from './pages/add-mammogram';
 import AddMindfulness from './pages/add-mindfulness';
+import AddSelfCheck from './pages/add-self-check';
 import AddSleep from './pages/add-sleep';
 import AddWater from './pages/add-water';
-import AddFruitsAndVeggies from './pages/add-fruits-and-veggies';
+import Exercise from './pages/exercise';
+import Mindfulness from './pages/mindfulness';
 
 const store = configureStore();
 
@@ -38,6 +42,11 @@ const renderApp = () =>
           <Route path="/add-sleep" component={AddSleep} />
           <Route path="/add-water" component={AddWater} />
           <Route path="/add-fruits-and-veggies" component={AddFruitsAndVeggies} />
+          <Route path="/add-self-check" component={AddSelfCheck} />
+          <Route path="/add-mammogram" component={AddMammogram} />
+
+          <Route path="/exercise" component={Exercise} />
+          <Route path="/mindfulness" component={Mindfulness} />
           <App />
         </Switch>
       </BrowserRouter>

@@ -2,7 +2,7 @@ import React from 'react';
 import ActivityForm from '../../components/activity-form';
 import { connect } from 'react-redux';
 
-function AddMindfulness(props) {
+function AddSelfCheck(props) {
   const { goBack } = props.history;
 
   return (
@@ -10,11 +10,11 @@ function AddMindfulness(props) {
       <button onClick={() => goBack()}>GO BACK</button>
       <ActivityForm 
         onClose={()=> goBack()}
-        type="MINDFULNESS"
+        type="SELF_CHECK"
       />
     </div>
   );
 }
 
 
-export default connect()(AddMindfulness);
+export default connect()(AddSelfCheck);
