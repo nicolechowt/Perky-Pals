@@ -10,6 +10,7 @@ import {
   SAVE_TO_DASHBOARD, 
 } from '../../reducers/actions'
 import ProgressRing from '../progress-ring';
+import Friend from '../friend';
 
 function Dashboard(props) {
   const { 
@@ -36,6 +37,8 @@ function Dashboard(props) {
   const data =  currentUser[0] && currentUser[0].data;
 
   const points = currentUser[0] && currentUser[0].points;
+
+  const currentUserName = currentUser[0] && currentUser[0].name;
   
   const doneSelfCheckThisMonthInitial = currentUser[0] && currentUser[0].doneSelfCheckThisMonth;
 
@@ -240,6 +243,17 @@ function Dashboard(props) {
           return (<div>Don’t forget about your annual mammogram</div>)
         })()}
       </ActivityBox>
+
+      <Friend 
+        name={currentUserName==='JULIANNA'? 'BELLA': 'JULIANNA'}
+        exercise
+        mindfulness
+        sleep={false}
+        water
+        fruitsAndVeggies
+        selfCheck
+        mammogram
+      />
     </div>
   );
 }

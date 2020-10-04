@@ -19,8 +19,12 @@ import AddMindfulness from './pages/add-mindfulness';
 import AddSelfCheck from './pages/add-self-check';
 import AddSleep from './pages/add-sleep';
 import AddWater from './pages/add-water';
+
 import Exercise from './pages/exercise';
+import FruitsAndVeggies from './pages/fruits-and-veggies';
 import Mindfulness from './pages/mindfulness';
+import Sleep from './pages/sleep';
+import Water from './pages/water';
 
 const store = configureStore();
 
@@ -46,7 +50,10 @@ const renderApp = () =>
           <Route path="/add-mammogram" component={AddMammogram} />
 
           <Route path="/exercise" component={Exercise} />
+          <Route path="/fruits-and-veggies" component={FruitsAndVeggies} />
           <Route path="/mindfulness" component={Mindfulness} />
+          <Route path="/sleep" component={Sleep} />
+          <Route path="/water" component={Water} />
           <App />
         </Switch>
       </BrowserRouter>

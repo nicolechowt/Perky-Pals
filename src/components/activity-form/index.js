@@ -99,7 +99,7 @@ function ActivityForm(props) {
   const scheduledMammogram = dashboard && dashboard.scheduledMammogram;
 
   const [redirect, setRedirect] = useState(false);
-  const [activityType, setActivityType] = useState('hike');
+  const [activityType, setActivityType] = useState('Hike');
   const [activityMin, setActivityMin] = useState(1);
   const [sleepHour, setSleepHour] = useState(1);
   const [waterOz, setWaterOz] = useState(4);
@@ -280,11 +280,11 @@ function ActivityForm(props) {
                 <div className="activity-form__input-field">
                   <label htmlFor="activity">WHAT DID YOU DO?</label>
                   <select name="activity" id="activity" value={activityType.value} onChange={(event)=>setActivityType(event.target.value)}>
-                    <option value="hike">Hike</option>
-                    <option value="run">Run</option>
-                    <option value="yoga">Yoga</option>
-                    <option value="weights">Weights</option>
-                    <option value="hiit">HIIT</option>
+                    <option value="Hike">Hike</option>
+                    <option value="Run">Run</option>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Weights">Weights</option>
+                    <option value="HIIT<">HIIT</option>
                   </select>
                 </div>
 

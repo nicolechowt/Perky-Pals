@@ -1,0 +1,13 @@
+.friend
+{
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 4px;
+}
+
+.friend__checks
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

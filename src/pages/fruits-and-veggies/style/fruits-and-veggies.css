@@ -1,0 +1,6 @@
+
+.exercise__activity-item
+{
+  text-transform: capitalize;
+  display: inline-block;
+}
