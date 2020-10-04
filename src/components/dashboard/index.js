@@ -136,7 +136,7 @@ function Dashboard(props) {
       })()}
 
       <div>
-        YOUR DAY SO FAR
+        YOUR PROGRESS
       </div>
 
       <ProgressRing

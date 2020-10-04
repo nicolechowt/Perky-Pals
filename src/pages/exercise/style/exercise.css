@@ -9,3 +9,9 @@
   right: 8px;
   bottom: 8px;
 }
+
+.exercise__activity-item
+{
+  text-transform: capitalize;
+  display: inline-block;
+}

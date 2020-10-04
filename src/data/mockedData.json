@@ -42,6 +42,17 @@
     ],
     "weeklyData": [
       {
+        "date": "09/24/2020",
+        "exercise": 0,
+        "exercises": [],
+        "mindfulness": 0,
+        "sleep": 0,
+        "water": 0,
+        "fruitsAndVeggies": 1,
+        "selfCheck": 0,
+        "mammogram": 0
+      },
+      {
         "date": "09/23/2020",
         "exercise": 0,
         "exercises": [],
@@ -58,7 +69,7 @@
         "exercises": [
           {
             "activity": "Walk",
-            "duation": 10
+            "duration": 10
           }
         ],
         "mindfulness": 0,
@@ -157,7 +168,7 @@
     "data": [
       {
         "date": "09/24/2020",
-        "exercise": 10,
+        "exercise": 0,
         "mindfulness": 1,
         "sleep": 7,
         "water": 84,
@@ -168,12 +179,23 @@
     ],
     "weeklyData" : [
       {
+        "date": "09/24/2020",
+        "exercise": 0,
+        "exercises": [],
+        "mindfulness": 1,
+        "sleep": 7,
+        "water": 84,
+        "fruitsAndVeggies": 3,
+        "selfCheck": true,
+        "mammogram": false
+      },      
+      {
         "date": "09/23/2020",
         "exercise": 10,
         "exercises": [
           {
             "activity": "Yoga",
-            "duation": 10
+            "duration": 10
           }
         ],
         "mindfulness": 1,
@@ -189,11 +211,11 @@
         "exercises": [
           {
             "activity": "Hike",
-            "duation": 10
+            "duration": 10
           },
           {
             "activity": "HIIT",
-            "duation": 20
+            "duration": 20
           }
         ],
         "mindfulness": 0,
@@ -209,11 +231,11 @@
         "exercises": [
           {
             "activity": "Weights",
-            "duation": 30
+            "duration": 30
           },
           {
             "activity": "Walk",
-            "duation": 20
+            "duration": 20
           }
         ],
         "mindfulness": 0,
@@ -229,15 +251,15 @@
         "exercises": [
           {
             "activity": "Run",
-            "duation": 30
+            "duration": 30
           },
           {
             "activity": "Walk",
-            "duation": 20
+            "duration": 20
           },
           {
             "activity": "HIIT",
-            "duation": 50
+            "duration": 50
           }
         ],
         "mindfulness": 1,
@@ -253,7 +275,7 @@
         "exercises": [
           {
             "activity": "Hike",
-            "duation": 120
+            "duration": 120
           }
         ],
         "mindfulness": 1,
@@ -269,7 +291,7 @@
         "exercises": [
           {
             "activity": "Yoga",
-            "duation": 30
+            "duration": 30
           }
         ],
         "mindfulness": 1,
@@ -285,11 +307,11 @@
         "exercises": [
           {
             "activity": "Run",
-            "duation": 30
+            "duration": 30
           },
           {
             "activity": "Walk",
-            "duation": 15
+            "duration": 15
           }
         ],
         "mindfulness": 1,
@@ -344,6 +366,17 @@
     ],
     "weeklyData": [
       {
+        "date": "09/24/2020",
+        "exercise": 0,
+        "exercises": [],
+        "mindfulness": 0,
+        "sleep": 0,
+        "water": 0,
+        "fruitsAndVeggies": 1,
+        "selfCheck": 0,
+        "mammogram": 0
+      },
+      {
         "date": "09/23/2020",
         "exercise": 0,
         "exercises": [],
@@ -360,7 +393,7 @@
         "exercises": [
           {
             "activity": "Walk",
-            "duation": 10
+            "duration": 10
           }
         ],
         "mindfulness": 0,
@@ -387,7 +420,7 @@
         "exercises": [
           {
             "activity": "HIIT",
-            "duation": 20
+            "duration": 20
           }
         ],
         "mindfulness": 0,
@@ -425,7 +458,7 @@
         "exercises": [
           {
             "activity": "Yoga",
-            "duation": 20
+            "duration": 20
           }
         ],
         "mindfulness": 1,
