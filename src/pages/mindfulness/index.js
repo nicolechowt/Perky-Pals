@@ -11,12 +11,60 @@ function Mindfulness(props) {
   const { currentUser } = props;
   const weeklyData = currentUser ? currentUser[0] && currentUser[0].weeklyData : [];
 
+
+  const month = new Date().getMonth()+1;
+  const today = new Date().getDate();
+
+  const daysInMonth = (monthNum) => {
+    if(
+      monthNum===1 ||
+      monthNum===3 ||
+      monthNum===5 ||
+      monthNum===7 ||
+      monthNum===8 ||
+      monthNum===10 ||
+      monthNum===12
+    ) {
+      return 31;
+    }
+
+    if(monthNum===2) return 28;
+    return 30;
+  }
+
+  const calculatDate = (todaysDay, numsToGoBack) => {
+    let newMonth;
+    let newDay;
+
+    // if today's at start of the month
+    // count backwards from last months date
+    if(todaysDay-numsToGoBack<1) {
+      const newNumsToGoBack = todaysDay-numsToGoBack;
+      newDay = daysInMonth(month-1)+newNumsToGoBack;
+      newMonth = month -1;
+
+      return `2020, ${newMonth}, ${newDay}`
+    }
+
+    return `2020, ${month}, ${todaysDay - numsToGoBack}`
+  }
+
+  const dayToDateMap = {
+    yesterday: calculatDate(today, 1),
+    twoDaysAgo: calculatDate(today, 2),
+    threeDaysAgo: calculatDate(today, 3),
+    fourDaysAgo: calculatDate(today, 4),
+    fiveDaysAgo: calculatDate(today, 5),
+    sixDaysAgo: calculatDate(today, 6),
+    sevenDaysAgo: calculatDate(today, 7),
+  }
+
   const mindfulWeekArr = [];
   if(weeklyData){
     weeklyData.forEach((day) => {
       if(day.mindfulness) {
-        const dayObj = new Date(day.date)
-        mindfulWeekArr.push(dayObj.toString());
+        const processedDate = new Date(dayToDateMap[day.date]);
+        mindfulWeekArr.push(processedDate.toString());
       }
     })
   }

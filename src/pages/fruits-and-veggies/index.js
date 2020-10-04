@@ -1,37 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import * as d3 from "d3";
 
 import './style/fruits-and-veggies.css';
-import ActivityRing from '../../components/activity-ring';
 import BarGraph from '../../components/bar-graph';
 
-function ActivityItem(props) {
-  const { activity, duration, day} = props;
-
-  console.log('day', day);
-
-  return (
-    <div>
-      {day !=="TODAY" ? <span>{day} </span> : <span>TODAY</span>}
-      {activity && <div className="exercise__activity-item"> {activity} </div>}
-      {duration && <span>{duration}</span>}
-    </div>
-
-  )
-}
-
-const obj = {};
-
 function FruitsAndVeggies(props) {
-  let totalExerciseMinutes = 0;
 
   const { goBack } = props.history;
   const { currentUser, dashboard } = props;
 
-  const exerciseGoal = dashboard.goals && dashboard.goals.exercise;
-
-  const todaysExercises = dashboard.exercises || [];
+  const todaysFruitsAndVeggies = dashboard.fruitsAndVeggies || [];
   const weeklyData = currentUser ? currentUser[0] && currentUser[0].weeklyData : [];
 
   const fruitsAndVeggiesArr = [];
@@ -42,7 +20,9 @@ function FruitsAndVeggies(props) {
     }
   });
 
-  console.log('fruitsAndVeggies', fruitsAndVeggiesArr)
+  if(todaysFruitsAndVeggies>0) {
+    fruitsAndVeggiesArr.unshift(todaysFruitsAndVeggies);
+  }
 
   return (
     <div className="exercise">
