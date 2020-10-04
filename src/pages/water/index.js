@@ -31,7 +31,7 @@ function Water(props) {
 
   const exerciseGoal = dashboard.goals && dashboard.goals.exercise;
 
-  const todaysExercises = dashboard.exercises || [];
+  const todaysWater = dashboard.water || 0;
   const weeklyData = currentUser ? currentUser[0] && currentUser[0].weeklyData : [];
 
   const waterArr = [];
@@ -41,6 +41,10 @@ function Water(props) {
       waterArr.push(day.water);
     }
   });
+
+  if(todaysWater>0) {
+    waterArr.unshift(todaysWater);
+  }
 
   console.log('water', waterArr)
 
