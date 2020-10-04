@@ -7,18 +7,10 @@ import {
   REMOVE_MODAL,
 } from '../../reducers/actions'
 import { connect } from 'react-redux';
-import { exportDefaultSpecifier } from "@babel/types";
+import OverlayDetail from "./components/overlay-detail";
 
-function Library(props) {
-  const { 
-    // dispatch props
-    addModal,
-    removeModal,
 
-    // props
-    modal, 
-  } = props;
-
+function Library() {
   const [viewState, setViewState] = useState('');
 
   return (
@@ -70,38 +62,52 @@ function Library(props) {
       </div>
 
       {viewState==='EXERCISE' &&         
-        <Overlay>
-          EXERCISE STUFF
+        <Overlay onClose={()=>setViewState('')}>
+          <OverlayDetail
+            intro={<div>EXERCISE intro</div>}
+            tips={<div>EXERCISE tips</div>}
+            resources={<div>EXERCISE resources</div>}
+          />
         </Overlay>
       }
 
       {viewState==='MINDFULNESS' &&         
-        <Overlay>
-          MINDFULNESS STUFF
+        <Overlay onClose={()=>setViewState('')}>
+          <OverlayDetail
+            intro={<div>MINDFULNESS intro</div>}
+            tips={<div>MINDFULNESS tips</div>}
+            resources={<div>MINDFULNESS resources</div>}
+          />
         </Overlay>
       }
       
-      {viewState==='BREAST_HEALTH' &&         
-        <Overlay>
-          BREAST_HEALTH STUFF
-        </Overlay>
+      {viewState==='BREAST_HEALTH' &&       
+        <Overlay onClose={()=>setViewState('')}>
+          <OverlayDetail
+            intro={<div>BREAST_HEALTH intro</div>}
+            tips={<div>BREAST_HEALTH tips</div>}
+            resources={<div>BREAST_HEALTH resources</div>}
+          />
+        </Overlay>  
       }
 
       {viewState==='HEALTHY_EATING' &&         
-        <Overlay>
-          HEALTHY_EATINGSTUFF
+        <Overlay onClose={()=>setViewState('')}>
+          <OverlayDetail
+            intro={<div>HEALTHY_EATINGintro</div>}
+            tips={<div>HEALTHY_EATING tips</div>}
+            resources={<div>HEALTHY_EATING resources</div>}
+          />
         </Overlay>
       }
             
       {viewState==='SLEEP' &&         
-        <Overlay>
-          SLEEP STUFF
-        </Overlay>
-      }
-
-      {viewState==='EXERCISE' &&         
-        <Overlay>
-          EXERCISE STUFF
+        <Overlay onClose={()=>setViewState('')}>
+          <OverlayDetail
+            intro={<div>SLEEP intro</div>}
+            tips={<div>SLEEP tips</div>}
+            resources={<div>SLEEP resources</div>}
+          />
         </Overlay>
       }
     </div>

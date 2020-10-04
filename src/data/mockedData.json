@@ -169,7 +169,7 @@
       {
         "date": "09/24/2020",
         "exercise": 0,
-        "mindfulness": 1,
+        "mindfulness": 0,
         "sleep": 7,
         "water": 84,
         "fruitsAndVeggies": 3,
@@ -182,7 +182,7 @@
         "date": "09/24/2020",
         "exercise": 0,
         "exercises": [],
-        "mindfulness": 1,
+        "mindfulness": 0,
         "sleep": 7,
         "water": 84,
         "fruitsAndVeggies": 3,
