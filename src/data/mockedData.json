@@ -42,10 +42,21 @@
     ],
     "weeklyData": [
       {
-        "date": "09/24/2020",
+        "date": "yesterday",
         "exercise": 0,
         "exercises": [],
         "mindfulness": 0,
+        "sleep": 6,
+        "water": 44,
+        "fruitsAndVeggies": 2,
+        "selfCheck": 0,
+        "mammogram": 0
+      },      
+      {
+        "date": "twoDaysAgo",
+        "exercise": 0,
+        "exercises": [],
+        "mindfulness": 1,
         "sleep": 5,
         "water": 55,
         "fruitsAndVeggies": 1,
@@ -53,7 +64,7 @@
         "mammogram": 0
       },
       {
-        "date": "09/23/2020",
+        "date": "threeDaysAgo",
         "exercise": 0,
         "exercises": [],
         "mindfulness": 0,
@@ -64,7 +75,7 @@
         "mammogram": 0
       },
       {
-        "date": "09/22/2020",
+        "date": "fourDaysAgo",
         "exercise": 10,
         "exercises": [
           {
@@ -80,7 +91,7 @@
         "mammogram": 0
       },
       {
-        "date": "09/21/2020",
+        "date": "fiveDaysAgo",
         "exercise": 0,
         "exercises": [],
         "mindfulness": 0,
@@ -91,7 +102,7 @@
         "mammogram": 0
       },
       {
-        "date": "09/20/2020",
+        "date": "sixDaysAgo",
         "exercise": 0,
         "exercises": [],
         "mindfulness": 0,
@@ -102,34 +113,12 @@
         "mammogram": 0
       },
       {
-        "date": "09/19/2020",
+        "date": "sevenDaysAgo",
         "exercise": 0,
         "exercises": [],
         "mindfulness": 0,
         "sleep": 6,
         "water": 69,
-        "fruitsAndVeggies": 3,
-        "selfCheck": 0,
-        "mammogram": 0
-      },
-      {
-        "date": "09/18/2020",
-        "exercise": 0,
-        "exercises": [],
-        "mindfulness": 0,
-        "sleep": 7,
-        "water": 71,
-        "fruitsAndVeggies": 3,
-        "selfCheck": 0,
-        "mammogram": 0
-      },
-      {
-        "date": "09/17/2020",
-        "exercise": 0,
-        "exercises": [],
-        "mindfulness": 1,
-        "sleep": 4,
-        "water": 81,
         "fruitsAndVeggies": 3,
         "selfCheck": 0,
         "mammogram": 0
@@ -173,24 +162,24 @@
         "sleep": 7,
         "water": 84,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       }
     ],
     "weeklyData" : [
       {
-        "date": "09/24/2020",
+        "date": "yesterday",
         "exercise": 0,
         "exercises": [],
         "mindfulness": 0,
         "sleep": 7,
         "water": 84,
         "fruitsAndVeggies": 3,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 1,
+        "mammogram": 0
       },      
       {
-        "date": "09/23/2020",
+        "date": "twoDaysAgo",
         "exercise": 10,
         "exercises": [
           {
@@ -202,11 +191,11 @@
         "sleep": 9,
         "water": 100,
         "fruitsAndVeggies": 5,
-        "selfCheck": false,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
-        "date": "09/22/2020",
+        "date": "threeDaysAgo",
         "exercise": 30,
         "exercises": [
           {
@@ -222,11 +211,11 @@
         "sleep": 7,
         "water": 92,
         "fruitsAndVeggies": 6,
-        "selfCheck": false,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
-        "date": "09/21/2020",
+        "date": "fourDaysAgo",
         "exercise": 50,
         "exercises": [
           {
@@ -242,11 +231,11 @@
         "sleep": 9,
         "water": 120,
         "fruitsAndVeggies": 4,
-        "selfCheck": false,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
-        "date": "09/20/2020",
+        "date": "fiveDaysAgo",
         "exercise": 100,
         "exercises": [
           {
@@ -266,11 +255,11 @@
         "sleep": 8,
         "water": 70,
         "fruitsAndVeggies": 3,
-        "selfCheck": false,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
-        "date": "09/19/2020",
+        "date": "sixDaysAgo",
         "exercise": 120,
         "exercises": [
           {
@@ -282,11 +271,11 @@
         "sleep": 6,
         "water": 110,
         "fruitsAndVeggies": 4,
-        "selfCheck": false,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       },
       {
-        "date": "09/18/2020",
+        "date": "sevenDaysAgo",
         "exercise": 30,
         "exercises": [
           {
@@ -298,28 +287,8 @@
         "sleep": 8,
         "water": 102,
         "fruitsAndVeggies": 5,
-        "selfCheck": false,
-        "mammogram": false
-      },
-      {
-        "date": "09/17/2020",
-        "exercise": 45,
-        "exercises": [
-          {
-            "activity": "Run",
-            "duration": 30
-          },
-          {
-            "activity": "Walk",
-            "duration": 15
-          }
-        ],
-        "mindfulness": 1,
-        "sleep": 8,
-        "water": 85,
-        "fruitsAndVeggies": 5,
-        "selfCheck": true,
-        "mammogram": false
+        "selfCheck": 0,
+        "mammogram": 0
       }
     ]
   },
@@ -366,7 +335,7 @@
     ],
     "weeklyData": [
       {
-        "date": "09/24/2020",
+        "date": "yesterday",
         "exercise": 0,
         "exercises": [],
         "mindfulness": 0,
@@ -377,7 +346,7 @@
         "mammogram": 0
       },
       {
-        "date": "09/23/2020",
+        "date": "twoDaysAgo",
         "exercise": 0,
         "exercises": [],
         "mindfulness": 0,
@@ -388,7 +357,7 @@
         "mammogram": 0
       },
       {
-        "date": "09/22/2020",
+        "date": "threeDaysAgo",
         "exercise": 10,
         "exercises": [
           {
@@ -404,10 +373,10 @@
         "mammogram": 0
       },
       {
-        "date": "09/21/2020",
+        "date": "fourDaysAgo",
         "exercise": 0,
         "exercises": [],
-        "mindfulness": 0,
+        "mindfulness": 1,
         "sleep": 5,
         "water": 45,
         "fruitsAndVeggies": 3,
@@ -415,7 +384,7 @@
         "mammogram": 0
       },
       {
-        "date": "09/20/2020",
+        "date": "fiveDaysAgo",
         "exercise": 20,
         "exercises": [
           {
@@ -431,7 +400,7 @@
         "mammogram": 0
       },
       {
-        "date": "09/19/2020",
+        "date": "sixDaysAgo",
         "exercise": 0,
         "exercises": [],
         "mindfulness": 0,
@@ -442,28 +411,12 @@
         "mammogram": 0
       },
       {
-        "date": "09/18/2020",
+        "date": "sevenDaysAgo",
         "exercise": 0,
         "exercises": [],
         "mindfulness": 0,
         "sleep": 5,
         "water": 48,
-        "fruitsAndVeggies": 3,
-        "selfCheck": 0,
-        "mammogram": 0
-      },
-      {
-        "date": "09/17/2020",
-        "exercise": 20,
-        "exercises": [
-          {
-            "activity": "Yoga",
-            "duration": 20
-          }
-        ],
-        "mindfulness": 1,
-        "sleep": 6,
-        "water": 63,
         "fruitsAndVeggies": 3,
         "selfCheck": 0,
         "mammogram": 0
