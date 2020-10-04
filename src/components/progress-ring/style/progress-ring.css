@@ -1,11 +1,4 @@
-.activity-box
+.progress-ring
 {
-  position: relative;
-}
-
-.activity-box__plus
-{
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
+  text-align: center;
 }

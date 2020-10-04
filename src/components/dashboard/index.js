@@ -109,10 +109,14 @@ function Dashboard(props) {
   }, [dashboard, dashboardData, id, saveToDashboard]);
 
 
-  const svgWidth = 150;
-  const arcWidth = 12;
-  const [progressPercentage, setProgressPercentage] = useState(50);
-  const colorIndicator = '#56c4d3';
+  const svgWidth = 250;
+  const arcWidth = 14;
+
+  const exerciseProgressPercentage =((exerciseWeek+exercise)/exerciseGoal)*100;
+  const mindfulnessProgressPercentage =((mindfullnessWeek+mindfulness)/mindfulnesseGoal)*100;
+  const sleepProgressPercentage=(sleep/sleepGoal)*100;
+  const waterProgressPercentage=(water/waterGoal)*100;
+  const fruitsAndVeggiesPercentage=(fruitsAndVeggies/fruitsAndVeggiesGoal)*100;
 
   return (
     <div className="dashboard">
@@ -138,8 +142,13 @@ function Dashboard(props) {
       <ProgressRing
         svgWidth={svgWidth}
         arcWidth={arcWidth}
-        progressPercentage={progressPercentage}
-        colorIndicator={colorIndicator}
+        exerciseProgressPercentage={exerciseProgressPercentage}
+        mindfulnessProgressPercentage={mindfulnessProgressPercentage}
+        sleepProgressPercentage={sleepProgressPercentage}
+        waterProgressPercentage={waterProgressPercentage}
+        fruitsAndVeggiesPercentage={fruitsAndVeggiesPercentage}
+        selfCheck={selfCheck}
+        mammogram={mammogram}
       />
 
       <Box>

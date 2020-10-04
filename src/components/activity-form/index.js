@@ -15,6 +15,7 @@ import {
 } from '../../reducers/actions'
 
 import './style/activity-form.css';
+import Overlay from '../overlay';
 
 function ActivityForm(props) {
   const minutes = [];
@@ -104,6 +105,7 @@ function ActivityForm(props) {
   const [waterOz, setWaterOz] = useState(4);
   const [fvServings, setFvServings] = useState(1);
   const [mammogramDate, setMammogramDate] = useState(new Date());
+  const [helpOverlay, setHelpOverlay] = useState(false);
 
   useEffect(() => {
     if (
@@ -362,15 +364,25 @@ function ActivityForm(props) {
                 <p>It’s so important that you get an mammograpm every year! When’s your appointment? We’ll remind you when it’s coming up.</p>
 
                 <Calendar 
-                  onChange={(date)=>{
-                    console.log('date on change', date)
-                    setMammogramDate(date)
-                  }}
+                  onChange={(date)=>setMammogramDate(date)}
                   value={mammogramDate}
                 />
                 
                 <button onClick={onClick}>done</button>
-                <button onClick={onClose}>help</button>
+                <button onClick={()=>setHelpOverlay(true)}>help</button>
+
+                {helpOverlay && (
+                  <Overlay>
+                    <div>
+                      It’s easiest to reach out to your local healthcare provider.
+                    </div>
+                    <div>
+                      Don’t have health insurance? Don’t worry - let us know your zip code and we’ll help you find some options.
+                    </div>
+
+                    <input type="text" name="zipcode" value="zipcode" />
+                  </Overlay>
+                )}
               </div>
             );
         
