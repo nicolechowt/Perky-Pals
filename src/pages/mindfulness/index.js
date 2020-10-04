@@ -43,10 +43,31 @@ function Mindfulness(props) {
       newDay = daysInMonth(month-1)+newNumsToGoBack;
       newMonth = month -1;
 
-      return `2020, ${newMonth}, ${newDay}`
+      // need to pad it with zero if it's a single digit
+      if (newDay<10){
+        newDay = ('0' + newDay).slice(-2)
+      }
+
+      if (newMonth<10){
+        newMonth = ('0' + newMonth).slice(-2)
+      }
+
+      return `2020-${newMonth}-${newDay}`
     }
 
-    return `2020, ${month}, ${todaysDay - numsToGoBack}`
+    // otherwise, process the "normal dates"
+    let normalDay = todaysDay - numsToGoBack;
+    let normalMonth = month;
+
+    if (normalDay<10){
+      normalDay = ('0' + normalDay).slice(-2)
+    }
+
+    if (normalMonth<10){
+      normalMonth = ('0' + normalMonth).slice(-2)
+    }
+
+    return `2020-${normalMonth}-${normalDay}`
   }
 
   const dayToDateMap = {
@@ -64,7 +85,11 @@ function Mindfulness(props) {
     weeklyData.forEach((day) => {
       if(day.mindfulness) {
         const processedDate = new Date(dayToDateMap[day.date]);
-        mindfulWeekArr.push(processedDate.toString());
+
+        // for some reason the timestamp for this date object is different than 
+        // react-calendar's, just grab the substring for now, and ignore time
+        const processedDateString = processedDate.toString().substring(0,15);
+        mindfulWeekArr.push(processedDateString);
       }
     })
   }
@@ -79,7 +104,9 @@ function Mindfulness(props) {
       <Calendar 
         tileContent={({ activeStartDate, date, view }) => {
           const dateString = date.toString();
-          if(view === 'month' && mindfulWeekArr.includes(dateString)){
+          const processedDateString = dateString.substring(0,15)
+
+          if(view === 'month' && mindfulWeekArr.includes(processedDateString)){
             return(
               <i
                 class="fa fa-check-circle"

@@ -49,9 +49,9 @@ const showLocalNotification = (title, body, swRegistration) => {
 }
 
 const main = async () => {
-  check();
-  swRegistration = await registerServiceWorker();
-  const permission =  await requestNotificationPermission();
+  // check();
+  // swRegistration = await registerServiceWorker();
+  // const permission =  await requestNotificationPermission();
   // showLocalNotification('This is title', 'this is the message', swRegistration);
 }
 
