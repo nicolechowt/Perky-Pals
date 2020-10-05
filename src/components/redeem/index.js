@@ -51,9 +51,7 @@ function Redeem(props) {
                 description={content.description}
                 points={content.points}
                 userCurrentPoints={userCurrentPoints}
-                handleCancleClick={()=>{
-                  removeModal();
-                }}
+                handleCancelClick={()=>removeModal()}
                 redeemItem={redeemItem}
               />
             </Overlay>
