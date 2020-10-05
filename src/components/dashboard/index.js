@@ -14,9 +14,10 @@ import Friend from '../friend';
 
 function Dashboard(props) {
   const { 
-    saveToDashboard, 
-    saveCurrentUser,
+    addNotes,
     removeModal,
+    saveCurrentUser,
+    saveToDashboard, 
 
     currentUser = [],
     dashboard, 
@@ -44,16 +45,9 @@ function Dashboard(props) {
 
   const scheduledMammogramInitial = currentUser[0] && currentUser[0].scheduledMammogram;
 
+  const previousSelfCheckNotesInitial = currentUser[0] && currentUser[0].previousSelfCheckNotes;
+
   const todaysData = data && data[0];
-
-  const dashboardData = {
-    todaysData,
-    goals,
-    points,
-    doneSelfCheckThisMonth: doneSelfCheckThisMonthInitial,
-    scheduledMammogram: scheduledMammogramInitial,
-  }
-
   const weeklyData = currentUser[0] && currentUser[0].weeklyData;
 
   let mindfullnessWeek = 0;
@@ -93,7 +87,6 @@ function Dashboard(props) {
 
   const content = modal && modal.content;
 
-
   const nextMonth = (new Date().getMonth()+1)%12 + 1;
 
   useEffect(()=>{ 
@@ -107,10 +100,32 @@ function Dashboard(props) {
     // when the id changes, that's when we know which user's data to display
     // save dashboard relevant data to dashboard reducer
     if(id && Object.entries(dashboard).length === 0) {
-      saveToDashboard(dashboardData);
-    }
-  }, [dashboard, dashboardData, id, saveToDashboard]);
+      const dashboardData = {
+        todaysData,
+        goals,
+        points,
+        doneSelfCheckThisMonth: doneSelfCheckThisMonthInitial,
+        scheduledMammogram: scheduledMammogramInitial,
+        previousSelfCheckNotes: previousSelfCheckNotesInitial,
+      }
 
+      saveToDashboard(dashboardData);
+      previousSelfCheckNotesInitial && previousSelfCheckNotesInitial.map(note=>{
+        addNotes(note);
+      })
+    }
+  }, [ 
+    addNotes,
+    dashboard, 
+    doneSelfCheckThisMonthInitial, 
+    goals,
+    id, 
+    points, 
+    previousSelfCheckNotesInitial, 
+    saveToDashboard, 
+    scheduledMammogramInitial, 
+    todaysData
+  ]);
 
   const svgWidth = 250;
   const arcWidth = 14;
@@ -276,9 +291,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return { 
+    addNotes:(data) => dispatch({ type: "ADD_NOTES", data}),
+    removeModal: () => dispatch({ type: 'REMOVE_MODAL'}),
     saveCurrentUser: (data) => dispatch({ type: SAVE_CURRENT_USER, data}),
     saveToDashboard: (data) => dispatch({ type: SAVE_TO_DASHBOARD, data}),
-    removeModal: () => dispatch({ type: 'REMOVE_MODAL'})
   }
 }
 

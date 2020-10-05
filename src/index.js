@@ -23,6 +23,7 @@ import AddWater from './pages/add-water';
 import Exercise from './pages/exercise';
 import FruitsAndVeggies from './pages/fruits-and-veggies';
 import Mindfulness from './pages/mindfulness';
+import SelfCheck from './pages/self-check'
 import Sleep from './pages/sleep';
 import Water from './pages/water';
 
@@ -52,6 +53,7 @@ const renderApp = () =>
           <Route path="/exercise" component={Exercise} />
           <Route path="/fruits-and-veggies" component={FruitsAndVeggies} />
           <Route path="/mindfulness" component={Mindfulness} />
+          <Route path="/self-check" component={SelfCheck} />
           <Route path="/sleep" component={Sleep} />
           <Route path="/water" component={Water} />
           <App />

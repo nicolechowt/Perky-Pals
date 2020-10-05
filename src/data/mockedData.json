@@ -28,6 +28,7 @@
     ],
     "doneSelfCheckThisMonth": false,
     "scheduledMammogram": false,
+    "previousSelfCheckNotes": [],
     "data": [
       {
         "date": "09/24/2020",
@@ -154,6 +155,28 @@
     ],
     "doneSelfCheckThisMonth": true,
     "scheduledMammogram": "2020-10-27",
+    "previousSelfCheckNotes": [
+      {
+        "date": "2020-05-01",
+        "content": "Felt a lump?"
+      },
+      {
+        "date": "2020-06-15",
+        "content": "Got lump checked out by doc, is benign. Phew."
+      },
+      {
+        "date": "2020-08-01",
+        "content": "All good"
+      },
+      {
+        "date": "2020-09-01",
+        "content": "Nothing unusual"
+      },
+      {
+        "date": "2020-10-01",
+        "content": "Still good! I posted a self-check selfie today and I think I inspired Bella to finally check her girls too! ;)"
+      }
+    ],
     "data": [
       {
         "date": "09/24/2020",
@@ -319,8 +342,18 @@
         "id": 2
       }
     ],
-    "doneSelfCheckThisMonth": true,
+    "doneSelfCheckThisMonth": false,
     "scheduledMammogram": false,
+    "previousSelfCheckNotes": [
+      {
+        "date": "2020-05-27",
+        "content": "Felt sore. Might just be workout"
+      },
+      {
+        "date": "2020-08-27",
+        "content": "That wasn't too bad."
+      }
+    ],
     "data": [
       {
         "date": "09/24/2020",

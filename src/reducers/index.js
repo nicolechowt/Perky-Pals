@@ -46,6 +46,7 @@ function dashboardReducer(state={}, action) {
         pointsClaimed: [],
         doneSelfCheckThisMonth: action.data.doneSelfCheckThisMonth,
         scheduledMammogram: action.data.scheduledMammogram,
+        previousSelfCheckNotes: action.data.previousSelfCheckNotes,
       }
 
     case ADD_EXERCISE_MINUTES:
@@ -143,11 +144,25 @@ function modalReducer(state={}, action) {
   }
 }
 
+function selfCheckNotesReducer(state={notes:[]}, action) {
+  switch (action.type) {
+    case "ADD_NOTES":
+      return {
+        ...state,
+        notes: [action.data,...state.notes],
+      }
+
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers({
   userReducer,
   currentUserReducer,
   dashboardReducer,
   modalReducer,
+  selfCheckNotesReducer
 })
 
 export default rootReducer;

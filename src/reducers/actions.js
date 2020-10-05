@@ -82,3 +82,7 @@ export function removeModal() {
 export function redeemItem(data) {
   return {type: REDEEM_ITEM, data}
 }
+
+export function addNotes(data) {
+  return {type: "ADD_NOTES", data}
+}

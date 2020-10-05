@@ -46,6 +46,7 @@ function ActivityForm(props) {
     addMammogram,
     addMindfulnessTimes, 
     addModal, 
+    addNotes,
     addPoints,
     addPointsDetails,
     addSelfCheckTimes,
@@ -106,6 +107,13 @@ function ActivityForm(props) {
   const [fvServings, setFvServings] = useState(1);
   const [mammogramDate, setMammogramDate] = useState(new Date());
   const [helpOverlay, setHelpOverlay] = useState(false);
+  const [selfCheckNotes, setSelfCheckNotes] = useState('');
+
+  // for notes
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth()+1;
+  const day = today.getDate();
 
   useEffect(() => {
     if (
@@ -245,7 +253,11 @@ function ActivityForm(props) {
         break;
 
       case "SELF_CHECK":
-        addSelfCheckTimes(1)
+        addSelfCheckTimes(1);
+        addNotes({
+          date: `${year}-${month}-${day}`,
+          content: selfCheckNotes,
+        });
         setRedirect(true);
         break;
   
@@ -351,6 +363,8 @@ function ActivityForm(props) {
               <div>
                 <p>Did you have a do a self check today?</p>
 
+                Jot down some notes
+                <input value={selfCheckNotes} onChange={(event)=> setSelfCheckNotes(event.target.value)}></input>
                 <button onClick={onClick}>yes</button>
                 <button onClick={onClose}>no :(</button>
               </div>
@@ -421,6 +435,7 @@ function mapDispatchToProps(dispatch) {
     addPointsDetails: (data) => dispatch({ type:"ADD_POINTS_DETAILS", data}),
     addSelfCheckTimes:(data) => dispatch({ type: "ADD_SELF_CHECK_TIMES", data}),
     addMammogram:(data) => dispatch({ type: "ADD_MAMMOGRAM", data}),
+    addNotes:(data) => dispatch({ type: "ADD_NOTES", data}),
   }
 }
 
