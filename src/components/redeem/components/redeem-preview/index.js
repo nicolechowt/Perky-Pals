@@ -17,7 +17,8 @@ function RedeemPreview(props) {
 
   const categoriesEnums = ["EXERCISE","MINDFULNESS","SLEEP","WATER","FRUITS_AND_VEGGIES","SELF_CHECK", "MAMMOGRAM"];
 
-  const notYetClaimed = pointsClaimed.length===0 ? categoriesEnums : categoriesEnums.filter(category => !pointsClaimed.include(category));
+  const notYetClaimed = pointsClaimed && !pointsClaimed.length ? categoriesEnums : 
+    categoriesEnums.filter(category => !pointsClaimed.includes(category));
 
   // close modal
   return (
