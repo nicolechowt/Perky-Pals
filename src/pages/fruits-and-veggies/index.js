@@ -20,9 +20,7 @@ function FruitsAndVeggies(props) {
     }
   });
 
-  if(todaysFruitsAndVeggies>0) {
-    fruitsAndVeggiesArr.unshift(todaysFruitsAndVeggies);
-  }
+  fruitsAndVeggiesArr.unshift(todaysFruitsAndVeggies);  
 
   return (
     <div className="exercise">
@@ -33,7 +31,6 @@ function FruitsAndVeggies(props) {
         <BarGraph 
           color="#CE4257"
           data={fruitsAndVeggiesArr}
-          divideByTen={true}
         />
         
         <div>

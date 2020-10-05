@@ -21,8 +21,6 @@ function ActivityItem(props) {
   )
 }
 
-const obj = {};
-
 function Water(props) {
   let totalExerciseMinutes = 0;
 
@@ -42,11 +40,7 @@ function Water(props) {
     }
   });
 
-  if(todaysWater>0) {
-    waterArr.unshift(todaysWater);
-  }
-
-  console.log('water', waterArr)
+  waterArr.unshift(todaysWater);
 
   return (
     <div className="exercise">
@@ -57,7 +51,6 @@ function Water(props) {
         <BarGraph 
           color="#F278C3"
           data={waterArr}
-          divideByTen={true}
         />
         
         <div>

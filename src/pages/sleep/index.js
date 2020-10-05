@@ -21,9 +21,7 @@ function Sleep(props) {
     }
   });
 
-  if(todaysSleep>0) {
-    sleepArr.unshift(todaysSleep);
-  }
+  sleepArr.unshift(todaysSleep);
 
   return (
     <div className="exercise">
