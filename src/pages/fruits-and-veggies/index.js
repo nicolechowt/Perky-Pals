@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import './style/fruits-and-veggies.css';
+import { COLORS } from '../../../src/enums/colors'
 import BarGraph from '../../components/bar-graph';
 
 function FruitsAndVeggies(props) {
@@ -29,7 +30,7 @@ function FruitsAndVeggies(props) {
         <h2>YOUR WEEK SO FAR</h2>
 
         <BarGraph 
-          color="#CE4257"
+          color={COLORS.FRUITS_AND_VEGGIES}
           data={fruitsAndVeggiesArr}
         />
         

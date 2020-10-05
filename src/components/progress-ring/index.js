@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import * as d3 from "d3";
+
+import { COLORS } from '../../../src/enums/colors'
 import './style/progress-ring.css';
 
 export default function ProgressRing(props) {
@@ -103,14 +105,6 @@ export default function ProgressRing(props) {
     .startAngle((Math.PI)*1)
     .endAngle(Math.PI*0)
 
-  const exerciseColor = '#f89b54';
-  const mindfulnessColor = '#56c4d3';
-  const sleepColor = '#3777FF';
-  const waterColor = '#F278C3';
-  const fruitsAndVeggiesColor = '#ce4257';
-  const selfCheckColor = '#FF9B54';
-  const mammogramColor = '#56c4d3';
-
   return (
     <div className="progress-ring">
       <svg height={svgHeight} width={svgWidth}>
@@ -121,7 +115,7 @@ export default function ProgressRing(props) {
 
           <path
             d={progressArc(exerciseProgressPercentage / 100)}
-            fill= {exerciseColor}
+            fill= {COLORS.EXERCISE}
           />
 
           {/* mindfulness ring */}
@@ -129,7 +123,7 @@ export default function ProgressRing(props) {
           
           <path 
             d={progressArc2(mindfulnessProgressPercentage / 100)} 
-            fill={mindfulnessColor}
+            fill={COLORS.MINDFULNESS}
           />
 
           {/* sleep ring */}
@@ -137,7 +131,7 @@ export default function ProgressRing(props) {
           
           <path 
             d={progressArc3(sleepProgressPercentage / 100)} 
-            fill={sleepColor}
+            fill={COLORS.SLEEP}
           />
 
           {/* water ring */}
@@ -145,7 +139,7 @@ export default function ProgressRing(props) {
           
           <path 
             d={progressArc4(waterProgressPercentage / 100)} 
-            fill={waterColor}
+            fill={COLORS.WATER}
           />
 
           {/* fruits and veggies */}
@@ -153,7 +147,7 @@ export default function ProgressRing(props) {
           
           <path 
             d={progressArc5(fruitsAndVeggiesPercentage / 100)} 
-            fill={fruitsAndVeggiesColor}
+            fill={COLORS.FRUITS_AND_VEGGIES}
           />
 
           {/* self check*/}
@@ -161,14 +155,14 @@ export default function ProgressRing(props) {
           <path 
             d={arcGenerator6()} 
             opacity={selfCheck? "1" :"0.1"} 
-            fill={selfCheck? selfCheckColor : 'gray' }
+            fill={selfCheck? COLORS.SELF_CHECK : "gray" }
           />
           
           {/* mammogram */}
           <path 
             d={arcGenerator7()} 
             opacity={mammogram ? "1": "0.1"}
-            fill={mammogram? mammogramColor: 'gray'} 
+            fill={mammogram? COLORS.MAMMOGRAM : "gray"} 
           />
         </g>
       </svg>

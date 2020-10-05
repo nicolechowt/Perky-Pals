@@ -4,6 +4,7 @@ import './style/hamburger-menu.css';
 import menu from '../../assets/menu.svg';
 import close from '../../assets/close.svg';
 import Overlay from '../overlay';
+import { COLORS } from '../../../src/enums/colors'
 
 export default function HamburgerMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,7 +27,15 @@ export default function HamburgerMenu() {
         (
           <div>
             <button onClick={()=> setIsMenuOpen(true)}>
-              <img src={menu}/>
+              <i 
+                aria-hidden="true"
+                class="fa fa-bars" 
+                style={{
+                  fontSize:'18px',
+                  color: COLORS.NAVY_BLUE, 
+                  padding: '4px'
+                }}
+              />
             </button>
           </div>
         )

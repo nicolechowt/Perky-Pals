@@ -86,18 +86,20 @@ function App(props) {
   }, []);
 
   return (
-    <div className="app">
-      <Header />
+    <div>
+      <div className="app">
+        <Header />
 
-      <Switch>
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/points" component={Points} />
-        <Route path="/redeem" component={Redeem} />
-        <Route path="/library" component={Library} />
-      </Switch>
+        <Switch>
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/points" component={Points} />
+          <Route path="/redeem" component={Redeem} />
+          <Route path="/library" component={Library} />
+        </Switch>
+      </div>
 
       <div className="app__nav">
-        <Nav />
+      <Nav />
       </div>
     </div>
     //   {/* <button

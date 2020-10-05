@@ -5,7 +5,7 @@ import './style/nav.css';
 
 export default function Nav() {
   return (
-    <div>
+    <div className="nav">
       <Link 
         className="header__link"
         to="redeem"

@@ -1,7 +1,7 @@
 import React from 'react';
 
+import { COLORS } from '../../../src/enums/colors'
 import './style/friend.css';
-
 
 export default function Friend(props) {
   const { 
@@ -9,23 +9,16 @@ export default function Friend(props) {
     ...rest
   } = props;
 
-  const exerciseColor = '#f89b54';
-  const mindfulnessColor = '#56c4d3';
-  const sleepColor = '#3777FF';
-  const waterColor = '#F278C3';
-  const fruitsAndVeggiesColor = '#ce4257';
-  const selfCheckColor = '#FF9B54';
-  const mammogramColor = '#56c4d3';
-
   const colorMap = {
-    exercise: exerciseColor,
-    mindfulness: mindfulnessColor,
-    sleep: sleepColor,
-    water: waterColor,
-    fruitsAndVeggies: fruitsAndVeggiesColor,
-    selfCheck: selfCheckColor,
-    mammogram: mammogramColor,
+    exercise: COLORS.EXERCISE,
+    mindfulness: COLORS.MINDFULNESS,
+    sleep: COLORS.SLEEP,
+    water: COLORS.WATER,
+    fruitsAndVeggies: COLORS.FRUITS_AND_VEGGIES,
+    selfCheck: COLORS.SELF_CHECK,
+    mammogram: COLORS.MAMMOGRAM,
   }
+
   const checks = []
 
   for(let prop in rest){

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import './style/sleep.css';
 import BarGraph from '../../components/bar-graph';
+import { COLORS } from '../../../src/enums/colors'
 
 
 function Sleep(props) {
@@ -30,7 +31,7 @@ function Sleep(props) {
         <h2>YOUR WEEK SO FAR</h2>
 
         <BarGraph 
-          color="#3777FF"
+          color={COLORS.SLEEP}
           data={sleepArr}
         />
         

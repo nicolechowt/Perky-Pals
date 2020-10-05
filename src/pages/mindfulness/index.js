@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Calendar from 'react-calendar';
+import { COLORS } from '../../../src/enums/colors'
 
 import './style/mindfulness.css';
 
@@ -112,7 +113,7 @@ function Mindfulness(props) {
                 class="fa fa-check-circle"
                 style={{
                   fontSize:'24px',
-                  color: "#56C4D3", 
+                  color: COLORS.MINDFULNESS, 
                   padding: '4px'
                 }}
               />
