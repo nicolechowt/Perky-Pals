@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ADD_EXERCISE_MINUTES } from '../../reducers/actions'
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import Box from '../box';
 import Button from '../button';
 
 import './style/activity-box.css';
 
-export default function ActivityBox(props) {
+function ActivityBox(props) {
   const { 
     addExerciseMinute,
     children,
@@ -18,32 +18,50 @@ export default function ActivityBox(props) {
     header,
     hideAdd,
     length,
+    color,
     unit,
   } = props;
 
   const addLink = `/add-${header.toLowerCase()}`;
   const pageLink = header.toLowerCase();
 
+  const nextPath = (path) => {
+    props.history.push(path);
+  }
+
   return (
-    <div className="activity-box">
-      <Box>
-        <Link to={pageLink}>
-          <h2>{header}</h2>
-          {length && <span> {length}</span>}
-          {unit && <span> {unit}</span>}
-          {goal && <span> of your {goal} {unit} {frequency} goal</span>}
+    <div 
+      className="activity-box"
+      style={{background: color}}
+      onClick={()=>{nextPath(pageLink)}}
+    >
+      <div className="activity-box__header">{header}</div>
+      {length>=0 && <span className="activity-box__length"> {length}</span>}
+      {unit && <span className="activity-box__unit"> {unit}</span>}
+      {goal && <span className="activity-box__goal"> of your {goal} {unit} {frequency} goal</span>}
 
-          {children && <div>{children}</div>}
-        </Link>
-      </Box>
+      {children && <div>{children}</div>}
 
-      <div className="activity-box__plus">
+      <div 
+        className="activity-box__plus"
+        onClick={(event)=>{
+          event.stopPropagation();
+          nextPath(addLink);
+        }}
+      >
         {!hideAdd && (
-          <Button to={addLink}>
-            +
-          </Button>
+          <i
+            class="fa fa-plus-circle"
+            style={{
+              fontSize:'22px',
+              color: "#FFFFFF", 
+              padding: '4px'
+            }}
+          />
         )}
       </div>
     </div>
   );
 }
+
+export default withRouter(ActivityBox);

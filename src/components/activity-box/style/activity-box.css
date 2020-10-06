@@ -1,11 +1,46 @@
 .activity-box
 {
   position: relative;
+  border-radius: 9px;
+  box-sizing: border-box;
+  padding: 16px;
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  height: 100%;
 }
 
 .activity-box__plus
 {
   position: absolute;
-  right: 8px;
-  bottom: 8px;
+  right: 14px;
+  bottom: 14px;
+}
+
+.activity-box__header
+{
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.activity-box__length
+{
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 75px;
+}
+
+.activity-box__unit
+{
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+.activity-box__goal
+{
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
 }

@@ -15,6 +15,9 @@ function FruitsAndVeggies(props) {
 
   const fruitsAndVeggiesArr = [];
 
+  const fruitsAndVeggies = dashboard && dashboard.fruitsAndVeggies;
+  const fruitsAndVeggiesGoal = dashboard.goals && dashboard.goals.fruitsAndVeggies;
+
   weeklyData.map(day=>{
     if(day.fruitsAndVeggies>=0){
       fruitsAndVeggiesArr.push(day.fruitsAndVeggies);
@@ -24,24 +27,59 @@ function FruitsAndVeggies(props) {
   fruitsAndVeggiesArr.unshift(todaysFruitsAndVeggies);  
 
   return (
-    <div className="exercise">
-        <button onClick={() => goBack()}>GO BACK</button>
-        <h1>FRUITS AND VEGGIES</h1>
-        <h2>YOUR WEEK SO FAR</h2>
+    <div className="page">
+      <div className="page__progess">
+        <div          
+          className="page__back-button"
+          onClick={() => goBack()}
+        >
+          <i
+            class="fa fa-angle-left"
+            style={{
+              fontSize:'36px',
+              color: "#4B5B7E", 
+              padding: '4px'
+            }}
+          />
+        </div>
+
+        <div className="page__header">WATER</div>
+        <div className="page__sub-header">YOUR WEEK SO FAR</div>
 
         <BarGraph 
           color={COLORS.FRUITS_AND_VEGGIES}
           data={fruitsAndVeggiesArr}
         />
         
-        <div>
-          Tips stuff
+        <div className="page__caption">
+          {fruitsAndVeggiesGoal-fruitsAndVeggies>0 ? (
+            <div>{fruitsAndVeggiesGoal-fruitsAndVeggies} more servings to go!</div>
+          ): (
+            <div>GOAL ACHIEVED! WAY TO KICK BUTT</div>
+          )}
         </div>
+        
+        <div 
+          className="page__tips-perks"
+          style={{background: COLORS.WATER}}
+        >
+          <div className='page__tips'>
+            <div className='page__tips-header'>tips header</div>
+            Tips stuff
+          </div>
 
-        <div>
-          Perks stuff
+          <div 
+            className="page__perks"
+            style={{color: COLORS.WATER}}
+          >
+            <div className="page__perks-header">
+              perks header
+            </div>
+            Perks stuff
         </div>
+      </div>
     </div>
+  </div>
   );
 }
 

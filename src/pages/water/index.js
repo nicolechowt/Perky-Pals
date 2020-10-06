@@ -15,6 +15,9 @@ function Water(props) {
 
   const waterArr = [];
 
+  const water = dashboard && dashboard.water;
+  const waterGoal = dashboard.goals && dashboard.goals.water;
+
   weeklyData.map(day=>{
     if(day.water>=0){
       waterArr.push(day.water);
@@ -23,25 +26,61 @@ function Water(props) {
 
   waterArr.unshift(todaysWater);
 
+
   return (
-    <div className="exercise">
-        <button onClick={() => goBack()}>GO BACK</button>
-        <h1>WATER</h1>
-        <h2>YOUR WEEK SO FAR</h2>
+    <div className="page">
+      <div className="page__progess">
+        <div          
+          className="page__back-button"
+          onClick={() => goBack()}
+        >
+          <i
+            class="fa fa-angle-left"
+            style={{
+              fontSize:'36px',
+              color: "#4B5B7E", 
+              padding: '4px'
+            }}
+          />
+        </div>
+
+        <div className="page__header">WATER</div>
+        <div className="page__sub-header">YOUR WEEK SO FAR</div>
 
         <BarGraph 
           color={COLORS.WATER}
           data={waterArr}
         />
-        
-        <div>
-          Tips stuff
-        </div>
 
-        <div>
-          Perks stuff
+        <div className="page__caption">
+          {waterGoal-water>0 ? (
+            <div>{waterGoal-water} more oz to go!</div>
+          ): (
+            <div>GOAL ACHIEVED! WAY TO KICK BUTT</div>
+          )} 
         </div>
+        
+        <div 
+          className="page__tips-perks"
+          style={{background: COLORS.WATER}}
+        >
+          <div className='page__tips'>
+            <div className='page__tips-header'>tips header</div>
+            Tips stuff
+          </div>
+
+          <div 
+            className="page__perks"
+            style={{color: COLORS.WATER}}
+          >
+            <div className="page__perks-header">
+              perks header
+            </div>
+            Perks stuff
+        </div>
+      </div>
     </div>
+  </div>
   );
 }
 

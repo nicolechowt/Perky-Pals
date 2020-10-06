@@ -98,48 +98,79 @@ function Mindfulness(props) {
   console.log('mind', mindfulWeekArr)
 
   return (
-    <div className="mindfulness">
-      <h1>MINDFULNESS</h1>
-      <h2>YOUR WEEK SO FAR</h2>
-      <button onClick={() => goBack()}>GO BACK</button>
-      <Calendar 
-        tileContent={({ activeStartDate, date, view }) => {
-          const dateString = date.toString();
-          const processedDateString = dateString.substring(0,15)
-
-          if(view === 'month' && mindfulWeekArr.includes(processedDateString)){
-            return(
-              <i
-                class="fa fa-check-circle"
-                style={{
-                  fontSize:'24px',
-                  color: COLORS.MINDFULNESS, 
-                  padding: '4px'
-                }}
-              />
-            );
-          }
-          return(
+    <div>
+    <div className="page">
+      <div className="page__progess">
+          <div          
+            className="page__back-button"
+            onClick={() => goBack()}
+          >
             <i
-              class="fa fa-circle"
+              class="fa fa-angle-left"
               style={{
-                fontSize:'18px',
-                color: "#DEDEDE", 
+                fontSize:'36px',
+                color: "#4B5B7E", 
                 padding: '4px'
               }}
             />
-          )
-        }}
-      />
+        </div>
 
-      <div>
-        Tips stuff
-      </div>
+        <div className="page__header">MINDFULNESS</div>
+        <div className="page__sub-header">YOUR WEEK SO FAR</div>
+        <div 
+          className="page__tips-perks"
+          style={{background: COLORS.MINDFULNESS}}
+        >
+          <div className='page__tips'>
+            <div className='page__tips-header'>tips header</div>
+            Tips stuff
+          </div>
 
-      <div>
-        Perks stuff
+          <div 
+            className="page__perks"
+            style={{color: COLORS.MINDFULNESS}}
+          >
+            <div className="page__perks-header">
+              perks header
+            </div>
+            Perks stuff
+          </div>
+        </div>
       </div>
     </div>
+
+
+<Calendar 
+  tileContent={({ activeStartDate, date, view }) => {
+    const dateString = date.toString();
+    const processedDateString = dateString.substring(0,15)
+
+    if(view === 'month' && mindfulWeekArr.includes(processedDateString)){
+      return(
+        <i
+          class="fa fa-check-circle"
+          style={{
+            fontSize:'24px',
+            color: COLORS.MINDFULNESS, 
+            padding: '4px'
+          }}
+        />
+      );
+    }
+    return(
+      <i
+        class="fa fa-circle"
+        style={{
+          fontSize:'18px',
+          color: "#DEDEDE", 
+          padding: '4px'
+        }}
+      />
+    )
+  }}
+/>
+</div>
+
   );
 }
 

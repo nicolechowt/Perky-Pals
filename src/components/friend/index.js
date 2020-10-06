@@ -49,7 +49,9 @@ export default function Friend(props) {
 
   return (
     <div className="friend">
-      {name}'S DAILY PROGRESS
+      <div className="friend__header">
+        {name}'S DAILY PROGRESS
+      </div>
       <div className="friend__checks">{checks}</div>
       <div>Let her know she’s doing a good job!</div>
     </div>

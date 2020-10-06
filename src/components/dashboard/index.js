@@ -11,6 +11,7 @@ import {
 } from '../../reducers/actions'
 import ProgressRing from '../progress-ring';
 import Friend from '../friend';
+import { COLORS } from '../../../src/enums/colors'
 
 function Dashboard(props) {
   const { 
@@ -153,7 +154,7 @@ function Dashboard(props) {
         }
       })()}
 
-      <div>
+      <div className="dashboard__header">
         YOUR PROGRESS
       </div>
 
@@ -169,106 +170,136 @@ function Dashboard(props) {
         mammogram={mammogram}
       />
 
-      <Box>
-        <div>
-          tips
+    <div className="dashboard__stats">
+        <div className="dashboard__exercise">
+          <ActivityBox 
+            color={COLORS.EXERCISE}
+            display="number"
+            goal={exerciseGoal}
+            header="EXERCISE"
+            length={exerciseWeek+exercise || 0}
+            unit="minutes"
+            frequency="weekly"
+          />
         </div>
-      </Box>
 
-      <ActivityBox 
-        display="number"
-        goal={exerciseGoal}
-        header="EXERCISE"
-        length={exerciseWeek+exercise || 0}
-        unit="minutes"
-        frequency="weekly"
-      />
+        <div className="dashboard__mindfulness">
+          <ActivityBox 
+            color={COLORS.MINDFULNESS}
+            goal={mindfulnesseGoal}
+            header="MINDFULNESS"
+            length={mindfullnessWeek+mindfulness || 0}
+            unit="times"
+            frequency="weekly"
+          />
+        </div>
 
-      <ActivityBox 
-        goal={mindfulnesseGoal}
-        header="MINDFULNESS"
-        length={mindfullnessWeek+mindfulness || 0}
-        unit="times"
-        frequency="weekly"
-      />
 
-      <ActivityBox 
-        header="SLEEP"
-        goal={sleepGoal}
-        length={sleep}
-        unit="hours"
-        frequency="daily"
-      />
+      <div className="dashboard__tips">
+        <Box>
+          <div>
+            tips
+          </div>
+        </Box>
+      </div>
 
-      <ActivityBox 
-        header="WATER"
-        goal={waterGoal}
-        length={water}
-        unit="oz"
-        frequency="daily"
-      />
 
-      <ActivityBox 
-        header="FRUITS-AND-VEGGIES"
-        goal={fruitsAndVeggiesGoal}
-        length={fruitsAndVeggies}
-        unit="servings"
-        frequency="daily"
-      />
+        <div className="dashboard__water">
+          <ActivityBox 
+            color={COLORS.WATER}
+            header="WATER"
+            goal={waterGoal}
+            length={water}
+            unit="oz"
+            frequency="daily"
+          />
+        </div>
 
-      <ActivityBox 
-        header="SELF-CHECK"
-        hideAdd={selfCheck}
-      >
-        {selfCheck ? 
-          (
-            <div>Yay, it is so important that you perform this monthly bleh bleh bleh bleh <p>next check: {nextMonth}/1</p></div>
-          ): 
-          (
-            <div>Time to check your boobs! We’ll walk you through the process</div>
-          )
-        }
-      </ActivityBox>
+        <div className="dashboard__veggies">
+          <ActivityBox 
+            color={COLORS.FRUITS_AND_VEGGIES}
+            header="FRUITS-AND-VEGGIES"
+            goal={fruitsAndVeggiesGoal}
+            length={fruitsAndVeggies}
+            unit="servings"
+            frequency="daily"
+          />
+        </div>
 
-      <ActivityBox 
-        header="MAMMOGRAM"
-        hideAdd={mammogram}
-      >
-        {(()=> {
-          let mammogramDateObj;
 
-          if(mammogram) {
-            if(typeof mammogram==='string'){
-              mammogramDateObj = new Date(mammogram);
+      <div className="dashboard__friend">
+        <Friend 
+          name={currentUserName==='JULIANNA'? 'BELLA': 'JULIANNA'}
+          exercise
+          mindfulness
+          sleep={false}
+          water
+          fruitsAndVeggies
+          selfCheck
+          mammogram
+        />
+      </div>
+
+      <div className="dashboard__sleep">
+        <ActivityBox 
+          color={COLORS.SLEEP}
+          header="SLEEP"
+          goal={sleepGoal}
+          length={sleep}
+          unit="hours"
+          frequency="daily"
+        />
+      </div>
+
+      <div className="dashboard__self-check">
+        <ActivityBox 
+          color={COLORS.SELF_CHECK}
+          header="SELF-CHECK"
+          hideAdd={selfCheck}
+        >
+          {selfCheck ? 
+            (
+              <div>Yay, it is so important that you perform this monthly bleh bleh bleh bleh <p>next check: {nextMonth}/1</p></div>
+            ): 
+            (
+              <div>Time to check your boobs! We’ll walk you through the process</div>
+            )
+          }
+        </ActivityBox>
+      </div>
+
+      <div className="dashboard__mammogram">
+        <ActivityBox 
+          color={COLORS.MAMMOGRAM}
+          header="MAMMOGRAM"
+          hideAdd={mammogram}
+        >
+          {(()=> {
+            let mammogramDateObj;
+
+            if(mammogram) {
+              if(typeof mammogram==='string'){
+                mammogramDateObj = new Date(mammogram);
+
+                return (
+                  <div>yay scheduled for {
+                    mammogramDateObj.getMonth()+1}/{mammogramDateObj.getDate()
+                  } </div>
+                )
+              }
 
               return (
                 <div>yay scheduled for {
-                  mammogramDateObj.getMonth()+1}/{mammogramDateObj.getDate()
+                  mammogram.getMonth()+1}/{mammogram.getDate()
                 } </div>
               )
             }
 
-            return (
-              <div>yay scheduled for {
-                mammogram.getMonth()+1}/{mammogram.getDate()
-              } </div>
-            )
-          }
-
-          return (<div>Don’t forget about your annual mammogram</div>)
-        })()}
-      </ActivityBox>
-
-      <Friend 
-        name={currentUserName==='JULIANNA'? 'BELLA': 'JULIANNA'}
-        exercise
-        mindfulness
-        sleep={false}
-        water
-        fruitsAndVeggies
-        selfCheck
-        mammogram
-      />
+            return (<div>Don’t forget about your annual mammogram</div>)
+          })()}
+        </ActivityBox>
+      </div>
+      </div>
     </div>
   );
 }

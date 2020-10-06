@@ -3,7 +3,9 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin: 30px;
+  margin-top: 18px;
+  margin-left: 18px;
+  margin-right: 18px;
   margin-bottom: 0;
   position: relative;
 }
@@ -31,4 +33,102 @@ button
 {
   border: none;
   background: transparent;
+}
+
+.page
+{
+  font-size: 50px;
+  text-align: center
+}
+
+.page__progess
+{
+  color: #4B5B7E;
+  position: relative;
+}
+.page__header
+{
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 36px;
+  padding-top: 26px;
+}
+
+.page__sub-header
+{
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.page__caption
+{
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.page__back-button
+{
+  position: absolute;
+  top: 8px;
+  left: 20px;
+}
+
+.page__tips-perks
+{
+  padding: 28px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.page__tips
+{
+  color: white;
+  border-radius: 9px;
+  box-sizing: border-box;
+  padding: 16px;
+  text-transform: uppercase;
+  border: solid 4px white;
+  margin-bottom: 8px;
+}
+
+.page__tips-header ,.page__perks-header
+{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.page__perks
+{
+  background: white;
+  border-radius: 9px;
+  box-sizing: border-box;
+  padding: 16px;
+  text-transform: uppercase;
+  border: solid 4px white;
+  padding: 12px;
+}
+
+.page__activity-item
+{
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 4px 40px;
+
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
+
+.react-calendar {
+  margin: 0 auto;
+}
+
+.react-calendar__month-view__days__day abbr {
+  display: none;
 }

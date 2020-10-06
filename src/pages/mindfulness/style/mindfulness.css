@@ -3,11 +3,3 @@
   position: relative;
 
 }
-
-.mindfulness .react-calendar {
-  margin: 0 auto;
-}
-
-.mindfulness .react-calendar__month-view__days__day abbr {
-  display: none;
-}

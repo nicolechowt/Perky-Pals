@@ -17,8 +17,10 @@ function Header(props) {
     <div>
       <div className="header__name-and-menu">
         <div>
-          <h1 className="header__name">Hi, {name}</h1>
-          <p>{points} POINTS</p>
+          <div className="header__name">
+            Hi, {name}
+          </div> 
+          <div className="header__points">{points} POINTS</div>
         </div>
 
         <HamburgerMenu />
