@@ -26,6 +26,7 @@ import Mindfulness from './pages/mindfulness';
 import SelfCheck from './pages/self-check'
 import Sleep from './pages/sleep';
 import Water from './pages/water';
+import Mammogram from './pages/mammogram';
 
 const store = configureStore();
 
@@ -54,6 +55,7 @@ const renderApp = () =>
           <Route path="/fruits-and-veggies" component={FruitsAndVeggies} />
           <Route path="/mindfulness" component={Mindfulness} />
           <Route path="/self-check" component={SelfCheck} />
+          <Route path="/mammogram" component={Mammogram} />
           <Route path="/sleep" component={Sleep} />
           <Route path="/water" component={Water} />
           <App />

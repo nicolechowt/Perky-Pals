@@ -43,7 +43,7 @@ function FruitsAndVeggies(props) {
           />
         </div>
 
-        <div className="page__header">WATER</div>
+        <div className="page__header">FRUITS AND VEGGIES</div>
         <div className="page__sub-header">YOUR WEEK SO FAR</div>
 
         <BarGraph 
@@ -61,7 +61,7 @@ function FruitsAndVeggies(props) {
         
         <div 
           className="page__tips-perks"
-          style={{background: COLORS.WATER}}
+          style={{background: COLORS.FRUITS_AND_VEGGIES}}
         >
           <div className='page__tips'>
             <div className='page__tips-header'>tips header</div>
@@ -70,7 +70,7 @@ function FruitsAndVeggies(props) {
 
           <div 
             className="page__perks"
-            style={{color: COLORS.WATER}}
+            style={{color: COLORS.FRUITS_AND_VEGGIES}}
           >
             <div className="page__perks-header">
               perks header

@@ -38,13 +38,13 @@ button
 .page
 {
   font-size: 50px;
-  text-align: center
 }
 
 .page__progess
 {
   color: #4B5B7E;
   position: relative;
+  text-align: center;
 }
 .page__header
 {
@@ -59,6 +59,14 @@ button
   font-weight: bold;
   font-size: 18px;
   line-height: 28px;
+}
+
+.page__upcoming
+{
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 .page__caption
@@ -113,7 +121,7 @@ button
   padding: 12px;
 }
 
-.page__activity-item
+.page__activity-item, .page__notes-item
 {
   font-weight: normal;
   font-size: 14px;
@@ -129,6 +137,18 @@ button
   margin: 0 auto;
 }
 
-.react-calendar__month-view__days__day abbr {
+.minfulness-calendar .react-calendar__month-view__days__day abbr  {
   display: none;
+}
+
+
+.page__notes-item__header
+{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.page__notes-item__content
+{
+  display: block;
 }

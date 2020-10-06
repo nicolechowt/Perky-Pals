@@ -1,18 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Calendar from 'react-calendar';
-import { COLORS } from '../../../src/enums/colors'
+import { COLORS } from '../../enums/colors'
 
-import './style/mindfulness.css';
+import './style/mammogram.css';
 
-function Mindfulness(props) {
+function NotesItem(props) {
+  const { date, content } = props;
+  return (
+    <div className="page__notes-item">
+      <div className="page__notes-item__header">
+        {date} 
+      </div>
+      <div className="page__notes-item__content">
+        {content}
+      </div>
+    </div>
+  );
+}
+
+function SelfCheck(props) {
   const { goBack } = props.history;
 
-  const { currentUser } = props;
+  const { currentUser, selfCheckNotes } = props;
   const weeklyData = currentUser ? currentUser[0] && currentUser[0].weeklyData : [];
 
+  const notes = selfCheckNotes && selfCheckNotes.notes;
 
+  
   const month = new Date().getMonth()+1;
   const today = new Date().getDate();
 
@@ -95,31 +110,52 @@ function Mindfulness(props) {
     })
   }
 
-  console.log('mind', mindfulWeekArr)
+  const nextMonth = (new Date().getMonth()+1)%12 + 1;
 
   return (
-    <div>
     <div className="page">
       <div className="page__progess">
-          <div          
-            className="page__back-button"
-            onClick={() => goBack()}
-          >
-            <i
-              class="fa fa-angle-left"
-              style={{
-                fontSize:'36px',
-                color: "#4B5B7E", 
-                padding: '4px'
-              }}
-            />
+        <div          
+          className="page__back-button"
+          onClick={() => goBack()}
+        >
+          <i
+            class="fa fa-angle-left"
+            style={{
+              fontSize:'36px',
+              color: "#4B5B7E", 
+              padding: '4px'
+            }}
+          />
         </div>
 
-        <div className="page__header">MINDFULNESS</div>
-        <div className="page__sub-header">YOUR WEEK SO FAR</div>
+        <div className="page__header">MAMMOGRAMS</div>
+        <div className="page__sub-header">LOG</div>
+
         <div 
+          className="page__upcoming"
+          style={{background: COLORS.MAMMOGRAM}}
+        >
+          upcoming appointment : {nextMonth}/1
+        </div>
+      </div>
+
+      <div>
+        {notes.length>0? notes.map(note=>{
+          return(
+            <NotesItem 
+              key={note.date}
+              date={note.date}
+              content={note.content}
+            />
+          )
+        }): (
+          <div className="page__notes-item">Write something</div>
+        )}
+      </div>
+      <div 
           className="page__tips-perks"
-          style={{background: COLORS.MINDFULNESS}}
+          style={{background: COLORS.MAMMOGRAM}}
         >
           <div className='page__tips'>
             <div className='page__tips-header'>tips header</div>
@@ -128,50 +164,15 @@ function Mindfulness(props) {
 
           <div 
             className="page__perks"
-            style={{color: COLORS.MINDFULNESS}}
+            style={{color: COLORS.MAMMOGRAM}}
           >
             <div className="page__perks-header">
               perks header
             </div>
             Perks stuff
           </div>
-        </div>
       </div>
     </div>
-
-
-<Calendar 
-  className="minfulness-calendar"
-  tileContent={({ activeStartDate, date, view }) => {
-    const dateString = date.toString();
-    const processedDateString = dateString.substring(0,15)
-
-    if(view === 'month' && mindfulWeekArr.includes(processedDateString)){
-      return(
-        <i
-          class="fa fa-check-circle"
-          style={{
-            fontSize:'24px',
-            color: COLORS.MINDFULNESS, 
-            padding: '4px'
-          }}
-        />
-      );
-    }
-    return(
-      <i
-        class="fa fa-circle"
-        style={{
-          fontSize:'18px',
-          color: "#DEDEDE", 
-          padding: '4px'
-        }}
-      />
-    )
-  }}
-/>
-</div>
-
   );
 }
 
@@ -179,6 +180,7 @@ function mapStateToProps(state) {
   const { 
     dashboardReducer,
     currentUserReducer,
+    selfCheckNotesReducer,
   } = state;
 
   return {  
@@ -187,6 +189,7 @@ function mapStateToProps(state) {
     exerciseMinutes: dashboardReducer.exercise,
     goals: dashboardReducer.goals,
     pointsClaimed: dashboardReducer.pointsClaimed,
+    selfCheckNotes: selfCheckNotesReducer,
   }
 }
 
@@ -198,4 +201,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Mindfulness)
+)(SelfCheck)

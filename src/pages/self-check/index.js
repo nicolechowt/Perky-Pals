@@ -1,15 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Calendar from 'react-calendar';
+import { COLORS } from '../../../src/enums/colors'
 
 import './style/self-check.css';
 
 function NotesItem(props) {
   const { date, content } = props;
   return (
-    <div>
-      {date} {content}
+    <div className="page__notes-item">
+      <div className="page__notes-item__header">
+        {date} 
+      </div>
+      <div className="page__notes-item__content">
+        {content}
+      </div>
     </div>
   );
 }
@@ -105,14 +110,38 @@ function SelfCheck(props) {
     })
   }
 
+  const nextMonth = (new Date().getMonth()+1)%12 + 1;
+
   return (
-    <div className="mindfulness">
-      <h1>SELF CHECK</h1>
-      <h2>log</h2>
-      <button onClick={() => goBack()}>GO BACK</button>
-      
+    <div className="page">
+      <div className="page__progess">
+        <div          
+          className="page__back-button"
+          onClick={() => goBack()}
+        >
+          <i
+            class="fa fa-angle-left"
+            style={{
+              fontSize:'36px',
+              color: "#4B5B7E", 
+              padding: '4px'
+            }}
+          />
+        </div>
+
+        <div className="page__header">SELF CHECK</div>
+        <div className="page__sub-header">LOG</div>
+
+        <div 
+          className="page__upcoming"
+          style={{background: COLORS.SELF_CHECK}}
+        >
+          next check: {nextMonth}/1
+        </div>
+      </div>
+
       <div>
-        {notes.map(note=>{
+        {notes.length>0? notes.map(note=>{
           return(
             <NotesItem 
               key={note.date}
@@ -120,15 +149,28 @@ function SelfCheck(props) {
               content={note.content}
             />
           )
-        })}
+        }): (
+          <div className="page__notes-item">Write something</div>
+        )}
       </div>
+      <div 
+          className="page__tips-perks"
+          style={{background: COLORS.SELF_CHECK}}
+        >
+          <div className='page__tips'>
+            <div className='page__tips-header'>tips header</div>
+            Tips stuff
+          </div>
 
-      <div>
-        Tips stuff
-      </div>
-
-      <div>
-        Perks stuff
+          <div 
+            className="page__perks"
+            style={{color: COLORS.SELF_CHECK}}
+          >
+            <div className="page__perks-header">
+              perks header
+            </div>
+            Perks stuff
+          </div>
       </div>
     </div>
   );
