@@ -1,8 +1,8 @@
 .friend
 {
   border-radius: 9px;
+  box-sizing: border-box;
   border: solid 4px #4B5B7E;
-  margin: 4px;
   padding: 16px;
   cursor: pointer;
   text-transform: uppercase;

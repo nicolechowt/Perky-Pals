@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import thing from '../../../../assets/thing.jpg';
 import { ADD_MODAL } from '../../../../reducers/actions'
+import { COLORS } from '../../../../enums/colors'
 
 import './style/redeem-card.css';
 
@@ -27,7 +28,10 @@ function RedeemCard(props) {
         src={thing} 
       />
 
-      <div className="redeem-card__text">
+      <div 
+        className="redeem-card__text"
+        style={{backgroundColor: COLORS.REDEEM}}
+      >
         <div>{title}</div>
         <div>{description}</div>
         <div>{points} points</div>

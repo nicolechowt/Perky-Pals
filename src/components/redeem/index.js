@@ -13,6 +13,7 @@ import RedeemCard from './components/redeem-card';
 import RedeemPreview from './components/redeem-preview';
 
 import './style/redeem.css';
+import { COLORS } from '../../enums/colors';
 
 function Redeem(props) {
   const { 
@@ -36,8 +37,6 @@ function Redeem(props) {
 
   return (
     <div className="redeem">
-      Redeem
-
       {(()=> {
         if(!content) return;
 
@@ -59,7 +58,13 @@ function Redeem(props) {
         }
       })()}
 
-      <h4>10 points</h4>
+    <div className="redeem__body">
+      <div 
+        className="redeem__point-header"
+        style={{color: COLORS.REDEEM}}
+      >
+        10 points
+      </div>
       {items.filter(item => item.points===10).map(filteredItem => (
         <RedeemCard 
           description={filteredItem.description}
@@ -69,7 +74,12 @@ function Redeem(props) {
         />
       ))}
 
-      <h4>20 points</h4>
+      <div 
+        className="redeem__point-header"
+        style={{color: COLORS.REDEEM}}
+      >
+        20 points
+      </div>
       {items.filter(item => item.points===20).map(filteredItem => (
         <RedeemCard 
           description={filteredItem.description}
@@ -79,7 +89,12 @@ function Redeem(props) {
         />
       ))}
 
-      <h4>30+ points</h4>
+      <div 
+        className="redeem__point-header"
+        style={{color: COLORS.REDEEM}}
+      >
+        30+ points
+      </div>
       {items.filter(item => item.points>=30).map(filteredItem => (
         <RedeemCard 
           description={filteredItem.description}
@@ -88,6 +103,7 @@ function Redeem(props) {
           title={filteredItem.title}
         />
       ))}
+      </div>
     </div>
   );
 }

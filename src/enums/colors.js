@@ -9,6 +9,7 @@ export const COLORS = {
   WATER: '#F278C3',
 
 
+  REDEEM: '#0DB39E',
   LIGHT_GRAY: '#EBEBEB',
   LIGHT_GRAY_FILL: 'EBEBEB',
 
