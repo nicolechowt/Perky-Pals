@@ -1,0 +1,26 @@
+.mammogram-help
+{
+  color: #4B5B7E;
+  background: white;
+  border-bottom: 1px solid #efefef;
+  padding: 20px;
+}
+
+.mammogram-help__header
+{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.mammogram-help__address .mammogram-help__phone
+{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.mammogram-help__website
+{
+  font-weight: bold;
+  font-size: 14px;
+}
+

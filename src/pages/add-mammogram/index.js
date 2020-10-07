@@ -17,5 +17,4 @@ function AddMammogram(props) {
   );
 }
 
-
 export default connect()(AddMammogram);
