@@ -18,9 +18,58 @@ export default function HamburgerMenu() {
               name="HAMBURGER_MENU"
               onClose={()=>{setIsMenuOpen(false)}}
             >
-              <Link to="/goals">EDIT GOALS > </Link>
-              <Link to="/redeem">REDEEM POINTS ></Link>
-              <Link to="/library">LIBRARY ></Link>
+              <div className="hamburger-menu__container">
+
+                  <Link 
+                    className="hamburger-menu__link"
+                    to="/goals"
+                  >
+                    <div>EDIT GOALS</div>             
+                    <i 
+                      aria-hidden="true"
+                      class="fa fa-angle-right" 
+                      style={{
+                        fontSize:'18px',
+                        color: COLORS.NAVY_BLUE, 
+                        padding: '4px'
+                      }}
+                    /> 
+                  </Link>
+
+
+
+                  <Link 
+                    className="hamburger-menu__link"
+                    to="/redeem"
+                  >
+                    <div>REDEEM POINTS</div>
+                    <i 
+                      aria-hidden="true"
+                      class="fa fa-angle-right" 
+                      style={{
+                        fontSize:'18px',
+                        color: COLORS.NAVY_BLUE, 
+                        padding: '4px'
+                      }}
+                    /> 
+                  </Link>
+
+                  <Link 
+                    className="hamburger-menu__link"
+                    to="/library"
+                  >
+                    <div>LIBRARY</div>
+                    <i 
+                      aria-hidden="true"
+                      class="fa fa-angle-right" 
+                      style={{
+                        fontSize:'18px',
+                        color: COLORS.NAVY_BLUE, 
+                        padding: '4px'
+                      }}
+                    /> 
+                  </Link>
+              </div>
             </Overlay>
           </div>
         ):

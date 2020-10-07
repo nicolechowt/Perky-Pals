@@ -15,4 +15,6 @@
   font-size: 18px;
   line-height: 28px;
   text-transform: uppercase;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }

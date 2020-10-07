@@ -99,7 +99,7 @@ function App(props) {
       </div>
 
       <div className="app__nav">
-      <Nav />
+        <Nav />
       </div>
     </div>
     //   {/* <button

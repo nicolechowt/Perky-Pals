@@ -16,9 +16,20 @@ export default function Overlay(props) {
       className="overlay"
       style={isOverlayOpen ? {display: 'block'} : {display: 'none'}}
     >
-      <button onClick={handleOnClick}>
-        <img src={close}/>
-      </button>
+      <div 
+        className="page__back-button"
+        onClick={handleOnClick}
+      >
+        <i
+          class="fa fa-angle-left"
+          style={{
+            fontSize:'36px',
+            color: "#4B5B7E", 
+            padding: '4px'
+          }}
+        />
+      </div>
+
 
       {/* only close overlay on click if this is the hamburger menu */}
       {(()=>{

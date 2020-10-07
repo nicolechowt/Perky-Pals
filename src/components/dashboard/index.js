@@ -244,6 +244,7 @@ function Dashboard(props) {
         <ActivityBox 
           color={COLORS.SLEEP}
           header="SLEEP"
+          hideAdd={sleep>0}
           goal={sleepGoal}
           length={sleep}
           unit="hours"

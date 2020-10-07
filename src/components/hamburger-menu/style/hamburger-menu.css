@@ -1,3 +1,18 @@
 .hamburger-menu--open
 {
+  color: #4B5B7E;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+.hamburger-menu__container
+{
+  margin: 40px;
+}
+.hamburger-menu__link
+{
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
 }

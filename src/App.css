@@ -19,22 +19,6 @@
   position: sticky;
 }
 
-body {
-  margin: 0;
-}
-
-a 
-{
-  /* text-decoration: none; */
-  color: black;
-}
-
-button
-{
-  border: none;
-  background: transparent;
-}
-
 .page
 {
   font-size: 50px;

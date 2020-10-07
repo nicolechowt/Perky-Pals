@@ -4,6 +4,8 @@ import { Redirect } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
+import { COLORS } from '../../../src/enums/colors'
+
 import {
   ADD_EXERCISE_DETAILS,
   ADD_EXERCISE_MINUTES,
@@ -57,7 +59,7 @@ function ActivityForm(props) {
     currentUser,
     dashboard,
     onClose,
-    pointsClaimed,
+    pointsClaimed = [],
     type,
   } = props;
 
@@ -280,121 +282,302 @@ function ActivityForm(props) {
   }
 
   return (
-    <div>
-      {type !=='FRUITS_AND_VEGGIES' && <h1>ADD {type}</h1>} 
+    <div className="activity-form">
+      {(()=>{
+        if(type==='FRUITS_AND_VEGGIES') {
+          return(
+            <div 
+            className="activity-form__header"
+            style={{backgroundColor: COLORS.FRUITS_AND_VEGGIES}}
+          >
+              <div className="activity-form__header-text">ADD FRUITS AND VEGGIES</div>
+              <div 
+                className="activity-form__close"
+                onClick={onClose}
+              >
+                <i
+                  class="fa fa-times"
+                  style={{
+                    fontSize:'12px',
+                    color: 'white',
+                    padding: '4px'
+                  }}
+                />
+              </div>
+            </div>
+          );
+        } else if (type==='SELF_CHECK') {
+          return(
+            <div 
+            className="activity-form__header"
+            style={{backgroundColor: COLORS.SELF_CHECK}}
+          >
+              <div className="activity-form__header-text">ADD SELF CHECK</div>
+              <div 
+                className="activity-form__close"
+                onClick={onClose}
+              >
+                <i
+                  class="fa fa-times"
+                  style={{
+                    fontSize:'12px',
+                    color: 'white',
+                    padding: '4px'
+                  }}
+                />
+              </div>
+            </div>
+          );
+        } else {
+          return(
+            <div 
+              className="activity-form__header"
+              style={{backgroundColor: COLORS[type]}}
+            >
+              <div className="activity-form__header-text">ADD {type}</div>
+              <div 
+                className="activity-form__close"
+                onClick={onClose}
+              >
+                <i
+                  class="fa fa-times"
+                  style={{
+                    fontSize:'12px',
+                    color: 'white',
+                    padding: '4px'
+                  }}
+                />
+              </div>
+            </div>
+          )
+        }
+      })()}
 
-      {type==='FRUITS_AND_VEGGIES' && <h1>ADD FRUITS AND VEGGIES</h1>}
       {(()=>{
         switch(type) {
           case "EXERCISE" :
             return(
-              <div>
-                <div className="activity-form__input-field">
-                  <label htmlFor="activity">WHAT DID YOU DO?</label>
-                  <select name="activity" id="activity" value={activityType.value} onChange={(event)=>setActivityType(event.target.value)}>
-                    <option value="Hike">Hike</option>
-                    <option value="Run">Run</option>
-                    <option value="Yoga">Yoga</option>
-                    <option value="Weights">Weights</option>
-                    <option value="HIIT<">HIIT</option>
-                  </select>
+              <div className="activity-form__content">
+                <div className="activity-form__item">
+                    DATE: <b>{`${month}/${day}/${year}`}</b>
+                </div>
+                <div className="activity-form__item">
+                  <div>
+                    <label htmlFor="activity">WHAT DID YOU DO?</label>
+                  </div>
+
+                  <div>
+                    <select name="activity" id="activity" value={activityType.value} onChange={(event)=>setActivityType(event.target.value)}>
+                      <option value="Hike">Hike</option>
+                      <option value="Run">Run</option>
+                      <option value="Yoga">Yoga</option>
+                      <option value="Weights">Weights</option>
+                      <option value="HIIT<">HIIT</option>
+                    </select>
+                  </div>
                 </div>
 
-                <div className="activity-form__input-field">
-                  <label htmlFor="duration">HOW LONG WAS IT?</label>
-                  <select name="minutes" id="minutes" value={activityMin} onChange={(event)=>setActivityMin(parseInt(event.target.value))}>
-                    {minutes.map(min => <option key={`act-${min}`} value={min}>{min}</option>)}
-                  </select>
-                </div>
+                <div className="activity-form__item">
+                  <div>
+                    <label htmlFor="duration">HOW LONG WAS IT?</label>
+                  </div>
 
-                <button onClick={onClick}>done</button>
+                  <div>
+                    <select name="minutes" id="minutes" value={activityMin} onChange={(event)=>setActivityMin(parseInt(event.target.value))}>
+                      {minutes.map(min => <option key={`act-${min}`} value={min}>{min}</option>)}
+                    </select>
+                  </div>
+                </div>
+            
+                <div style={{textAlign: 'center'}}>
+                  <button 
+                    className="button--pill"
+                    onClick={onClick}
+                  >
+                    ADD
+                  </button>
+                </div>
               </div>
             );
     
           case "MINDFULNESS":
             return (
-              <div>
-                <p>Did you have a mindful moment today?</p>
+              <div className="activity-form__content">
+                <div className="activity-form__item">
+                  DATE: <b>{`${month}/${day}/${year}`}</b>
+                </div>
+                <div className="activity-form__comment">
+                  Let us know you took some time to be mindful today.
+                </div>
 
-                <button onClick={onClick}>yes</button>
-                <button onClick={onClose}>no :(</button>
+                <div style={{textAlign: 'center'}}>
+                  <button 
+                    className="button--pill"
+                    onClick={onClick}
+                  >
+                    ADD
+                  </button>
+                </div>
               </div>
             );
    
           case "SLEEP":
             return (
-              <div className="activity-form__input-field">
-                <label htmlFor="duration">HOW LONG WAS IT?</label>
-                <select name="hours" id="hours" value={sleepHour} onChange={(event)=>setSleepHour(parseInt(event.target.value))}>
-                  {hours.map(hour => <option key={`sleep-${hour}`} value={hour}>{hour} {hour===8 && `+`}</option>)}
-                </select>
+              <div className="activity-form__content">
+                <div className="activity-form__item">
+                    DATE: <b>{`${month}/${day}/${year}`}</b>
+                </div>
 
-                <button onClick={onClick}>done</button>
+                <div className="activity-form__item">
+                  <label htmlFor="duration">HOW LONG WAS IT?</label>
+
+                  <div className="activity-form__item">
+                    <select name="hours" id="hours" value={sleepHour} onChange={(event)=>setSleepHour(parseInt(event.target.value))}>
+                      {hours.map(hour => <option key={`sleep-${hour}`} value={hour}>{hour} {hour===8 && `+`}</option>)}
+                    </select>
+                  </div>
+
+                  <div style={{textAlign: 'center'}}>
+                    <button 
+                      className="button--pill"
+                      onClick={onClick}
+                    >
+                      ADD
+                    </button>
+                  </div>
+                </div>
               </div>
             );
           
           case "WATER":
             return(
-              <div className="activity-form__input-field">
-                <label htmlFor="volume">HOW MUCH DID YOU DRINK</label>
-                <select name="oz" id="oz" value={waterOz} onChange={(event)=>setWaterOz(parseInt(event.target.value))}>
+              <div className="activity-form__content">
+                <div className="activity-form__item">
+                    DATE: <b>{`${month}/${day}/${year}`}</b>
+                </div>
+                <div className="activity-form__item">
+                  <label htmlFor="volume">HOW MUCH WATER DID YOU DRINK</label>
+                  
+                  <div className="activity-form__item">
+                    <select name="oz" id="oz" value={waterOz} onChange={(event)=>setWaterOz(parseInt(event.target.value))}>
+                      {oz.map(o => <option key={`water-${o}`} value={o}>{o}</option>)}
+                    </select>
+                  </div>
+                </div>
 
-                  {oz.map(o => <option key={`water-${o}`} value={o}>{o}</option>)}
-                </select>
-
-                <button onClick={onClick}>done</button>
+                <div style={{textAlign: 'center'}}>
+                  <button 
+                    className="button--pill"
+                    onClick={onClick}
+                  >
+                    ADD
+                  </button>
+                </div>
               </div>
             );
           
           case "FRUITS_AND_VEGGIES":
             return(
-              <div className="activity-form__input-field">
-                <label htmlFor="volume">HOW MUCH DID YOU EAT</label>
-                <select name="servings" id="servings" value={fvServings} onChange={(event)=>setFvServings(parseInt(event.target.value))}>
-                  {servings.map(serving => <option key={`fv-${serving}`} value={serving}>{serving} {serving===5 && `+`}</option>)}
-                </select>
+              <div className="activity-form__content">
+                <div className="activity-form__item">
+                    DATE: <b>{`${month}/${day}/${year}`}</b>
+                </div>
+                <div className="activity-form__item">
+                  <label htmlFor="volume">HOW MUCH DID YOU EAT</label>
 
-                <button onClick={onClick}>done</button>
+                  <div className="activity-form__item">
+                    <select name="servings" id="servings" value={fvServings} onChange={(event)=>setFvServings(parseInt(event.target.value))}>
+                      {servings.map(serving => <option key={`fv-${serving}`} value={serving}>{serving} {serving===5 && `+`}</option>)}
+                    </select>
+                  </div>
+                
+                  <div style={{textAlign: 'center'}}>
+                    <button 
+                      className="button--pill"
+                      onClick={onClick}
+                    >
+                      ADD
+                    </button>
+                  </div>
+                </div>
               </div>
             );
     
           case "SELF_CHECK":
             return (
-              <div>
-                <p>Did you have a do a self check today?</p>
+              <div className="activity-form__content">
+                <div className="activity-form__item">
+                    DATE: <b>{`${month}/${day}/${year}`}</b>
+                </div>
+                <div className="activity-form__item">
+                  Did you have a do a self check today?
+                </div>
 
-                Jot down some notes
-                <input value={selfCheckNotes} onChange={(event)=> setSelfCheckNotes(event.target.value)}></input>
-                <button onClick={onClick}>yes</button>
-                <button onClick={onClose}>no :(</button>
+                <div className="activity-form__item">
+                  Jot down some notes
+                  <input
+                    className="activity-form__box"
+                    onChange={(event)=> setSelfCheckNotes(event.target.value)}
+                    value={selfCheckNotes} 
+                  />
+                </div>
+                <div style={{textAlign: 'center'}}>
+                  <button 
+                    className="button--pill"
+                    onClick={onClick}
+                  >
+                    ADD
+                  </button>
+                </div>
               </div>
             );
       
           case "MAMMOGRAM":
             return (
-              <div>
-                <h1>MAKE AN APPOINTMENT</h1>
-
-                <p>It’s so important that you get an mammograpm every year! When’s your appointment? We’ll remind you when it’s coming up.</p>
+              <div className="activity-form__content">
+                <div className="activity-form__item">
+                  MAKE AN APPOINTMENT
+                  
+                  It’s so important that you get an mammograpm every year! When’s your appointment? We’ll remind you when it’s coming up.
+                </div>
 
                 <Calendar 
                   onChange={(date)=>setMammogramDate(date)}
                   value={mammogramDate}
                 />
                 
-                <button onClick={onClick}>done</button>
-                <button onClick={()=>setHelpOverlay(true)}>help</button>
+                <div 
+                  className="activity-form__item"
+                  style={{color: COLORS.MAMMOGRAM}}
+                  onClick={()=>setHelpOverlay(true)}
+                >
+                  Not sure where to make an appointment? We’re here to help.
+                </div>
+                <div style={{textAlign: 'center'}}>
+                  <button 
+                    className="button--pill"
+                    onClick={onClick}
+                  >
+                      ADD
+                  </button>
+                </div>
 
                 {helpOverlay && (
-                  <Overlay>
-                    <div>
-                      It’s easiest to reach out to your local healthcare provider.
-                    </div>
-                    <div>
-                      Don’t have health insurance? Don’t worry - let us know your zip code and we’ll help you find some options.
-                    </div>
+                  <Overlay onClose={()=>setHelpOverlay(false)}>
+                    <div 
+                      className="activity-form-overlay__top"
+                      style={{backgroundColor: COLORS.MAMMOGRAM}}
+                    >
+                      <div className="activity-form-overlay__header">HELP</div>
+                      <div>
+                        It’s easiest to reach out to your local healthcare provider.
+                      </div>
+                      <div>
+                        Don’t have health insurance? Don’t worry - let us know your zip code and we’ll help you find some options.
+                      </div>
 
-                    <input type="text" name="zipcode" value="zipcode" />
+                      <input type="text" name="zipcode" value="zipcode" />
+                    </div>
                   </Overlay>
                 )}
               </div>

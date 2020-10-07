@@ -28,6 +28,9 @@ import Sleep from './pages/sleep';
 import Water from './pages/water';
 import Mammogram from './pages/mammogram';
 
+
+import './index.css';
+
 const store = configureStore();
 
 const renderApp = () =>
