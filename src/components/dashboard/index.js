@@ -226,16 +226,51 @@ function Dashboard(props) {
 
 
       <div className="dashboard__friend">
-        <Friend 
-          name={currentUserName==='JULIANNA'? 'BELLA': 'JULIANNA'}
-          exercise
-          mindfulness
-          sleep={false}
-          water
-          fruitsAndVeggies
-          selfCheck
-          mammogram
-        />
+
+      {(()=> {
+        if(currentUserName==='Bella'){
+          return(
+            <Friend 
+              name='Juliana'
+              exercise
+              mindfulness
+              sleep={false}
+              water
+              fruitsAndVeggies
+              selfCheck
+              mammogram
+            />
+          );
+        } else if(currentUserName==='Juliana') {
+          return(
+            <Friend 
+              name='Bella'
+              exercise={false}
+              mindfulness={false}
+              sleep={false}
+              water={false}
+              fruitsAndVeggies={false}
+              selfCheck
+              mammogram={false}
+            />
+          );
+        } else {
+          return (
+            <Friend 
+              name='Carol'
+              exercise
+              mindfulness={false}
+              sleep={false}
+              water
+              fruitsAndVeggies={false}
+              selfCheck
+              mammogram={false}
+            />
+          )
+        }
+      })()}
+
+
       </div>
 
       <div className="dashboard__sleep">

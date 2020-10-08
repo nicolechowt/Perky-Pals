@@ -40,7 +40,7 @@ function TipBox(props) {
         if(props.name==='Juliana') {
           return (
             <div>
-              tip for JULIANNA
+              tip for Juliana
             </div>
           )
         } else if(props.name==='Bella') {
