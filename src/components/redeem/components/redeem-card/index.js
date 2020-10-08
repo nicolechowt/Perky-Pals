@@ -10,11 +10,11 @@ function RedeemCard(props) {
   const { 
     //dispatch props
     addModal,
-
     description,
     points,
     onClick,
     title,
+    imageUrl,
   } = props;
 
   return (
@@ -25,16 +25,15 @@ function RedeemCard(props) {
     >
       <img 
         className="redeem-card__image"
-        src={thing} 
+        src={imageUrl} 
       />
 
       <div 
         className="redeem-card__text"
         style={{backgroundColor: COLORS.REDEEM}}
       >
-        <div>{title}</div>
+        <b>{title}</b>
         <div>{description}</div>
-        <div>{points} points</div>
       </div>
     </div>
   );

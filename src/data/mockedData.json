@@ -6,9 +6,9 @@
     "age": 33,
     "gender": "female",
     "ethnicity": "african-american",
-    "points": 4,
+    "points": 0,
     "goals": {
-      "exercise": 80,
+      "exercise": 150,
       "mindfulness": 2,
       "sleep": 7,
       "fruitsAndVeggies": 5,
@@ -133,7 +133,7 @@
     "age": 36,
     "gender": "female",
     "ethnicity": "hispanic",
-    "points": 354,
+    "points": 2480,
     "goals": {
       "exercise": 400,
       "mindfulness": 7,
@@ -153,8 +153,8 @@
         "id": 3
       }
     ],
-    "doneSelfCheckThisMonth": true,
-    "scheduledMammogram": "2020-10-27",
+    "doneSelfCheckThisMonth": false,
+    "scheduledMammogram": "2020-12-27",
     "previousSelfCheckNotes": [
       {
         "date": "2020-05-01",
@@ -182,7 +182,7 @@
         "date": "09/24/2020",
         "exercise": 0,
         "mindfulness": 0,
-        "sleep": 7,
+        "sleep": 0,
         "water": 84,
         "fruitsAndVeggies": 3,
         "selfCheck": 0,
@@ -198,7 +198,7 @@
         "sleep": 7,
         "water": 84,
         "fruitsAndVeggies": 3,
-        "selfCheck": 1,
+        "selfCheck": 0,
         "mammogram": 0
       },      
       {
@@ -322,9 +322,9 @@
     "age": 39,
     "gender": "female",
     "ethnicity": "white",
-    "points": 29,
+    "points": 990,
     "goals": {
-      "exercise": 120,
+      "exercise": 180,
       "mindfulness": 5,
       "sleep": 7,
       "fruitsAndVeggies": 5,

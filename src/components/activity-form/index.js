@@ -134,7 +134,7 @@ function ActivityForm(props) {
   ]
 
   const [redirect, setRedirect] = useState(false);
-  const [activityType, setActivityType] = useState('Hike');
+  const [activityType, setActivityType] = useState('Walk');
   const [activityMin, setActivityMin] = useState(1);
   const [sleepHour, setSleepHour] = useState(1);
   const [waterOz, setWaterOz] = useState(4);
@@ -408,7 +408,7 @@ function ActivityForm(props) {
 
                   <div>
                     <select name="activity" id="activity" value={activityType.value} onChange={(event)=>setActivityType(event.target.value)}>
-                      <option value="Hike">Hike</option>
+                      <option value="Walk">Walk</option>
                       <option value="Run">Run</option>
                       <option value="Yoga">Yoga</option>
                       <option value="Weights">Weights</option>
@@ -554,7 +554,23 @@ function ActivityForm(props) {
                 </div>
 
                 <div className="activity-form__item">
-                  Jot down some notes
+                  Any notes you’d like to add?
+                </div>
+
+                <div className="activity-form__item">
+                  <b>Want extra points? Join the Movement</b>
+                  <div>
+                    Share your #feelitonthefirst story on instagram now.
+                  </div>
+
+                  <div>
+                    <button 
+                      className="button--pill"
+                      // onClick={onClick}
+                    >
+                      SHARE
+                    </button>
+                  </div>
                 </div>
                 <div className="activity-form__item">
                   <input

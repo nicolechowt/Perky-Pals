@@ -11,6 +11,8 @@ import {
 } from '../../reducers/actions'
 import ProgressRing from '../progress-ring';
 import Friend from '../friend';
+import TipBox from '../tip-box';
+
 import { COLORS } from '../../../src/enums/colors'
 
 function Dashboard(props) {
@@ -196,7 +198,7 @@ function Dashboard(props) {
 
         <div className="dashboard__tips">
           <div>
-            tips
+            <TipBox name={currentUserName} />
           </div>
         </div>
 

@@ -3,11 +3,22 @@
   height: 100%;
 }
 
+.redeem__point-way-to-go
+{
+  color: white;
+  border-radius: 9px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
 .redeem__body
 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  justify-items: center;
 }
+
 .redeem__point-header
 {
   font-style: normal;

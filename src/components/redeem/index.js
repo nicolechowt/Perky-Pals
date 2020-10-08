@@ -15,6 +15,17 @@ import RedeemPreview from './components/redeem-preview';
 import './style/redeem.css';
 import { COLORS } from '../../enums/colors';
 
+import Fitbit from './assets/redeem/fitbit.jpg'
+import FarmFreshBox from './assets/redeem/farmbox.png'
+import MobileMammogram from './assets/redeem/Mobile_Mammogram.jpg'
+import YogaClass from './assets/redeem/Yoga.jpg'
+import MonthGymMembership from './assets/redeem/gym.jpg'
+import Physical from './assets/redeem/physcial_therapy.jpg'
+import Nutritionist from './assets/redeem/nutritionist.jpg'
+import Therapy from './assets/redeem/therapy.png'
+import BlueApron from './assets/redeem/blue_apron.jpg'
+import FarmStand from './assets/redeem/farmstand.jpg'
+
 function Redeem(props) {
   const { 
     // dispatch props
@@ -33,6 +44,20 @@ function Redeem(props) {
 
   const handleOnClick = (filteredItem) => {
     addModal(filteredItem);
+  }
+
+  const imageMap = {
+    1: Fitbit,
+    2: FarmFreshBox,
+    3: MobileMammogram,
+    4: YogaClass,
+    5: MonthGymMembership,
+    6: FarmFreshBox,
+    7: Physical,
+    8: Nutritionist,
+    9: Therapy,
+    10: BlueApron,
+    11: FarmStand
   }
 
   return (
@@ -58,19 +83,27 @@ function Redeem(props) {
         }
       })()}
 
+    <div 
+      className="redeem__point-way-to-go"
+      style={{backgroundColor: COLORS.REDEEM}}
+    >
+      WAY TO GO!
+      <div>Total Earned Perks: 10</div>
+    </div>
+
     <div className="redeem__body">
       <div 
         className="redeem__point-header"
         style={{color: COLORS.REDEEM}}
       >
-        10 points
+        350 points
       </div>
-      {items.filter(item => item.points===10).map(filteredItem => (
+      {items.filter(item => item.points===350).map(filteredItem => (
         <RedeemCard 
           description={filteredItem.description}
           onClick={()=> handleOnClick(filteredItem)}
-          points={filteredItem.points}
           title={filteredItem.title}
+          imageUrl={imageMap[filteredItem.id]}
         />
       ))}
 
@@ -78,14 +111,14 @@ function Redeem(props) {
         className="redeem__point-header"
         style={{color: COLORS.REDEEM}}
       >
-        20 points
+        750 points
       </div>
-      {items.filter(item => item.points===20).map(filteredItem => (
+      {items.filter(item => item.points===750).map(filteredItem => (
         <RedeemCard 
           description={filteredItem.description}
           onClick={()=> handleOnClick(filteredItem)}
-          points={filteredItem.points}
           title={filteredItem.title}
+          imageUrl={imageMap[filteredItem.id]}
         />
       ))}
 
@@ -93,14 +126,14 @@ function Redeem(props) {
         className="redeem__point-header"
         style={{color: COLORS.REDEEM}}
       >
-        30+ points
+        1000+ points
       </div>
-      {items.filter(item => item.points>=30).map(filteredItem => (
+      {items.filter(item => item.points>=1000).map(filteredItem => (
         <RedeemCard 
           description={filteredItem.description}
           onClick={()=> handleOnClick(filteredItem)}
-          points={filteredItem.points}
           title={filteredItem.title}
+          imageUrl={imageMap[filteredItem.id]}
         />
       ))}
       </div>
