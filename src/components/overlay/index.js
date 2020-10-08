@@ -19,13 +19,14 @@ export default function Overlay(props) {
       <div 
         className="page__back-button"
         onClick={handleOnClick}
+        style={{ zIndex: 3 }}
       >
         <i
           class="fa fa-angle-left"
           style={{
             fontSize:'36px',
             color: "#4B5B7E", 
-            padding: '4px'
+            padding: '4px',
           }}
         />
       </div>
@@ -45,7 +46,7 @@ export default function Overlay(props) {
         } 
         
         return(
-          <div className="overlay__links">
+          <div className="overlay__content">
             {props.children}
           </div>
         )

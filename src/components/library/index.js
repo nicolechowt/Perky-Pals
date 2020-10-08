@@ -8,7 +8,11 @@ import {
 } from '../../reducers/actions'
 import { connect } from 'react-redux';
 import OverlayDetail from "./components/overlay-detail";
+import LibraryIntro from "./components/library-intro";
+import LibraryTips from "./components/library-tips";
+import LibraryResources from "./components/library-resources";
 
+import { COLORS } from '../../../src/enums/colors'
 
 function Library() {
   const [viewState, setViewState] = useState('');
@@ -16,47 +20,47 @@ function Library() {
   return (
     <div className="library">
       <div 
-        className="library__exercise"
-        onClick={()=>setViewState('EXERCISE')}
+        className="library__box"
+        style={{backgroundColor: `${COLORS.EXERCISE}`}}
       >
-        <Box >
-          EXERCISE STUFF
+        <Box onClick={()=>setViewState('EXERCISE')}>
+          EXERCISE
         </Box>
       </div>
 
 
       <div 
-        className="library__exercise"
-        onClick={()=>setViewState('MINDFULNESS')}
+        className="library__box"
+        style={{backgroundColor: `${COLORS.MINDFULNESS}`}}
       >
-        <Box >
-          MINDFULNESS STUFF
+        <Box onClick={()=>setViewState('MINDFULNESS')}>
+          MINDFULNESS
         </Box>
       </div>
 
       <div 
-        className="library__exercise"
-        onClick={()=>setViewState('BREAST_HEALTH')}
+        className="library__box library__box-breast"
+        style={{backgroundColor: `${COLORS.MAMMOGRAM}`}}
       >
-        <Box>
+        <Box onClick={()=>setViewState('BREAST_HEALTH')}>
           BREAST HEALTH
         </Box>
       </div>
 
       <div 
-        className="library__exercise"
-        onClick={()=>setViewState('HEALTHY_EATING')}
+        className="library__box"
+        style={{backgroundColor: `${COLORS.FRUITS_AND_VEGGIES}`}}
       >
-        <Box>
+        <Box onClick={()=>setViewState('HEALTHY_EATING')}>
           HEALTHY EATING
         </Box>   
       </div>
    
       <div 
-        className="library__exercise"
-        onClick={()=>setViewState('SLEEP')}
+        className="library__box"
+        style={{backgroundColor: `${COLORS.SLEEP}`}}
       >
-        <Box>
+        <Box onClick={()=>setViewState('SLEEP')}>
           SLEEP
         </Box>
       </div>
@@ -64,9 +68,11 @@ function Library() {
       {viewState==='EXERCISE' &&         
         <Overlay onClose={()=>setViewState('')}>
           <OverlayDetail
-            intro={<div>EXERCISE intro</div>}
-            tips={<div>EXERCISE tips</div>}
-            resources={<div>EXERCISE resources</div>}
+            name='EXERCISE'
+            color={COLORS.EXERCISE}
+            intro={<LibraryIntro name='EXERCISE' />}
+            tips={<LibraryTips name='EXERCISE' />}
+            resources={<LibraryResources name='EXERCISE' />}
           />
         </Overlay>
       }
@@ -74,9 +80,11 @@ function Library() {
       {viewState==='MINDFULNESS' &&         
         <Overlay onClose={()=>setViewState('')}>
           <OverlayDetail
-            intro={<div>MINDFULNESS intro</div>}
-            tips={<div>MINDFULNESS tips</div>}
-            resources={<div>MINDFULNESS resources</div>}
+            name='MINDFULNESS'
+            color={COLORS.MINDFULNESS}
+            intro={<LibraryIntro name='MINDFULNESS' />}
+            tips={<LibraryTips name='MINDFULNESS' />}
+            resources={<LibraryResources name='MINDFULNESS' />}
           />
         </Overlay>
       }
@@ -84,9 +92,13 @@ function Library() {
       {viewState==='BREAST_HEALTH' &&       
         <Overlay onClose={()=>setViewState('')}>
           <OverlayDetail
-            intro={<div>BREAST_HEALTH intro</div>}
-            tips={<div>BREAST_HEALTH tips</div>}
-            resources={<div>BREAST_HEALTH resources</div>}
+            name="BREAST HEALTH"
+            color={COLORS.MAMMOGRAM}
+            intro={<LibraryIntro name='BREAST HEALTH' />}
+            tips={<LibraryTips name='BREAST HEALTH' />}
+            selfcheck={<LibraryTips name='BREAST HEALTH SELF CHECK' />}
+            mammogram={<LibraryTips name='BREAST HEALTH MAMMOGRAM' />}
+            resources={<LibraryResources name='BREAST HEALTH' />}
           />
         </Overlay>  
       }
@@ -94,9 +106,11 @@ function Library() {
       {viewState==='HEALTHY_EATING' &&         
         <Overlay onClose={()=>setViewState('')}>
           <OverlayDetail
-            intro={<div>HEALTHY_EATINGintro</div>}
-            tips={<div>HEALTHY_EATING tips</div>}
-            resources={<div>HEALTHY_EATING resources</div>}
+            name="HEALTHY EATING"
+            color={COLORS.FRUITS_AND_VEGGIES}
+            intro={<LibraryIntro name='HEALTHY EATING' />}
+            tips={<LibraryTips name='HEALTHY EATING' />}
+            resources={<LibraryResources name='HEALTHY EATING' />}
           />
         </Overlay>
       }
@@ -104,9 +118,11 @@ function Library() {
       {viewState==='SLEEP' &&         
         <Overlay onClose={()=>setViewState('')}>
           <OverlayDetail
-            intro={<div>SLEEP intro</div>}
-            tips={<div>SLEEP tips</div>}
-            resources={<div>SLEEP resources</div>}
+            name="SLEEP"
+            color={COLORS.SLEEP}
+            intro={<LibraryIntro name='SLEEP' />}
+            tips={<LibraryTips name='SLEEP' />}
+            resources={<LibraryResources name="SLEEP" />}
           />
         </Overlay>
       }

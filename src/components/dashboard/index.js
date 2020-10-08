@@ -194,15 +194,11 @@ function Dashboard(props) {
           />
         </div>
 
-
-      <div className="dashboard__tips">
-        <Box>
+        <div className="dashboard__tips">
           <div>
             tips
           </div>
-        </Box>
-      </div>
-
+        </div>
 
         <div className="dashboard__water">
           <ActivityBox 

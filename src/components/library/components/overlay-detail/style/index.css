@@ -1,0 +1,42 @@
+.overlay-detail
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column
+}
+
+.overlay-detail__header-section
+{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: white;
+  height: 110px;
+}
+
+.overlay-detail__header
+{
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.overlay-detail__section-header
+{
+  padding: 0 20px 20px;
+}
+
+.overlay-detail__button :active{
+  color: yellow;
+}
+
+.overlay-detail__intro,
+.overlay-detail__tips,
+.overlay-detail__resources
+{
+  margin-top: 110px;
+  padding: 0 20px;
+}
