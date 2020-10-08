@@ -32,6 +32,7 @@ function Redeem(props) {
     addModal,
     removeModal,
     redeemItem,
+    currentUser=[],
 
     // props
     modal, 
@@ -41,6 +42,7 @@ function Redeem(props) {
   const content = modal && modal.content;
 
   const userCurrentPoints = dashboard && dashboard.points;
+  const currentUserName = currentUser[0] && currentUser[0].name;
 
   const handleOnClick = (filteredItem) => {
     addModal(filteredItem);
@@ -88,7 +90,7 @@ function Redeem(props) {
       style={{backgroundColor: COLORS.REDEEM}}
     >
       WAY TO GO!
-      <div>Total Earned Perks: 10</div>
+      <div>Total Earned Perks: {currentUserName === 'Juliana' ? 1500 : 0}</div>
     </div>
 
     <div className="redeem__body">

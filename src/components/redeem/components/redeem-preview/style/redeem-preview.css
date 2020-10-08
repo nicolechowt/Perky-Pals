@@ -1,11 +1,56 @@
-.activity-box
+.redeem-preview
 {
-  position: relative;
+  padding: 20px;
 }
 
-.activity-box__plus
+.redeem-preview__header
 {
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
+  text-align: center;
+}
+
+.redeem-preview__title
+{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  color: #0DB39E;
+}
+
+.redeem-preview__description
+{
+  font-size: 16px;
+  color: #4B5B7E;
+}
+
+.redeem-preview__points
+{
+  font-size: 16px;
+  color: #4B5B7E;
+  font-weight: bold;
+  text-align: center;
+}
+
+.redeem-preview__container
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.redeem__button
+{
+  align-self: center;
+}
+.redeem-preview__checkout-item
+{
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  padding: 20px 0;
+  color: #4B5B7E;
+}
+
+.redeem-preview__checkout-balance
+{
+  border-top: 1px solid #EFEFEF;
 }

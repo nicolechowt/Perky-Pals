@@ -22,14 +22,16 @@ function RedeemPreview(props) {
 
   // close modal
   return (
-    <div>
+    <div className="redeem-preview">
       {viewState==='PREVIEW' && 
-        <div>
-          {title}
-          {description}
-          {points}
+        <div className="redeem-preview__container">
+          <div className="redeem-preview__header"> REDEEM </div>
+          <div className="redeem-preview__title">{title} </div>
+          <div className="redeem-preview__description">{description}</div>
+          <div className="redeem-preview__points">{points} PERKS</div>
       
           <button 
+            className="button--pill-yellow redeem__button"
             onClick={()=>{
               if(userCurrentPoints-points>0) {
                 setViewState('CHECKOUT');
@@ -44,13 +46,27 @@ function RedeemPreview(props) {
       }
 
       {viewState==='CHECKOUT' && 
-        <div>
-          CURRENT TOTAL {userCurrentPoints}
-          FRESH PRODUCE {points}
+        <div className="redeem-preview__container">
+          <div className="redeem-preview__header"> CHECKOUT </div>
+          <div className="redeem-preview__checkout-item">
+            <div>Current Perks Balance</div>
+            <div>{userCurrentPoints}</div>
+          </div>
+
+          <div className="redeem-preview__checkout-item">
+            <div>{title}</div>
+            <div>-{points}</div>
+          </div>
           
-          BALANCE {userCurrentPoints-points}
+          <div className="redeem-preview__checkout-balance" />
+
+          <div className="redeem-preview__checkout-item">
+            <div style={{fontWeight: 'normal'}}>New Perks Balance</div>
+            <div>{userCurrentPoints-points}</div>
+          </div>
       
           <button 
+            className="button--pill-yellow redeem__button"
             onClick={()=>{
               redeemItem(points);
               setViewState('CONFIRMATION');
@@ -66,7 +82,7 @@ function RedeemPreview(props) {
       }
 
       {viewState==='CONFIRMATION' && 
-        <div>
+        <div className="redeem-preview__container">
           YES YES YES
           CONGRATS
       
@@ -77,7 +93,7 @@ function RedeemPreview(props) {
       }
 
       {viewState==='SORRY' && 
-        <div>
+        <div className="redeem-preview__container">
           SORRY BUT KEEP UP WITH THE GOOD HABITS AND YOU WILL GET THERE IN NO TIME
       
           {/* 7 is the most categories they could claim in a day*/}

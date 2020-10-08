@@ -27,3 +27,14 @@ a
   margin: 8px;
   width: 110px;
 }
+
+
+.button--pill-yellow
+{
+  background: #FEBE3E;
+  border-radius: 28px;
+  color: #4B5B7E;
+  height: 42px;
+  margin: 8px;
+  width: 110px;
+}
