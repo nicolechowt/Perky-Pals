@@ -165,10 +165,20 @@ function ActivityForm(props) {
     ) {
       addPoints(1);
       addModal(  {
-        title: 'yay points', 
-        body: 'you earned 1 point'
+        title: 'YAY!', 
+        body1: 'You just earned',
+        number: '+1 perk',
+        footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
+    } else if (type==='EXERCISE') {
+      addModal(  {
+        title: 'Way to go!', 
+        body1: 'You are just',
+        number: `${exerciseGoal-(exerciseWeek+exercise)}`,
+        body2: 'minutes away from meeting your goal',
+        footer:  'Check out our library for tips on getting creative with your workouts!',
+      });
     }
   }, [addModal, addPoints, addPointsDetails, exercise, exerciseGoal, exerciseWeek, pointsClaimed, type]);
 
@@ -180,10 +190,20 @@ function ActivityForm(props) {
     ) {
       addPoints(1);
       addModal(  {
-        title: 'yay points', 
-        body: 'you earned 1 point'
+        title: 'YAY!', 
+        body1: 'You just earned',
+        number: '+1 perk',
+        footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
+    } else if (type==='MINDFULNESS') {
+      addModal(  {
+        title: 'Way to go!', 
+        body1: 'You are just',
+        number: `${mindfulnesseGoal-(mindfulnessWeek+mindfulness)}`,
+        body2: 'minutes away from meeting your goal',
+        footer:  'Check out our library for tips on getting creative with your workouts!',
+      });
     }
   }, [addModal, addPoints, addPointsDetails, mindfulness, mindfulnessWeek, mindfulnesseGoal, pointsClaimed, type]);
 
@@ -195,10 +215,18 @@ function ActivityForm(props) {
     ) {
       addPoints(1);
       addModal(  {
-        title: 'yay points', 
-        body: 'you earned 1 point'
+        title: 'YAY!', 
+        body1: 'You just earned',
+        number: '+1 perk',
+        footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
+    } else if (type==='SLEEP') {
+      addModal(  {
+        title: 'Added!', 
+        body1: 'You didn’t quite meet your goal, but we know you have it in you.',
+        footer:  'Check out our library for tips on getting more sleep.',
+      });
     }
   }, [addModal, addPoints, addPointsDetails, pointsClaimed, sleep, sleepGoal, type]);
 
@@ -210,10 +238,20 @@ function ActivityForm(props) {
     ) {
       addPoints(1);
       addModal(  {
-        title: 'yay points', 
-        body: 'you earned 1 point'
+        title: 'YAY!',         
+        body1: 'You just earned',
+        number: '+1 perk',
+        footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
+    } else if (type==='WATER') {
+      addModal(  {
+        title: 'Way to go!', 
+        body1: 'You are just',
+        number: `${waterGoal-water}`,
+        body2: 'oz away from meeting your goal',
+        footer:  'Check out our library for tips on adding water to your lifestyle',
+      });
     }
   }, [addModal, addPoints, addPointsDetails, pointsClaimed, type, water, waterGoal]);
 
@@ -225,10 +263,20 @@ function ActivityForm(props) {
     ) {
       addPoints(1);
       addModal(  {
-        title: 'yay points', 
-        body: 'you earned 1 point'
+        title: 'YAY!', 
+        body1: 'You just earned',
+        number: '+1 perk',
+        footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
+    } else if (type==='FRUITS_AND_VEGGIES') {
+      addModal(  {
+        title: 'Way to go!', 
+        body1: 'You are just',
+        number: `${fruitsAndVeggiesGoal-fruitsAndVeggies}`,
+        body2: 'servings away from meeting your goal',
+        footer:  'Check out our library for tips on adding more fruits and veggies to your lifestyle',
+      });
     }
   }, [addModal, addPoints, addPointsDetails, fruitsAndVeggies, fruitsAndVeggiesGoal, pointsClaimed, type]);
 
@@ -240,8 +288,10 @@ function ActivityForm(props) {
     ) {
       addPoints(10);
       addModal(  {
-        title: 'yay points', 
-        body: 'you earned 10 points'
+        title: 'YAY!', 
+        body1: 'You just earned',
+        number: '+10 perks',
+        footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
     }
@@ -255,8 +305,10 @@ function ActivityForm(props) {
     ) {
       addPoints(120);
       addModal(  {
-        title: 'yay points', 
-        body: 'you earned 120 point'
+        title: 'YAY!', 
+        body1: 'You just earned',
+        number: '+120 perks',
+        footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
     }

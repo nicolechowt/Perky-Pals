@@ -12,8 +12,8 @@ import {
 import ProgressRing from '../progress-ring';
 import Friend from '../friend';
 import TipBox from '../tip-box';
-
-import { COLORS } from '../../../src/enums/colors'
+import PointsOverlay from './components/points-overlay';
+import { COLORS } from '../../../src/enums/colors';
 
 function Dashboard(props) {
   const { 
@@ -149,8 +149,13 @@ function Dashboard(props) {
             <Overlay onClose={()=>{
               removeModal();
             }}>
-              {content.title}
-              {content.body}
+              <PointsOverlay 
+                title={content.title}
+                body1={content.body1}
+                number={content.number}
+                body2={content.body2}
+                footer={content.footer}
+              />
             </Overlay>
           )
         }

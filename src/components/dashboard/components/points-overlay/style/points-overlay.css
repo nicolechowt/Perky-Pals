@@ -1,0 +1,100 @@
+.points-overlay
+{
+  text-align: center;
+  height: 100%;
+  padding: 0 30px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.points-overlay__title
+{
+  color: #0DB39E;
+  font-weight: bold;
+  font-size: 30px;
+  border-radius: 20px 20px 0 0;
+  text-align: center;
+}
+
+.points-overlay__title--yay
+{
+  position: relative;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 90px;
+
+
+}
+
+.points-overlay__title-y
+{
+  /* position: absolute;
+  top: -94px;
+  left: 0; */
+  color: #F55F15;
+  display: inline;
+  padding-right: 24px;
+
+  position: relative;
+}
+
+.points-overlay__title-a
+{
+  position: absolute;
+  top: -20px;
+  left: 45px;
+  color: #FF8500;
+  display: inline;
+}
+
+.points-overlay__title-y-2
+{
+  color: #FF9900;
+  display: inline;
+  padding-left: 27px;
+
+  position: relative;
+}
+
+.points-overlay__title-ex
+{
+  position: absolute;
+  top: -20px;
+  left: 65px;
+  color: #FEBE3E;
+  display: inline;
+}
+
+.points-overlay__body
+{
+  font-size: 16px;
+  color: #4B5B7E;
+  font-weight: bold;
+}
+
+.points-overlay__number
+{
+  font-size: 40px;
+  color: #4B5B7E;
+  font-weight: bold;
+}
+
+.points-overlay__footer
+{
+  padding-top: 48px;
+  color: #0DB39E;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: initial;
+}
+
+.points-overlay__footer--orange
+{
+  color: #FF8500;
+}
