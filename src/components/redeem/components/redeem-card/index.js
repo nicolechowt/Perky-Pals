@@ -1,21 +1,18 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import thing from '../../../../assets/thing.jpg';
-import { ADD_MODAL } from '../../../../reducers/actions'
-import { COLORS } from '../../../../enums/colors'
+import React, { useState } from 'react';
+import { COLORS } from '../../../../enums/colors';
 
 import './style/redeem-card.css';
 
-function RedeemCard(props) {
+export default function RedeemCard(props) {
   const { 
-    //dispatch props
-    addModal,
     description,
-    points,
-    onClick,
-    title,
     imageUrl,
+    onClick,
+    points,
+    title,
   } = props;
+
+  const [isImageDoneLoading, setisImageDoneLoading]=useState(false);
 
   return (
     <div 
@@ -24,7 +21,8 @@ function RedeemCard(props) {
       onClick={onClick}
     >
       <img 
-        className="redeem-card__image"
+        className={ isImageDoneLoading ? "redeem-card__image" : "redeem-card__image--loading"}
+        onLoad={()=>setisImageDoneLoading(true)}
         src={imageUrl} 
       />
 
@@ -32,30 +30,9 @@ function RedeemCard(props) {
         className="redeem-card__text"
         style={{backgroundColor: COLORS.REDEEM}}
       >
-        <b>{title}</b>
-        <div>{description}</div>
+        {title}
       </div>
     </div>
   );
 }
 
-function mapStateToProps(state) {
-  const { 
-    dashboardReducer,
-  } = state;
-
-  return {  
-    exerciseMinutes: dashboardReducer.exercise,
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return { 
-    addModal: (data) => dispatch({ type: ADD_MODAL, data}),
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(RedeemCard)

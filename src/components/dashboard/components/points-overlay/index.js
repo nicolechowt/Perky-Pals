@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import thing from '../../../../assets/thing.jpg';
 import { ADD_MODAL } from '../../../../reducers/actions'
 import { COLORS } from '../../../../enums/colors'
 

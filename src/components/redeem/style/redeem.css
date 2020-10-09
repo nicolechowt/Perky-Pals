@@ -3,12 +3,17 @@
   height: 100%;
 }
 
-.redeem__point-way-to-go
+.redeem__point
 {
-  color: white;
-  border-radius: 9px;
+  color: #4B5B7E;
   padding: 10px;
-  box-sizing: border-box;
+}
+
+.redeem
+{
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
   text-align: center;
 }
 
@@ -16,7 +21,6 @@
 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-items: center;
 }
 
 .redeem__point-header
@@ -28,4 +32,12 @@
   text-transform: uppercase;
   grid-column-start: 1;
   grid-column-end: 3;
+  text-align: left;
+}
+
+.redeem__point-total-earned
+{
+  font-size: 12px;
+  font-style: italic; 
+  font-weight: 400;
 }

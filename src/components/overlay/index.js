@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './style/overlay.css';
-import close from '../../assets/close.svg';
 
 export default function Overlay(props) {
   const [isOverlayOpen, setIsOverlayOpen] = useState(true);

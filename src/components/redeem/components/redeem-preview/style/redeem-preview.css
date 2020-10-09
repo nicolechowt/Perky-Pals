@@ -1,11 +1,22 @@
 .redeem-preview
 {
-  padding: 20px;
+  margin: 20px;
+  height: 100%;
+  text-align: left;
 }
 
 .redeem-preview__header
 {
   text-align: center;
+  color: #4B5B7E;
+  font-weight: 300;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+.redeem-preview__image
+{
+  max-width: 350px;
 }
 
 .redeem-preview__title
@@ -13,13 +24,17 @@
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
-  color: #0DB39E;
+  color: #0DB39E; 
+  padding-top: 28px;
 }
 
 .redeem-preview__description
 {
   font-size: 16px;
   color: #4B5B7E;
+  text-align: left;
+  font-weight: normal;
+  padding: 15px 0;
 }
 
 .redeem-preview__points
@@ -28,6 +43,7 @@
   color: #4B5B7E;
   font-weight: bold;
   text-align: center;
+  padding-top: 32px;
 }
 
 .redeem-preview__container
@@ -41,6 +57,12 @@
 {
   align-self: center;
 }
+
+.redeem__button--long
+{
+  width: 220px;
+}
+
 .redeem-preview__checkout-item
 {
   display: flex;

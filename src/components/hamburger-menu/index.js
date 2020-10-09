@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import './style/hamburger-menu.css';
-import menu from '../../assets/menu.svg';
-import close from '../../assets/close.svg';
 import Overlay from '../overlay';
 import { COLORS } from '../../../src/enums/colors'
 

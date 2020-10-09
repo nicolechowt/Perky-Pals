@@ -15,16 +15,8 @@ import RedeemPreview from './components/redeem-preview';
 import './style/redeem.css';
 import { COLORS } from '../../enums/colors';
 
-import Fitbit from './assets/redeem/fitbit.jpg'
-import FarmFreshBox from './assets/redeem/farmbox.png'
 import MobileMammogram from './assets/redeem/Mobile_Mammogram.jpg'
 import YogaClass from './assets/redeem/Yoga.jpg'
-import MonthGymMembership from './assets/redeem/gym.jpg'
-import Physical from './assets/redeem/physcial_therapy.jpg'
-import Nutritionist from './assets/redeem/nutritionist.jpg'
-import Therapy from './assets/redeem/therapy.png'
-import BlueApron from './assets/redeem/blue_apron.jpg'
-import FarmStand from './assets/redeem/farmstand.jpg'
 
 function Redeem(props) {
   const { 
@@ -49,17 +41,18 @@ function Redeem(props) {
   }
 
   const imageMap = {
-    1: Fitbit,
-    2: FarmFreshBox,
+    1: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/fitbit_y0swh4.jpg',
+    2: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
     3: MobileMammogram,
     4: YogaClass,
-    5: MonthGymMembership,
-    6: FarmFreshBox,
-    7: Physical,
-    8: Nutritionist,
-    9: Therapy,
-    10: BlueApron,
-    11: FarmStand
+    5: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/gym_wtht2n.jpg',
+    6: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
+    7: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/physcial_therapy_cgf8ls.jpg',
+    8: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/nutritionist_kyjhk8.jpg',
+    9: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/therapy_bbcmit.png',
+    10: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216384/blue_apron_kniyzk.jpg',
+    11: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmstand_zqn6dc.jpg',
+    12: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216386/social_work_jtharl.png'
   }
 
   return (
@@ -73,6 +66,7 @@ function Redeem(props) {
               removeModal();
             }}>
               <RedeemPreview 
+                imageURL={content.imageURL}
                 title={content.title}
                 description={content.description}
                 points={content.points}
@@ -85,12 +79,11 @@ function Redeem(props) {
         }
       })()}
 
-    <div 
-      className="redeem__point-way-to-go"
-      style={{backgroundColor: COLORS.REDEEM}}
-    >
-      WAY TO GO!
-      <div>Total Earned Perks: {currentUserName === 'Juliana' ? 1500 : 0}</div>
+    <div className="redeem__point">
+      <div className="redeem__point-redeem">REDEEM YOUR POINTS</div>
+      <div className="redeem__point-total-earned">
+        Total Earned Perks: {currentUserName === 'Juliana' ? 1500 : 0}
+      </div>
     </div>
 
     <div className="redeem__body">

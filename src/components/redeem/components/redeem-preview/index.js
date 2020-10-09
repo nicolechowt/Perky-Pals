@@ -12,6 +12,7 @@ function RedeemPreview(props) {
     handleCancelClick, 
     redeemItem,
     pointsClaimed,
+    imageURL,
   } = props;
   const [viewState, setViewState] = useState('PREVIEW');
 
@@ -26,6 +27,7 @@ function RedeemPreview(props) {
       {viewState==='PREVIEW' && 
         <div className="redeem-preview__container">
           <div className="redeem-preview__header"> REDEEM </div>
+          <img className="redeem-preview__image" src={imageURL} />
           <div className="redeem-preview__title">{title} </div>
           <div className="redeem-preview__description">{description}</div>
           <div className="redeem-preview__points">{points} PERKS</div>
@@ -81,21 +83,15 @@ function RedeemPreview(props) {
         </div>
       }
 
-      {viewState==='CONFIRMATION' && 
-        <div className="redeem-preview__container">
-          YES YES YES
-          CONGRATS
-      
-          <button onClick={handleCancelClick}>
-            CONFIRM
-          </button>
-        </div>
-      }
-
       {viewState==='SORRY' && 
         <div className="redeem-preview__container">
-          SORRY BUT KEEP UP WITH THE GOOD HABITS AND YOU WILL GET THERE IN NO TIME
+          <div className="redeem-preview__title">
+            WE ARE SORRY.
+          </div>
       
+          <div className="redeem-preview__description">
+            You don't have enough perks to redeem this item yet.
+          </div>
           {/* 7 is the most categories they could claim in a day*/}
           {(()=>{
             if(notYetClaimed) {
@@ -112,14 +108,17 @@ function RedeemPreview(props) {
               };
 
               return(
-                <div>
-                  Not so sad yet, what about we {numToActivityMap[notYetClaimed[randomIndex]]} today to earn some extra perks? 
+                <div className="redeem-preview__description">
+                  But, we can {numToActivityMap[notYetClaimed[randomIndex]]} today to earn some extra perks ;)
                 </div>
               );
             }
           })()}
-          <button onClick={handleCancelClick}>
-            Ok :(
+          <button 
+            onClick={handleCancelClick}
+            className="button--pill-yellow redeem__button redeem__button--long"
+          >
+            SOUNDS GOOD
           </button>
         </div>
       }

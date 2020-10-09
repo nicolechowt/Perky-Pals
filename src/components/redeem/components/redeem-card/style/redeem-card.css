@@ -18,18 +18,25 @@
   align-self: stretch;
 }
 
+
+.redeem-card__image--loading
+{
+  max-width: 100%;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: -7px;
+  background:  #EFEFEF;
+  align-self: stretch;
+}
+
 .redeem-card__text
 {
-  font-size: 10px;
+  font-size: 14px;
   border-radius: 0 0 4px 4px;
   box-sizing: border-box;
   color: white;
   padding: 14px;
+  font-weight: 700;
 
   align-self: stretch;
 
-  /* display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;  
-  overflow: hidden; */
 }
