@@ -71,7 +71,7 @@ function RedeemPreview(props) {
             className="button--pill-yellow redeem__button"
             onClick={()=>{
               redeemItem(points);
-              setViewState('CONFIRMATION');
+              handleCancelClick()
             }}
           >
             CONFIRM

@@ -154,9 +154,10 @@ function Dashboard(props) {
 
         if(content.title){
           return(
-            <Overlay onClose={()=>{
-              removeModal();
-            }}>
+            <Overlay 
+              onClose={()=>removeModal()}
+              modal
+            >
               <PointsOverlay 
                 title={content.title}
                 body1={content.body1}
@@ -311,7 +312,7 @@ function Dashboard(props) {
         >
           {selfCheck ? 
             (
-              <div>Yay, it is so important that you perform this monthly bleh bleh bleh bleh <p>next check: {nextMonth}/1</p></div>
+              <div>Good job on performing a self exam and sharing an awareness selfie on instagram. You go!<p>next check: {nextMonth}/1</p></div>
             ): 
             (
               <div>Time to check your boobs! We’ll walk you through the process</div>

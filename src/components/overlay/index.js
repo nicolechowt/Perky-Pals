@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import './style/overlay.css';
 
 export default function Overlay(props) {
+  const {
+    onClose,
+    modal,
+    name,
+    children,
+  } = props;
+
   const [isOverlayOpen, setIsOverlayOpen] = useState(true);
 
   const handleOnClick = () => {
     setIsOverlayOpen(false);
-    
-    props.onClose && props.onClose();
+    onClose && onClose();
   }
 
   return (
@@ -15,40 +21,64 @@ export default function Overlay(props) {
       className="overlay"
       style={isOverlayOpen ? {display: 'block'} : {display: 'none'}}
     >
-      <div 
-        className="page__back-button"
-        onClick={handleOnClick}
-        style={{ zIndex: 3 }}
-      >
-        <i
-          class="fa fa-angle-left"
-          style={{
-            fontSize:'36px',
-            color: "#4B5B7E", 
-            padding: '4px',
-          }}
-        />
-      </div>
+      {!modal && (
+        <div 
+          className="page__back-button"
+          onClick={handleOnClick}
+          style={{ zIndex: 3 }}
+        >
+          <i
+            class="fa fa-angle-left"
+            style={{
+              fontSize:'36px',
+              color: "#4B5B7E", 
+              padding: '4px',
+            }}
+          />
+        </div>
+      )}
 
-
-      {/* only close overlay on click if this is the hamburger menu */}
       {(()=>{
-        if(props.name === 'HAMBURGER_MENU') {
+        if(name === 'HAMBURGER_MENU') {
+          {/* we want to also close the overlay on click if this is the hamburger menu */}
           return(
             <div 
               className="overlay__links"
               onClick={handleOnClick}
             >
-              {props.children}
+              {children}
             </div>
           );
-        } 
-        
-        return(
-          <div className="overlay__content">
-            {props.children}
+        } else if (!modal) {
+          return(
+            <div className="overlay__content">
+              {children}
+            </div>
+          )
+        }; 
+
+        return (
+          <div className="overlay__content--modal-wrapper">
+            <div className="overlay__content--modal">
+              <div 
+                className="overlay__close-button"
+                onClick={handleOnClick}
+                style={{ zIndex: 3 }}
+              >
+                <i  
+                  class="fa fa-times"
+                  style={{
+                    fontSize:'12px',
+                    color: "#4B5B7E", 
+                    padding: '4px'
+                  }}
+                />
+              </div>
+
+              {children}
+            </div>
           </div>
-        )
+        );
       })()}
     </div>
   );
