@@ -1,11 +1,13 @@
-.overlay-detail
+.library-detail
 {
   display: flex;
   justify-content: center;
-  flex-direction: column
+  flex-direction: column;
+
+  position: relative;
 }
 
-.overlay-detail__header-section
+.library-detail__header-section
 {
   position: fixed;
   width: 100%;
@@ -15,7 +17,7 @@
   height: 110px;
 }
 
-.overlay-detail__header
+.library-detail__header
 {
   font-weight: 300;
   font-size: 24px;
@@ -24,19 +26,26 @@
   padding-top: 20px;
 }
 
-.overlay-detail__section-header
+.library-detail__section-header
 {
   padding: 0 20px 20px;
 }
 
-.overlay-detail__button :active{
+.library-detail__button :active{
   color: yellow;
 }
 
-.overlay-detail__intro,
-.overlay-detail__tips,
-.overlay-detail__resources
+.library-detail__intro,
+.library-detail__tips,
+.library-detail__resources
 {
   margin-top: 110px;
   padding: 0 20px;
+}
+
+.library-detail__back-button
+{
+  position: absolute;
+  top: 8px;
+  left: 20px;
 }

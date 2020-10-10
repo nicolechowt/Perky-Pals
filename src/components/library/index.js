@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import './style/library.css';
 import Box from '../box';
-import Overlay from '../overlay';
 import { 
   ADD_MODAL,
   REMOVE_MODAL,
 } from '../../reducers/actions'
 import { connect } from 'react-redux';
-import OverlayDetail from "./components/overlay-detail";
-import LibraryIntro from "./components/library-intro";
-import LibraryTips from "./components/library-tips";
-import LibraryResources from "./components/library-resources";
+
+import {
+  useRouteMatch,
+  withRouter,
+} from "react-router-dom";
 
 import { COLORS } from '../../../src/enums/colors'
 
-function Library() {
-  const [viewState, setViewState] = useState('');
+function Library(props) {
+  let { url } = useRouteMatch();
+
+  const nextPath = (path) => {
+    props.history.push(path);
+  }
 
   return (
     <div className="library">
@@ -23,7 +27,7 @@ function Library() {
         className="library__box"
         style={{backgroundColor: `${COLORS.EXERCISE}`}}
       >
-        <Box onClick={()=>setViewState('EXERCISE')}>
+        <Box onClick={()=>nextPath(`${url}/exercise`)}>
           EXERCISE
         </Box>
       </div>
@@ -33,7 +37,7 @@ function Library() {
         className="library__box"
         style={{backgroundColor: `${COLORS.MINDFULNESS}`}}
       >
-        <Box onClick={()=>setViewState('MINDFULNESS')}>
+        <Box onClick={()=>nextPath(`${url}/mindfulness`)}>
           MINDFULNESS
         </Box>
       </div>
@@ -42,7 +46,7 @@ function Library() {
         className="library__box library__box-breast"
         style={{backgroundColor: `${COLORS.MAMMOGRAM}`}}
       >
-        <Box onClick={()=>setViewState('BREAST_HEALTH')}>
+        <Box onClick={()=>nextPath(`${url}/breast-health`)}>
           BREAST HEALTH
         </Box>
       </div>
@@ -51,7 +55,7 @@ function Library() {
         className="library__box"
         style={{backgroundColor: `${COLORS.FRUITS_AND_VEGGIES}`}}
       >
-        <Box onClick={()=>setViewState('HEALTHY_EATING')}>
+        <Box onClick={()=>nextPath(`${url}/healthy-eating`)}>
           HEALTHY EATING
         </Box>   
       </div>
@@ -60,72 +64,10 @@ function Library() {
         className="library__box"
         style={{backgroundColor: `${COLORS.SLEEP}`}}
       >
-        <Box onClick={()=>setViewState('SLEEP')}>
+        <Box onClick={()=>nextPath(`${url}/sleep`)}>
           SLEEP
         </Box>
       </div>
-
-      {viewState==='EXERCISE' &&         
-        <Overlay onClose={()=>setViewState('')}>
-          <OverlayDetail
-            name='EXERCISE'
-            color={COLORS.EXERCISE}
-            intro={<LibraryIntro name='EXERCISE' />}
-            tips={<LibraryTips name='EXERCISE' />}
-            resources={<LibraryResources name='EXERCISE' />}
-          />
-        </Overlay>
-      }
-
-      {viewState==='MINDFULNESS' &&         
-        <Overlay onClose={()=>setViewState('')}>
-          <OverlayDetail
-            name='MINDFULNESS'
-            color={COLORS.MINDFULNESS}
-            intro={<LibraryIntro name='MINDFULNESS' />}
-            tips={<LibraryTips name='MINDFULNESS' />}
-            resources={<LibraryResources name='MINDFULNESS' />}
-          />
-        </Overlay>
-      }
-      
-      {viewState==='BREAST_HEALTH' &&       
-        <Overlay onClose={()=>setViewState('')}>
-          <OverlayDetail
-            name="BREAST HEALTH"
-            color={COLORS.MAMMOGRAM}
-            intro={<LibraryIntro name='BREAST HEALTH' />}
-            tips={<LibraryTips name='BREAST HEALTH' />}
-            selfcheck={<LibraryTips name='BREAST HEALTH SELF CHECK' />}
-            mammogram={<LibraryTips name='BREAST HEALTH MAMMOGRAM' />}
-            resources={<LibraryResources name='BREAST HEALTH' />}
-          />
-        </Overlay>  
-      }
-
-      {viewState==='HEALTHY_EATING' &&         
-        <Overlay onClose={()=>setViewState('')}>
-          <OverlayDetail
-            name="HEALTHY EATING"
-            color={COLORS.FRUITS_AND_VEGGIES}
-            intro={<LibraryIntro name='HEALTHY EATING' />}
-            tips={<LibraryTips name='HEALTHY EATING' />}
-            resources={<LibraryResources name='HEALTHY EATING' />}
-          />
-        </Overlay>
-      }
-            
-      {viewState==='SLEEP' &&         
-        <Overlay onClose={()=>setViewState('')}>
-          <OverlayDetail
-            name="SLEEP"
-            color={COLORS.SLEEP}
-            intro={<LibraryIntro name='SLEEP' />}
-            tips={<LibraryTips name='SLEEP' />}
-            resources={<LibraryResources name="SLEEP" />}
-          />
-        </Overlay>
-      }
     </div>
   );
 }
@@ -150,7 +92,9 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Library)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(Library)
+);

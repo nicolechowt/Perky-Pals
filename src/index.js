@@ -28,6 +28,11 @@ import Sleep from './pages/sleep';
 import Water from './pages/water';
 import Mammogram from './pages/mammogram';
 
+import ExerciseLibrary from './components/library/pages/exercise-library';
+import MindfulnessLibrary from './components/library/pages/mindfulness-library';
+import BreastHealthLibrary from './components/library/pages/breast-health-library';
+import HealthyEatingLibrary from './components/library/pages/healthy-eating-library';
+import SleepLibrary from './components/library/pages/sleep-library';
 
 import './index.css';
 
@@ -61,6 +66,12 @@ const renderApp = () =>
           <Route path="/mammogram" component={Mammogram} />
           <Route path="/sleep" component={Sleep} />
           <Route path="/water" component={Water} />
+
+          <Route path="/library/exercise" component={ExerciseLibrary} />
+          <Route path="/library/mindfulness" component={MindfulnessLibrary} />
+          <Route path="/library/breast-health" component={BreastHealthLibrary} />
+          <Route path="/library/healthy-eating" component={HealthyEatingLibrary} />
+          <Route path="/library/sleep" component={SleepLibrary} />
           <App />
         </Switch>
       </BrowserRouter>
