@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from "react-router-dom";
 
 import './style/index.css';
@@ -10,6 +10,7 @@ function LibraryDetail(props){
     color,
     history,
     intro , 
+    location, 
     mammogram,
     name,
     resources, 
@@ -18,6 +19,18 @@ function LibraryDetail(props){
   }  = props;
 
   const { goBack } = history;
+
+  const search = location.search;
+  const urlParams = new URLSearchParams(search);
+  const param = urlParams.get('view');
+
+  const paramUppercase = param && param.toUpperCase();
+
+  useEffect(()=>{
+    if(!paramUppercase) return;
+
+    setLibraryDetailView(paramUppercase);
+  }, [paramUppercase]);
 
   return (
     <div className="library-detail">
@@ -66,8 +79,8 @@ function LibraryDetail(props){
               return (
                 <React.Fragment>
                 <button 
-                  style={libraryDetailView==="SELF CHECK" ? {borderBottom: `.4rem solid ${color}`}: {}}
-                  onClick={()=> setLibraryDetailView("SELF CHECK")}
+                  style={libraryDetailView==="SELF-CHECK" ? {borderBottom: `.4rem solid ${color}`}: {}}
+                  onClick={()=> setLibraryDetailView("SELF-CHECK")}
                 >
                   SELF CHECK
                 </button>
@@ -110,7 +123,7 @@ function LibraryDetail(props){
               </div>
             );
 
-          case "SELF CHECK" :
+          case "SELF-CHECK" :
             return (
               <div className="library-detail__tips">
               {selfcheck}
