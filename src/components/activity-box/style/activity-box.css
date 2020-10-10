@@ -31,6 +31,12 @@
   line-height: 75px;
 }
 
+.activity-box__title
+{
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 40px;
+}
 .activity-box__unit
 {
   font-size: 14px;

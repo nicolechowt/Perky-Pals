@@ -20,6 +20,7 @@ function ActivityBox(props) {
     length,
     color,
     unit,
+    title,
   } = props;
 
   const addLink = `/add-${header.toLowerCase()}`;
@@ -37,6 +38,7 @@ function ActivityBox(props) {
     >
       <div className="activity-box__header">{header}</div>
       {length>=0 && <span className="activity-box__length"> {length}</span>}
+      {title && <span className="activity-box__title"> {title}</span>}
       {unit && <span className="activity-box__unit"> {unit}</span>}
       {goal && <span className="activity-box__goal"> of your {goal} {unit} {frequency} goal</span>}
 
