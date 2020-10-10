@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './style/library.css';
 import Box from '../box';
 import { 
@@ -15,11 +15,19 @@ import {
 import { COLORS } from '../../../src/enums/colors'
 
 function Library(props) {
+  const { removeModal } = props;
+
   let { url } = useRouteMatch();
 
   const nextPath = (path) => {
     props.history.push(path);
   }
+
+  useEffect(()=>{
+    if(props.history.action==='PUSH' || props.history.action==='POP') {
+      removeModal();
+    }
+  }, [removeModal, props.history.action])
 
   return (
     <div className="library">

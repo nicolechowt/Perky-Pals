@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { 
   ADD_MODAL,
@@ -52,6 +52,12 @@ function Redeem(props) {
     12: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216386/social_work_jtharl.png'
   }
 
+  useEffect(()=>{
+    if(props.history.action==='PUSH' || props.history.action==='POP') {
+      removeModal();
+    }
+  }, [removeModal, props.history.action])
+  
   return (
     <div className="redeem">
       {(()=> {

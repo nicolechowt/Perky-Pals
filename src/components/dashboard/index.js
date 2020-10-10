@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import './style/dashboard.css';
 import ActivityBox from '../activity-box';
-import Box from '../box';
 import Overlay from '../overlay';
 
 import { 
@@ -137,6 +136,12 @@ function Dashboard(props) {
     scheduledMammogramInitial, 
     todaysData
   ]);
+
+  useEffect(()=>{
+    if(props.history.action==='PUSH' || props.history.action==='POP') {
+      removeModal();
+    }
+  }, [removeModal, props.history.action])
 
   const svgWidth = 250;
   const arcWidth = 14;
