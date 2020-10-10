@@ -44,6 +44,7 @@ function dashboardReducer(state={}, action) {
         points: action.data.points,
         exercises: [],
         pointsClaimed: [],
+        dashboardTip: action.data.dashboardTip,
         doneSelfCheckThisMonth: action.data.doneSelfCheckThisMonth,
         scheduledMammogram: action.data.scheduledMammogram,
         previousSelfCheckNotes: action.data.previousSelfCheckNotes,

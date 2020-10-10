@@ -44,6 +44,8 @@ function Dashboard(props) {
 
   const currentUserName = currentUser[0] && currentUser[0].name;
   
+  const dashboardTipInitial = currentUser[0] && currentUser[0].dashboardTip;
+
   const doneSelfCheckThisMonthInitial = currentUser[0] && currentUser[0].doneSelfCheckThisMonth;
 
   const scheduledMammogramInitial = currentUser[0] && currentUser[0].scheduledMammogram;
@@ -75,6 +77,10 @@ function Dashboard(props) {
 
   const mindfulness = dashboard && dashboard.mindfulness;
   const mindfulnesseGoal = dashboard.goals && dashboard.goals.mindfulness;
+
+  // just getting the first tip for now
+  const dashboardTip = dashboard && dashboard.dashboardTip;
+  const dashboardFirstTip = dashboardTip && dashboardTip[0]
 
   const sleep = dashboard && dashboard.sleep;
   const sleepGoal = dashboard.goals && dashboard.goals.sleep;
@@ -108,6 +114,7 @@ function Dashboard(props) {
         goals,
         points,
         doneSelfCheckThisMonth: doneSelfCheckThisMonthInitial,
+        dashboardTip: dashboardTipInitial,
         scheduledMammogram: scheduledMammogramInitial,
         previousSelfCheckNotes: previousSelfCheckNotesInitial,
       }
@@ -121,6 +128,7 @@ function Dashboard(props) {
     addNotes,
     dashboard, 
     doneSelfCheckThisMonthInitial, 
+    dashboardTipInitial,
     goals,
     id, 
     points, 
@@ -203,7 +211,11 @@ function Dashboard(props) {
 
         <div className="dashboard__tips">
           <div>
-            <TipBox name={currentUserName} />
+            <TipBox 
+              title={dashboardFirstTip && dashboardFirstTip.title}
+              text={dashboardFirstTip && dashboardFirstTip.text}
+              link={dashboardFirstTip && dashboardFirstTip.link}
+            />
           </div>
         </div>
 
@@ -295,6 +307,7 @@ function Dashboard(props) {
           color={COLORS.SELF_CHECK}
           header="SELF-CHECK"
           hideAdd={selfCheck}
+          title="#FEELITONTHEFIRST"
         >
           {selfCheck ? 
             (

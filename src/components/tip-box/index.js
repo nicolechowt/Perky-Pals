@@ -1,62 +1,42 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { ADD_EXERCISE_MINUTES } from '../../reducers/actions'
 import { withRouter } from "react-router-dom";
-
-import Box from '../box';
-import Button from '../button';
 
 import './style/tip-box.css';
 
 function TipBox(props) {
   const { 
-    addExerciseMinute,
-    children,
-    display,
-    frequency,
-    goal,
-    header,
-    hideAdd,
-    length,
-    color,
-    unit,
+    link,
+    text,
+    title,
   } = props;
 
-    console.log('props.name', props.name)
-  // const addLink = `/add-${header.toLowerCase()}`;
-  // const pageLink = header.toLowerCase();
-
-  // const nextPath = (path) => {
-  //   props.history.push(path);
-  // }
+  const nextPath = (path) => {
+    props.history.push(path);
+  }
 
   return (
-    <div 
-      className="tip-box"
-      style={{background: color}}
-      // onClick={()=>{nextPath(pageLink)}}
-    >
-      {(()=>{
-        if(props.name==='Juliana') {
-          return (
-            <div>
-              tip for Juliana
-            </div>
-          )
-        } else if(props.name==='Bella') {
-          return(
-            <div>
-              We’ve got your back. Check out our tips on how to incorporate mini workouts into your day.
-            </div>
-          );
-        } else if(props.name==='Angie') {
-          return(
-            <div>
-              Tip for angie
-            </div>
-          )
-        }
-      })()}
+    <div className="tip-box">
+      <div className="tip-box__title">{title}</div>
+      <div className="tip-box__text">{text}</div>
+
+      <div 
+        className="tip-box__button"
+        onClick={(event)=>{
+          event.stopPropagation();
+          nextPath(link);
+        }}
+      >
+        {link && (
+          <i
+            class="fa fa-chevron-circle-right" 
+            style={{
+              fontSize:'22px',
+              color: "#F55F15", 
+              padding: '4px'
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 }

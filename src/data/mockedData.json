@@ -26,6 +26,11 @@
         "id": 3
       }
     ],
+    "dashboardTip": [{
+      "title": "Get to know your boobs",
+      "text": "The best way to know your normal is by taking a look every month. We’ll walk you through the process. Every month makes a difference!",
+      "link": "/library"
+    }],
     "doneSelfCheckThisMonth": false,
     "scheduledMammogram": false,
     "previousSelfCheckNotes": [],
@@ -153,6 +158,11 @@
         "id": 3
       }
     ],
+    "dashboardTip": [{
+      "title": "Need some tips to get more ZZZs? ",
+      "text": "Try setting the mood by keeping your room dark and quiet. Check out the library for more tips.",
+      "link": "/library"
+    }],
     "doneSelfCheckThisMonth": false,
     "scheduledMammogram": "2020-12-27",
     "previousSelfCheckNotes": [
@@ -342,6 +352,11 @@
         "id": 2
       }
     ],
+    "dashboardTip": [{
+      "title": "Looks like you haven't scheduled a mammogram yet for this year. Not sure where to start? We got you!",
+      "text": "Head to our help section to learn more about setting up an appointment.",
+      "link": "/library"
+    }],
     "doneSelfCheckThisMonth": false,
     "scheduledMammogram": false,
     "previousSelfCheckNotes": [
