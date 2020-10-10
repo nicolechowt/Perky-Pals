@@ -171,7 +171,10 @@ function ActivityForm(props) {
         footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
-    } else if (type==='EXERCISE') {
+    } else if (
+      type==='EXERCISE' &&
+      exerciseWeek+exercise<exerciseGoal
+    ) {
       addModal(  {
         title: 'Way to go!', 
         body1: 'You are just',
@@ -196,7 +199,10 @@ function ActivityForm(props) {
         footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
-    } else if (type==='MINDFULNESS') {
+    } else if (
+      type==='MINDFULNESS' &&
+      mindfulnessWeek+mindfulness<mindfulnesseGoal
+      ) {
       addModal(  {
         title: 'Way to go!', 
         body1: 'You are just',
@@ -221,7 +227,10 @@ function ActivityForm(props) {
         footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
-    } else if (type==='SLEEP') {
+    } else if (
+      type==='SLEEP' &&
+      sleep<sleepGoal
+    ) {
       addModal(  {
         title: 'Added!', 
         body1: 'You didn’t quite meet your goal, but we know you have it in you.',
@@ -244,7 +253,10 @@ function ActivityForm(props) {
         footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
-    } else if (type==='WATER') {
+    } else if (
+      type==='WATER' &&
+      water<waterGoal
+    ) {
       addModal(  {
         title: 'Way to go!', 
         body1: 'You are just',
@@ -269,7 +281,10 @@ function ActivityForm(props) {
         footer:  'Keep up the good work!',
       });
       addPointsDetails(type)
-    } else if (type==='FRUITS_AND_VEGGIES') {
+    } else if (
+      type==='FRUITS_AND_VEGGIES' &&
+      fruitsAndVeggies<fruitsAndVeggiesGoal
+    ) {
       addModal(  {
         title: 'Way to go!', 
         body1: 'You are just',
