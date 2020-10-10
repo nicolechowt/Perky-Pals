@@ -100,7 +100,7 @@ function RedeemPreview(props) {
               const numToActivityMap = {
                 EXERCISE: 'get in a little exercise',
                 MINDFULNESS: 'get in a mindful moment',
-                SLEEP: "try to go to bed a little earlier",
+                SLEEP: "go to bed a little earlier",
                 WATER: 'get an extra sip of water',
                 FRUITS_AND_VEGGIES: 'get in an extra serving of fruits later',
                 SELF_CHECK: 'perform a self check', 
@@ -109,7 +109,7 @@ function RedeemPreview(props) {
 
               return(
                 <div className="redeem-preview__description">
-                  But, we can {numToActivityMap[notYetClaimed[randomIndex]]} today to earn some extra perks ;)
+                  But why don't we try to {numToActivityMap[notYetClaimed[randomIndex]]} today to earn some extra perks ;)
                 </div>
               );
             }
