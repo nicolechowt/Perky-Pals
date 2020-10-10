@@ -15,9 +15,6 @@ import RedeemPreview from './components/redeem-preview';
 import './style/redeem.css';
 import { COLORS } from '../../enums/colors';
 
-import MobileMammogram from './assets/redeem/Mobile_Mammogram.jpg'
-import YogaClass from './assets/redeem/Yoga.jpg'
-
 function Redeem(props) {
   const { 
     // dispatch props
@@ -43,8 +40,8 @@ function Redeem(props) {
   const imageMap = {
     1: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/fitbit_y0swh4.jpg',
     2: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
-    3: MobileMammogram,
-    4: YogaClass,
+    3: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349684/Mobile_Mammogram_cohiay.jpg',
+    4: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349680/Yoga_lihfpp.jpg',
     5: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/gym_wtht2n.jpg',
     6: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
     7: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/physcial_therapy_cgf8ls.jpg',

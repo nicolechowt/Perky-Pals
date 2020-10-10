@@ -18,14 +18,14 @@ export const items = [
     title: 'Mobile Mammogram', 
     description: 'Free mammogram screening at mobile locations in your area',
     points: 350,
-    imageURL: 'Mobile_Mammogram.jpg',
+    imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349684/Mobile_Mammogram_cohiay.jpg',
   },
   {
     id: 4,
     title: 'Yoga Class', 
     description: '10 free classes at Yoga Studio',
     points: 750,
-    imageURL: 'Yoga.jpg',
+    imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349680/Yoga_lihfpp.jpg',
   },
   {
     id: 5,
