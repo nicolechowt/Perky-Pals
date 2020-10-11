@@ -36,13 +36,45 @@ function ActivityBox(props) {
       style={{background: color}}
       onClick={()=>{nextPath(pageLink)}}
     >
-      <div className="activity-box__header">{header}</div>
-      {length>=0 && <span className="activity-box__length"> {length}</span>}
-      {title && <span className="activity-box__title"> {title}</span>}
-      {unit && <span className="activity-box__unit"> {unit}</span>}
-      {goal && <span className="activity-box__goal"> of your {goal} {unit} {frequency} goal</span>}
+      {(()=>{
+        let emptyStateText = '';
 
-      {children && <div>{children}</div>}
+        if(goal) {
+          return (
+            <div>
+              <div className="activity-box__header">{header}</div>
+              {length>=0 && <span className="activity-box__length"> {length}</span>}
+              {title && <span className="activity-box__title"> {title}</span>}
+              {unit && <span className="activity-box__unit"> {unit}</span>}
+              {goal && <span className="activity-box__goal"> of your {goal} {unit} {frequency} goal</span>}
+              {children && <div>{children}</div>}
+            </div>
+          );
+        } else {
+          if(header==='EXERCISE') {
+            emptyStateText='There are so many ways to get a little more active. Yes - you can.'; 
+          } else if(header==='MINDFULNESS') {
+            emptyStateText='Taking even just a minute to pause in your everyday life can count as a mindful moment.';
+          } else if(header==='WATER') {
+            emptyStateText='Start small, we can set an achievable goal to begin.';
+          } else if(header==='FRUITS-AND-VEGGIES'){
+            emptyStateText='How about grabbing an apple on the way out the door today?';
+          } else if(header==="SLEEP") {
+            emptyStateText='We all sleep anyway, why not set a goal to earn some perks? ;)';
+          } else if(header==="SELF-CHECK") {
+            emptyStateText='Get to know your boobs, set up a monthly goal to perform a self-check. We will even remind you!';
+          } else if(header==="MAMMOGRAM") {
+            emptyStateText='We get it, no one loves getting a mammogram. But studies show early detection is key. Setting a goal is half the bettle.' ;
+          }
+
+          return (
+            <div>
+              {emptyStateText}
+            </div>
+          )
+        }
+      })()}
+
 
       <div 
         className="activity-box__plus"
