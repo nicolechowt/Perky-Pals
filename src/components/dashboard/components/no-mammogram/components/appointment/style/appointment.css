@@ -2,8 +2,6 @@
 {
   background: #1095B0;
   padding: 36px;
-  display: flex;
-  flex-direction: column;
 }
 
 .appointment__header
