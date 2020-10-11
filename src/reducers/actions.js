@@ -114,3 +114,19 @@ export function saveSelfCheckTips(data) {
 export function saveMammogramTips(data) {
   return {type: "SAVE_MAMMOGRAM_TIPS", data}
 }
+
+export function incrementExerciseCount(data) {
+  return {type: "INCREMENT_EXERCISE_COUNT", data}
+}
+
+export function incrementMindfulnessCount(data) {
+  return {type: "INCREMENT_MINDFULNESS_COUNT", data}
+}
+
+export function incrementWaterCount(data) {
+  return {type: "INCREMENT_WATER_COUNT", data}
+}
+
+export function incrementFruitsAndVeggiesCount(data) {
+  return {type: "INCREMENT_FRUITS_AND_VEGGIES_COUNT", data}
+}

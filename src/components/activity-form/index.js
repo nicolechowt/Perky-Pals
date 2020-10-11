@@ -31,10 +31,7 @@ function ActivityForm(props) {
     hours.push(i);
   }
 
-  const oz = [];
-  for(let i=1; i<=64; i=i*4){
-    oz.push(i);
-  }
+  const oz = [4,8,16,32,40,64];
 
   const servings = [];
   for(let i=1; i<=5;i++) {
@@ -55,6 +52,10 @@ function ActivityForm(props) {
     addSelfCheckTimes,
     addSleepHours,
     addWaterOz,
+    incrementExerciseCount,
+    incrementMindfulnessCount,
+    incrementWaterCount,
+    incrementFruitsAndVeggiesCount,
 
     // props
     currentUser,
@@ -98,8 +99,11 @@ function ActivityForm(props) {
   const fruitsAndVeggies = dashboard && dashboard.fruitsAndVeggies;
   const fruitsAndVeggiesGoal = dashboard.goals && dashboard.goals.fruitsAndVeggies;
 
-  const doneSelfCheckThisMonth = dashboard && dashboard.doneSelfCheckThisMonth;
+  const selfCheckGoal = dashboard.goals && dashboard.goals.selfCheck;
 
+  const mammogramGoal = dashboard.goals && dashboard.goals.mammogram;
+
+  const doneSelfCheckThisMonth = dashboard && dashboard.doneSelfCheckThisMonth;
   const scheduledMammogram = dashboard && dashboard.scheduledMammogram;
 
   const mammogramHelp = [
@@ -158,6 +162,8 @@ function ActivityForm(props) {
   const day = today.getDate();
 
   useEffect(() => {
+    if(!exerciseGoal) return;
+
     if (
       type==='EXERCISE' &&
       exerciseWeek+exercise>=exerciseGoal &&
@@ -181,11 +187,14 @@ function ActivityForm(props) {
         number: `${exerciseGoal-(exerciseWeek+exercise)}`,
         body2: 'minutes away from meeting your goal',
         footer:  'Check out our library for tips on getting creative with your workouts!',
+        link: '/library/exercise?view=tips',
       });
     }
   }, [addModal, addPoints, addPointsDetails, exercise, exerciseGoal, exerciseWeek, pointsClaimed, type]);
 
   useEffect(() => {
+    if(!mindfulnesseGoal) return;
+
     if(
       type==='MINDFULNESS' &&
       mindfulnessWeek+mindfulness>=mindfulnesseGoal &&
@@ -207,13 +216,16 @@ function ActivityForm(props) {
         title: 'Way to go!', 
         body1: 'You are just',
         number: `${mindfulnesseGoal-(mindfulnessWeek+mindfulness)}`,
-        body2: 'minutes away from meeting your goal',
-        footer:  'Check out our library for tips on getting creative with your workouts!',
+        body2: 'sessions away from meeting your weekly goal',
+        footer:  'Check out our library for tips on being more present.',
+        link: '/library/mindfulness?view=tips',
       });
     }
   }, [addModal, addPoints, addPointsDetails, mindfulness, mindfulnessWeek, mindfulnesseGoal, pointsClaimed, type]);
 
   useEffect(() => {
+    if(!sleepGoal) return;
+
     if(
       type==='SLEEP' &&
       sleep>=sleepGoal &&
@@ -235,11 +247,13 @@ function ActivityForm(props) {
         title: 'Added!', 
         body1: 'You didn’t quite meet your goal, but we know you have it in you.',
         footer:  'Check out our library for tips on getting more sleep.',
+        link: '/library/sleep?view=tips',
       });
     }
   }, [addModal, addPoints, addPointsDetails, pointsClaimed, sleep, sleepGoal, type]);
 
   useEffect(() => {
+    if(!waterGoal) return;
     if(
       type==='WATER' &&
       water>=waterGoal &&
@@ -263,11 +277,13 @@ function ActivityForm(props) {
         number: `${waterGoal-water}`,
         body2: 'oz away from meeting your goal',
         footer:  'Check out our library for tips on adding water to your lifestyle',
+        link: '/library/water?view=tips',
       });
     }
   }, [addModal, addPoints, addPointsDetails, pointsClaimed, type, water, waterGoal]);
 
   useEffect(() => {
+    if(!fruitsAndVeggiesGoal) return;
     if(
       type==='FRUITS_AND_VEGGIES' &&
       fruitsAndVeggies>=fruitsAndVeggiesGoal &&
@@ -290,12 +306,14 @@ function ActivityForm(props) {
         body1: 'You are just',
         number: `${fruitsAndVeggiesGoal-fruitsAndVeggies}`,
         body2: 'servings away from meeting your goal',
-        footer:  'Check out our library for tips on adding more fruits and veggies to your lifestyle',
+        footer:  'Check out our library for tips on adding more fruits and veggies to your diet',
+        link: '/library/healthy-eating?view=tips',
       });
     }
   }, [addModal, addPoints, addPointsDetails, fruitsAndVeggies, fruitsAndVeggiesGoal, pointsClaimed, type]);
 
   useEffect(() => {
+    if(!selfCheckGoal) return;
     if(
       type==='SELF_CHECK' &&
       doneSelfCheckThisMonth &&
@@ -310,9 +328,10 @@ function ActivityForm(props) {
       });
       addPointsDetails(type)
     }
-  }, [addModal, addPoints, addPointsDetails, doneSelfCheckThisMonth, pointsClaimed, type]);
+  }, [addModal, addPoints, addPointsDetails, doneSelfCheckThisMonth, pointsClaimed, type, selfCheckGoal]);
 
   useEffect(() => {
+    if(!mammogramGoal) return;
     if(
       type==='MAMMOGRAM' &&
       scheduledMammogram &&
@@ -327,7 +346,7 @@ function ActivityForm(props) {
       });
       addPointsDetails(type)
     }
-  }, [addModal, addPoints, addPointsDetails, mammogramDate, pointsClaimed, scheduledMammogram, type]);
+  }, [addModal, addPoints, addPointsDetails, mammogramDate, pointsClaimed, scheduledMammogram, type, mammogramGoal]);
 
   const onClick = () => {
     switch(type) {
@@ -339,11 +358,13 @@ function ActivityForm(props) {
         })
 
         setRedirect(true);
+        incrementExerciseCount();
         break;
 
       case "MINDFULNESS":
         addMindfulnessTimes(1);
         setRedirect(true);
+        incrementMindfulnessCount();
         break;
         
       case "SLEEP":
@@ -354,11 +375,13 @@ function ActivityForm(props) {
       case "WATER":
         addWaterOz(waterOz);
         setRedirect(true);
+        incrementWaterCount();
         break;
       
       case "FRUITS_AND_VEGGIES":
         addFruitsAndVeggies(fvServings);
         setRedirect(true);
+        incrementFruitsAndVeggiesCount();
         break;
 
       case "SELF_CHECK":
@@ -563,7 +586,7 @@ function ActivityForm(props) {
                     DATE: <b>{`${month}/${day}/${year}`}</b>
                 </div>
                 <div className="activity-form__item">
-                  <label htmlFor="volume">HOW MUCH WATER DID YOU DRINK</label>
+                  <label htmlFor="volume">HOW MUCH WATER DID YOU HAVE?</label>
                   
                   <div className="activity-form__item">
                     <select name="oz" id="oz" value={waterOz} onChange={(event)=>setWaterOz(parseInt(event.target.value))}>
@@ -802,6 +825,10 @@ function mapDispatchToProps(dispatch) {
     addSelfCheckTimes:(data) => dispatch({ type: "ADD_SELF_CHECK_TIMES", data}),
     addMammogram:(data) => dispatch({ type: "ADD_MAMMOGRAM", data}),
     addNotes:(data) => dispatch({ type: "ADD_NOTES", data}),
+    incrementExerciseCount: (data) => dispatch({ type: "INCREMENT_EXERCISE_COUNT"}),
+    incrementMindfulnessCount: (data) => dispatch({ type: "INCREMENT_MINDFULNESS_COUNT"}),
+    incrementWaterCount: (data) => dispatch({ type: "INCREMENT_WATER_COUNT"}),
+    incrementFruitsAndVeggiesCount: () => dispatch({ type: "INCREMENT_FRUITS_AND_VEGGIES_COUNT" }),
   }
 }
 

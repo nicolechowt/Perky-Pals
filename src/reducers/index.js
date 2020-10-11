@@ -222,6 +222,43 @@ function tipsReducer(
       return state
   }
 }
+
+
+function logReducer(state={
+  exercise: 0,
+  mindfulness: 0,
+  water: 0,
+  fruitsAndVeggies: 0,
+}, action) {
+
+  console.log('state.fruitsAndVeggie', state.fruitsAndVeggies)
+  switch (action.type) {
+    case "INCREMENT_EXERCISE_COUNT":
+      return {
+        ...state,
+        exercise: state.exercise + 1,
+      }
+    case "INCREMENT_MINDFULNESS_COUNT":
+      return {
+        ...state,
+        mindfulness: state.mindfulness + 1,
+      }
+    case "INCREMENT_WATER_COUNT":
+      return {
+        ...state,
+        water: state.water + 1,
+      }
+    case "INCREMENT_FRUITS_AND_VEGGIES_COUNT":
+      return {
+        ...state,
+        fruitsAndVeggies: state.fruitsAndVeggies + 1,
+      }
+                                
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers({
   userReducer,
   currentUserReducer,
@@ -229,6 +266,7 @@ const rootReducer = combineReducers({
   modalReducer,
   selfCheckNotesReducer,
   tipsReducer,
+  logReducer,
 })
 
 export default rootReducer;

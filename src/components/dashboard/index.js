@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import './style/dashboard.css';
+import { ADD_MODAL } from '../../reducers/actions'
 import ActivityBox from '../activity-box';
 import Overlay from '../overlay';
 
@@ -14,9 +15,12 @@ import TipBox from '../tip-box';
 import PointsOverlay from './components/points-overlay';
 import { COLORS } from '../../../src/enums/colors';
 
+let alertedUser=false;
+
 function Dashboard(props) {
   const { 
     addNotes,
+    addModal,
     removeModal,
     saveCurrentUser,
     saveExerciseTips,
@@ -33,6 +37,7 @@ function Dashboard(props) {
     location, 
     users, 
     modal,
+    logs,
   } = props;
 
   const search = location.search;
@@ -106,6 +111,9 @@ function Dashboard(props) {
 
   const fruitsAndVeggies = dashboard && dashboard.fruitsAndVeggies;
   const fruitsAndVeggiesGoal = dashboard.goals && dashboard.goals.fruitsAndVeggies;
+
+  const selfCheckGoal = dashboard.goals && dashboard.goals.selfCheck;
+  const mammogramGoal = dashboard.goals && dashboard.goals.mammogram;
 
   const selfCheck = dashboard && dashboard.doneSelfCheckThisMonth;
   const mammogram = dashboard && dashboard.scheduledMammogram;
@@ -182,6 +190,55 @@ function Dashboard(props) {
     }
   }, [removeModal, props.history.action])
 
+  useEffect(()=>{
+    if(!logs) return;
+
+    const loggedTwice = (
+      logs.exercise===2 ||
+      logs.mindfulness===2 ||
+      logs.water===2 ||
+      logs.fruitsAndVeggies===2
+    );
+
+    const calculateTierAndPrize = () => {
+      let tier;
+      let tierPrize;
+
+      if(points<=350) {
+        tier = 350;
+        tierPrize = 'Farm Fresh Box';
+      } else if (points>350 && points<=750) {
+        tier = 750;
+        tierPrize = 'Yoga Class';
+      } else if (points>750 && points<=1000) {
+        tier = 1000;
+        tierPrize = 'Social Worker Consultation';
+      } else if (points>1000 && points<=2500) {
+        tier = 2500;
+        tierPrize = 'Community Pop-up Farm Stand with Mobile Mammogram';
+      }
+
+      return {tier,tierPrize};
+    }
+
+    const { tier, tierPrize } = calculateTierAndPrize();
+
+    if(!tier) return;
+
+    if(loggedTwice && !alertedUser) {
+      addModal(  {
+        title: 'Off to a great start!', 
+        body1: 'You are just',
+        number:  tier - points,
+        body2: `perks away from getting a ${tierPrize}`,
+        footer:  'Check out what else you can work towards.',
+        link: '/redeem'
+      });
+
+      alertedUser=true;
+    } 
+  }, [addModal,logs, points])
+
   const svgWidth = 250;
   const arcWidth = 14;
 
@@ -208,6 +265,7 @@ function Dashboard(props) {
                 number={content.number}
                 body2={content.body2}
                 footer={content.footer}
+                link={content.link}
               />
             </Overlay>
           )
@@ -222,7 +280,7 @@ function Dashboard(props) {
         svgWidth={svgWidth}
         arcWidth={arcWidth}
         exerciseProgressPercentage={exerciseProgressPercentage}
-        mindfulnessProgressPercentage={mindfulnessProgressPercentage}
+        mindfulnessProgressPercentage={!mindfulnesseGoal ? 0 : mindfulnessProgressPercentage}
         sleepProgressPercentage={sleepProgressPercentage}
         waterProgressPercentage={waterProgressPercentage}
         fruitsAndVeggiesPercentage={fruitsAndVeggiesPercentage}
@@ -350,6 +408,7 @@ function Dashboard(props) {
       <div className="dashboard__self-check">
         <ActivityBox 
           color={COLORS.SELF_CHECK}
+          goal={selfCheckGoal}
           header="SELF-CHECK"
           hideAdd={selfCheck}
           title="#FEELITONTHEFIRST"
@@ -368,6 +427,7 @@ function Dashboard(props) {
       <div className="dashboard__mammogram">
         <ActivityBox 
           color={COLORS.MAMMOGRAM}
+          goal={mammogramGoal}
           header="MAMMOGRAM"
           hideAdd={mammogram}
         >
@@ -407,6 +467,7 @@ function mapStateToProps(state) {
     dashboardReducer,
     modalReducer,
     userReducer, 
+    logReducer,
   } = state;
 
   return { 
@@ -414,12 +475,14 @@ function mapStateToProps(state) {
     dashboard: dashboardReducer,    
     modal: modalReducer,
     users: userReducer,
+    logs: logReducer,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return { 
     addNotes:(data) => dispatch({ type: "ADD_NOTES", data}),
+    addModal: (data) => dispatch({ type: ADD_MODAL, data}),
     removeModal: () => dispatch({ type: 'REMOVE_MODAL'}),
     saveCurrentUser: (data) => dispatch({ type: SAVE_CURRENT_USER, data}),
     saveToDashboard: (data) => dispatch({ type: SAVE_TO_DASHBOARD, data}),
