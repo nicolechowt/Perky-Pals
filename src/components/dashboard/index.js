@@ -19,7 +19,14 @@ function Dashboard(props) {
     addNotes,
     removeModal,
     saveCurrentUser,
+    saveExerciseTips,
+    saveFruitsAndVeggiesTips,
+    saveMammogramTips,
+    saveMindfulnessTips,
+    saveSelfCheckTips,
+    saveSleepTips,
     saveToDashboard, 
+    saveWaterTips,
 
     currentUser = [],
     dashboard, 
@@ -50,6 +57,16 @@ function Dashboard(props) {
   const scheduledMammogramInitial = currentUser[0] && currentUser[0].scheduledMammogram;
 
   const previousSelfCheckNotesInitial = currentUser[0] && currentUser[0].previousSelfCheckNotes;
+
+
+  // saving tips for details page
+  const exerciseTipInitial = currentUser[0] && currentUser[0].exerciseTip;
+  const mindfulnessTipInitial = currentUser[0] && currentUser[0].mindfulnessTip;
+  const waterTipInitial = currentUser[0] && currentUser[0].waterTip;
+  const fruitsAndVeggiesTipInitial = currentUser[0] && currentUser[0].fruitsAndVeggiesTip;
+  const sleepTipInitial = currentUser[0] && currentUser[0].sleepTip;
+  const selfCheckTipInitial = currentUser[0] && currentUser[0].selfCheckTip;
+  const mammogramTipInitial = currentUser[0] && currentUser[0].mammogramTip;
 
   const todaysData = data && data[0];
   const weeklyData = currentUser[0] && currentUser[0].weeklyData;
@@ -122,19 +139,41 @@ function Dashboard(props) {
       previousSelfCheckNotesInitial && previousSelfCheckNotesInitial.map(note=>{
         addNotes(note);
       })
+
+      saveExerciseTips(exerciseTipInitial[0]);
+      saveMindfulnessTips(mindfulnessTipInitial[0]);
+      saveWaterTips(waterTipInitial[0]);
+      saveFruitsAndVeggiesTips(fruitsAndVeggiesTipInitial[0]);
+      saveSleepTips(sleepTipInitial[0]);
+      saveSelfCheckTips(selfCheckTipInitial[0]);
+      saveMammogramTips(mammogramTipInitial[0]);
     }
   }, [ 
     addNotes,
     dashboard, 
-    doneSelfCheckThisMonthInitial, 
     dashboardTipInitial,
+    doneSelfCheckThisMonthInitial, 
+    exerciseTipInitial,
+    fruitsAndVeggiesTipInitial,
     goals,
     id, 
+    mammogramTipInitial,
+    mindfulnessTipInitial,
     points, 
     previousSelfCheckNotesInitial, 
+    saveExerciseTips,
+    saveFruitsAndVeggiesTips,
+    saveMammogramTips,
+    saveMindfulnessTips,
+    saveSelfCheckTips,
+    saveSleepTips,
     saveToDashboard, 
+    saveWaterTips,
     scheduledMammogramInitial, 
-    todaysData
+    selfCheckTipInitial,
+    sleepTipInitial,
+    todaysData,
+    waterTipInitial,
   ]);
 
   useEffect(()=>{
@@ -384,6 +423,13 @@ function mapDispatchToProps(dispatch) {
     removeModal: () => dispatch({ type: 'REMOVE_MODAL'}),
     saveCurrentUser: (data) => dispatch({ type: SAVE_CURRENT_USER, data}),
     saveToDashboard: (data) => dispatch({ type: SAVE_TO_DASHBOARD, data}),
+    saveExerciseTips: (data) => dispatch({ type: "SAVE_EXERCISE_TIPS", data}),
+    saveMindfulnessTips: (data) => dispatch({ type: "SAVE_MINDFULNESS_TIPS", data}),
+    saveWaterTips: (data) => dispatch({ type: "SAVE_WATER_TIPS", data}),
+    saveFruitsAndVeggiesTips: (data) => dispatch({ type: "SAVE_FRUITS_AND_VEGGIES_TIPS", data}),
+    saveSleepTips: (data) => dispatch({ type: "SAVE_SLEEP_TIPS", data}),
+    saveSelfCheckTips: (data) => dispatch({ type: "SAVE_SELF_CHECK_TIPS", data}),
+    saveMammogramTips: (data) => dispatch({ type: "SAVE_MAMMOGRAM_TIPS", data}),
   }
 }
 

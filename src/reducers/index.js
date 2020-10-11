@@ -158,12 +158,77 @@ function selfCheckNotesReducer(state={notes:[]}, action) {
   }
 }
 
+function tipsReducer(
+  state={
+    exercise: [],
+    mindfulness: [],
+    water: [],
+    fruitsAndVeggies: [],
+    sleep: [],
+    selfCheck: [],
+    mammogram: [],
+  }, 
+  action
+) {
+  switch (action.type) {
+    case "SAVE_EXERCISE_TIPS":
+      return {
+        ...state,
+        exercise: [action.data,...state.exercise],
+      }
+
+    case "SAVE_MINDFULNESS_TIPS":
+      return {
+        ...state,
+        mindfulness: [action.data,...state.mindfulness],        
+      }
+
+    case "SAVE_WATER_TIPS":
+      return {
+        ...state,
+        water: [action.data,...state.water],        
+      }  
+
+      case "SAVE_WATER_TIPS":
+        return {
+          ...state,
+          water: [action.data,...state.water],        
+        }  
+
+      case "SAVE_FRUITS_AND_VEGGIES_TIPS":
+        return {
+          ...state,
+          fruitsAndVeggies: [action.data,...state.fruitsAndVeggies],        
+        }  
+
+      case "SAVE_SLEEP_TIPS":
+        return {
+          ...state,
+          sleep: [action.data,...state.sleep],        
+        }  
+      
+      case "SAVE_SELF_CHECK_TIPS":
+        return {
+          ...state,
+          selfCheck: [action.data,...state.selfCheck],     
+        }
+        
+      case "SAVE_MAMMOGRAM_TIPS": 
+        return {
+          ...state,
+          mammogram: [action.data,...state.mammogram],               
+        }
+    default:
+      return state
+  }
+}
 const rootReducer = combineReducers({
   userReducer,
   currentUserReducer,
   dashboardReducer,
   modalReducer,
-  selfCheckNotesReducer
+  selfCheckNotesReducer,
+  tipsReducer,
 })
 
 export default rootReducer;

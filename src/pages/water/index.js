@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { COLORS } from '../../../src/enums/colors'
+import TipBox from '../../components/tip-box';
+import { items } from '../../data/redeemItems';
+import RedeemCard from '../../components/redeem/components/redeem-card'
 
 import './style/water.css';
 
@@ -8,7 +11,7 @@ import BarGraph from '../../components/bar-graph';
 
 function Water(props) {
   const { goBack } = props.history;
-  const { currentUser, dashboard } = props;
+  const { currentUser, dashboard, tips } = props;
 
   const todaysWater = dashboard.water || 0;
   const weeklyData = currentUser ? currentUser[0] && currentUser[0].weeklyData : [];
@@ -26,6 +29,30 @@ function Water(props) {
 
   waterArr.unshift(todaysWater);
 
+  const nextPath = (path) => {
+    props.history.push(path);
+  }
+
+  const handleOnClick = (filteredItem) => {
+    nextPath('/redeem');
+  }
+
+  const imageMap = {
+    1: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/fitbit_y0swh4.jpg',
+    2: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
+    3: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349684/Mobile_Mammogram_cohiay.jpg',
+    4: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349680/Yoga_lihfpp.jpg',
+    5: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/gym_wtht2n.jpg',
+    6: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
+    7: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/physcial_therapy_cgf8ls.jpg',
+    8: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/nutritionist_kyjhk8.jpg',
+    9: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/therapy_bbcmit.png',
+    10: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216384/blue_apron_kniyzk.jpg',
+    11: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmstand_zqn6dc.jpg',
+    12: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216386/social_work_jtharl.png'
+  }
+  
+
 
   return (
     <div className="page">
@@ -35,7 +62,7 @@ function Water(props) {
           onClick={() => goBack()}
         >
           <i
-            class="fa fa-angle-left"
+            className="fa fa-angle-left"
             style={{
               fontSize:'36px',
               color: "#4B5B7E", 
@@ -47,14 +74,18 @@ function Water(props) {
         <div className="page__header">WATER</div>
         <div className="page__sub-header">YOUR WEEK SO FAR</div>
 
-        <BarGraph 
-          color={COLORS.WATER}
-          data={waterArr}
-        />
+        <div className="page__sub-graph">
+          <BarGraph 
+            color={COLORS.WATER}
+            data={waterArr}
+          />
+        </div>
 
         <div className="page__caption">
           {waterGoal-water>0 ? (
-            <div>{waterGoal-water} more oz to go!</div>
+            <div>
+              You're <span style={{color: COLORS.WATER}}>{waterGoal-water} oz</span> away from your daily goal of <span style={{color: COLORS.WATER}}>{waterGoal} oz</span>
+            </div>
           ): (
             <div>GOAL ACHIEVED! WAY TO KICK BUTT</div>
           )} 
@@ -64,19 +95,46 @@ function Water(props) {
           className="page__tips-perks"
           style={{background: COLORS.WATER}}
         >
-          <div className='page__tips'>
-            <div className='page__tips-header'>tips header</div>
-            Tips stuff
+
+          <div className="page__tip-box">
+            <TipBox 
+              style={{
+                border: '4px solid white',
+                color: 'white',
+              }}
+              title={tips.title}
+              text={tips.text}
+              link={tips.link}
+            />
           </div>
+
 
           <div 
             className="page__perks"
             style={{color: COLORS.WATER}}
           >
             <div className="page__perks-header">
-              perks header
+              WHAT ABOUT SOME PERKS?
             </div>
-            Perks stuff
+
+            {items.filter(item => {
+              if(
+                item.type.includes('FRUITS_AND_VEGGIES')
+              ) {
+                return item;
+              }
+            }).map(filteredItem => {
+              return(
+                <RedeemCard 
+                  key={`water-${filteredItem.id}`}
+                  description={filteredItem.description}
+                  onClick={()=> handleOnClick(filteredItem)}
+                  title={filteredItem.title}
+                  imageUrl={imageMap[filteredItem.id]}
+                  style={{backgroundColor: COLORS.WATER}}
+                />
+              );
+            })}
         </div>
       </div>
     </div>
@@ -88,11 +146,13 @@ function mapStateToProps(state) {
   const { 
     currentUserReducer,
     dashboardReducer,
+    tipsReducer,
   } = state;
 
   return {   
     currentUser: currentUserReducer.currentUser,
     dashboard: dashboardReducer,
+    tips: tipsReducer && tipsReducer.water[0],
   }
 }
 

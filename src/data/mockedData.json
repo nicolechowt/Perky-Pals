@@ -31,6 +31,41 @@
       "text": "The best way to know your normal is by taking a look every month. We’ll walk you through the process. Every month makes a difference!",
       "link": "/library/breast-health?view=self-check"
     }],
+    "exerciseTip": [{
+      "title": "It looks like you’re having trouble keeping up with your exercise routine this week.",
+      "text": "We’ve got your back. Check out our tips on how to incorporate mini workouts into your day.",
+      "link": "/library/exercise?view=tips"
+    }],
+    "mindfulnessTip": [{
+      "title": "It’s more than just OOOOMMMM.",
+      "text": "Adding a practice of mindfulness can increase your concentration, reduce anxiety and stress, and even improve your eating habits.",
+      "link": "/library/mindfulness?view=tips"
+    }],
+    "waterTip": [{
+      "title": "Did you know? Up to 60% of the human adult body is water.",
+      "text": "Dehydration can us feel rotten. Check out our tips on how to add more water to your day to day",
+      "link": "/library/healthy-eating?view=tips"
+    }],
+    "fruitsAndVeggiesTip": [{
+      "title": "Hmm, haven't been eating your broccolis lately?",
+      "text": "A diet rich in vegetables and fruits can lower blood pressure, reduce the risk of heart disease and stroke, prevent some types of cancer. Check out how you can incoporate more greens in your diet.",
+      "link": "/library/healthy-eating?view=tips"
+    }],
+    "sleepTip": [{
+      "title": "Need some tips to get more ZZZs?",
+      "text": "Try setting the mood by keeping your room dark and quiet. Check out the library for more tips.",
+      "link": "/library/sleep?view=tips"
+    }],
+    "selfCheckTip": [{
+      "title": "Get to know your boobs",
+      "text": "The best way to know your normal is by taking a look every month. We’ll walk you through the process. Every month makes a difference!",
+      "link": "/library/breast-health?view=self-check"
+    }],
+    "mammogramTip": [{
+      "title": "Not sure where to start? We got you!",
+      "text": "Head to our help section to learn more about setting up an appointment.",
+      "link": "/library/breast-health?view=mammogram"
+    }],
     "doneSelfCheckThisMonth": false,
     "scheduledMammogram": false,
     "previousSelfCheckNotes": [],
@@ -162,6 +197,41 @@
       "title": "Need some tips to get more ZZZs? ",
       "text": "Try setting the mood by keeping your room dark and quiet. Check out the library for more tips.",
       "link": "/library/sleep?view=tips"
+    }],
+    "exerciseTip": [{
+      "title": "Whoa! Way to get that heart rate up every day",
+      "text": "Keep up the good work. If you ever need some new workout ideas, check out our library.",
+      "link": ""
+    }],
+    "mindfulnessTip": [{
+      "title": "You’re on a roll!",
+      "text": "Keep up the good work on makign mindfulness a part of your day. If you need more inspriation, check out our library.",
+      "link": ""
+    }],
+    "waterTip": [{
+      "title": "We’re proud of you for getting the recommended amount of water everyday. Keep it up!",
+      "text": "Dehydration can us feel rotten. Check out our tips on how to add more water to your day to day",
+      "link": ""
+    }],
+    "fruitsAndVeggiesTip": [{
+      "title": "Way to snack!",
+      "text": "You’re on a roll with eating fruits and veggies. Keep up the good work. If you ever need more snacking inspiraiton, check out our library.",
+      "link": "/library/healthy-eating?view=tips"
+    }],
+    "sleepTip": [{
+      "title": "Need some tips to get more ZZZs?",
+      "text": "Try setting the mood by keeping your room dark and quiet. Check out the library for more tips.",
+      "link": "/library/sleep?view=tips"
+    }],
+    "selfCheckTip": [{
+      "title": "You know your boobs",
+      "text": "Keep up the good work! Help your friends make a monthly shelf check a part of their monthly routine. Send them an encouraging text.",
+      "link": ""
+    }],
+    "mammogramTip": [{
+      "title": "Your next appointment is on 12/27",
+      "text": "We’re proud of you for making your mammogram appointment. Encourage your friends to get theirs.",
+      "link": ""
     }],
     "doneSelfCheckThisMonth": false,
     "scheduledMammogram": "2020-12-27",
@@ -354,6 +424,41 @@
     ],
     "dashboardTip": [{
       "title": "Looks like you haven't scheduled a mammogram yet for this year. Not sure where to start? We got you!",
+      "text": "Head to our help section to learn more about setting up an appointment.",
+      "link": "/library/breast-health?view=mammogram"
+    }],
+    "exerciseTip": [{
+      "title": "It looks like you’re having trouble keeping up with your exercise routine this week.",
+      "text": "We’ve got your back. Check out our tips on how to incorporate mini workouts into your day.",
+      "link": "/library/exercise?view=tips"
+    }],
+    "mindfulnessTip": [{
+      "title": "It’s more than just OOOOMMMM.",
+      "text": "Adding a practice of mindfulness can increase your concentration, reduce anxiety and stress, and even improve your eating habits.",
+      "link": "/library/mindfulness?view=tips"
+    }],
+    "waterTip": [{
+      "title": "Did you know? Up to 60% of the human adult body is water.",
+      "text": "Dehydration can us feel rotten. Check out our tips on how to add more water to your day to day",
+      "link": "/library/healthy-eating?view=tips"
+    }],
+    "fruitsAndVeggiesTip": [{
+      "title": "Hmm, haven't been eating your broccolis lately?",
+      "text": "A diet rich in vegetables and fruits can lower blood pressure, reduce the risk of heart disease and stroke, prevent some types of cancer. Check out how you can incoporate more greens in your diet.",
+      "link": "/library/healthy-eating?view=tips"
+    }],
+    "sleepTip": [{
+      "title": "Need some tips to get more ZZZs?",
+      "text": "Try setting the mood by keeping your room dark and quiet. Check out the library for more tips.",
+      "link": "/library/sleep?view=tips"
+    }],
+    "selfCheckTip": [{
+      "title": "Get to know your boobs",
+      "text": "The best way to know your normal is by taking a look every month. We’ll walk you through the process. Every month makes a difference!",
+      "link": "/library/breast-health?view=self-check"
+    }],
+    "mammogramTip": [{
+      "title": "Not sure where to start? We got you!",
       "text": "Head to our help section to learn more about setting up an appointment.",
       "link": "/library/breast-health?view=mammogram"
     }],

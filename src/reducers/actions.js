@@ -86,3 +86,31 @@ export function redeemItem(data) {
 export function addNotes(data) {
   return {type: "ADD_NOTES", data}
 }
+
+export function saveExerciseTips(data) {
+  return {type: "SAVE_EXERCISE_TIPS", data}
+}
+
+export function saveMindfulnessTips(data) {
+  return {type: "SAVE_MINDFULNESS_TIPS", data}
+}
+
+export function saveWaterTips(data) {
+  return {type: "SAVE_WATER_TIPS", data}
+}
+
+export function saveFruitsAndVeggiesTips(data) {
+  return {type: "SAVE_FRUITS_AND_VEGGIES_TIPS", data}
+}
+
+export function saveSleepTips(data) {
+  return {type: "SAVE_SLEEP_TIPS", data}
+}
+
+export function saveSelfCheckTips(data) {
+  return {type: "SAVE_SELF_CHECK_TIPS", data}
+}
+
+export function saveMammogramTips(data) {
+  return {type: "SAVE_MAMMOGRAM_TIPS", data}
+}

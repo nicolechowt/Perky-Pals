@@ -5,11 +5,11 @@ import './style/redeem-card.css';
 
 export default function RedeemCard(props) {
   const { 
-    description,
     imageUrl,
     onClick,
     points,
     title,
+    style,
   } = props;
 
   const [isImageDoneLoading, setisImageDoneLoading]=useState(false);
@@ -28,7 +28,9 @@ export default function RedeemCard(props) {
 
       <div 
         className="redeem-card__text"
-        style={{backgroundColor: COLORS.REDEEM}}
+        style={style? 
+          {backgroundColor: style.backgroundColor} :
+          {backgroundColor: COLORS.REDEEM}}
       >
         {title}
       </div>

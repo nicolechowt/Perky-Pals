@@ -6,9 +6,18 @@ import './style/exercise.css';
 import ActivityRing from '../../components/activity-ring';
 
 import { COLORS } from '../../../src/enums/colors'
+import TipBox from '../../components/tip-box';
+
+import { items } from '../../data/redeemItems';
+import RedeemCard from '../../components/redeem/components/redeem-card'
 
 function ActivityItem(props) {
-  const { activity, duration, day, key} = props;
+  const { 
+    activity, 
+    duration, 
+    day, 
+    key, 
+  } = props;
 
   const month = new Date().getMonth()+1;
   const today = new Date().getDate();
@@ -84,7 +93,7 @@ function Exercise(props) {
   let totalExerciseMinutes = 0;
 
   const { goBack } = props.history;
-  const { currentUser, dashboard } = props;
+  const { currentUser, dashboard, tips } = props;
   const exerciseGoal = dashboard.goals && dashboard.goals.exercise;
 
   const todaysExercises = dashboard.exercises || [];
@@ -113,8 +122,28 @@ function Exercise(props) {
     })
   }
 
-  console.log('obj', obj);
-  console.log('arrToGraph', arrToGraph)
+  const nextPath = (path) => {
+    props.history.push(path);
+  }
+
+  const handleOnClick = (filteredItem) => {
+    nextPath('/redeem');
+  }
+
+  const imageMap = {
+    1: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/fitbit_y0swh4.jpg',
+    2: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
+    3: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349684/Mobile_Mammogram_cohiay.jpg',
+    4: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349680/Yoga_lihfpp.jpg',
+    5: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/gym_wtht2n.jpg',
+    6: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
+    7: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/physcial_therapy_cgf8ls.jpg',
+    8: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/nutritionist_kyjhk8.jpg',
+    9: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/therapy_bbcmit.png',
+    10: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216384/blue_apron_kniyzk.jpg',
+    11: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmstand_zqn6dc.jpg',
+    12: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216386/social_work_jtharl.png'
+  }
 
   return (
     <div className="exercise page">
@@ -124,7 +153,7 @@ function Exercise(props) {
             onClick={() => goBack()}
           >
             <i
-              class="fa fa-angle-left"
+              className="fa fa-angle-left"
               style={{
                 fontSize:'36px',
                 color: "#4B5B7E", 
@@ -136,23 +165,27 @@ function Exercise(props) {
         <div className="page__header">EXERCISE</div>
         <div className="page__sub-header">YOUR WEEK SO FAR</div>
 
-        <ActivityRing 
-          data={arrToGraph}
-          width={200}
-          height={200}
-          innerRadius={60}
-          outerRadius={100}
-        />
+        <div className="page__sub-graph">
+          <ActivityRing 
+            data={arrToGraph}
+            width={200}
+            height={200}
+            innerRadius={60}
+            outerRadius={100}
+          />
+        </div>
 
         <div className="page__caption">
           {obj.left ? (
-            <div>{obj.left} more minutes to go!</div>
+            <div>
+              You're <span style={{color: COLORS.EXERCISE}}>{obj.left} min </span> away from your weekly goal of <span style={{color: COLORS.EXERCISE}}>{exerciseGoal}  min</span>
+            </div>
           ): (
             <div>GOAL ACHIEVED! WAY TO KICK BUTT</div>
           )}
         </div>
       </div>
-        {/* adding the rest of this week's */}
+        {/* adding the rest of this week's to render the list of activities */}
         <div>
           {weeklyData.map(day=>{
             return (
@@ -193,11 +226,7 @@ function Exercise(props) {
           }
 
           totalExerciseMinutes += ex.duration;
-          console.log('totalExerciseMinutes', totalExerciseMinutes);
-
-          console.log('ex.act', ex.activity);
-          console.log('ex.du', ex.duration);
-
+          
           return (
             <ActivityItem 
               day="TODAY"
@@ -220,9 +249,16 @@ function Exercise(props) {
           className="page__tips-perks"
           style={{background: COLORS.EXERCISE}}
         >
-          <div className='page__tips'>
-            <div className='page__tips-header'>tips header</div>
-            Tips stuff
+          <div className="page__tip-box">
+            <TipBox 
+              style={{
+                border: '4px solid white',
+                color: 'white',
+              }}
+              title={tips.title}
+              text={tips.text}
+              link={tips.link}
+            />
           </div>
 
           <div 
@@ -230,9 +266,19 @@ function Exercise(props) {
             style={{color: COLORS.EXERCISE}}
           >
             <div className="page__perks-header">
-              perks header
+              WHAT ABOUT SOME PERKS?
             </div>
-            Perks stuff
+
+            {items.filter(item => item.type.includes('EXERCISE')).map(filteredItem => (
+              <RedeemCard 
+                key={`exercise-${filteredItem.id}`}
+                description={filteredItem.description}
+                onClick={()=> handleOnClick(filteredItem)}
+                title={filteredItem.title}
+                imageUrl={imageMap[filteredItem.id]}
+                style={{backgroundColor: COLORS.EXERCISE}}
+              />
+            ))}
           </div>
         </div>
     </div>
@@ -243,11 +289,13 @@ function mapStateToProps(state) {
   const { 
     currentUserReducer,
     dashboardReducer,
+    tipsReducer,
   } = state;
 
   return {   
     currentUser: currentUserReducer.currentUser,
     dashboard: dashboardReducer,
+    tips: tipsReducer && tipsReducer.exercise[0],
   }
 }
 

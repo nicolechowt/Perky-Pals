@@ -53,11 +53,17 @@
   text-transform: uppercase;
 }
 
+.page__sub-graph
+{
+  margin-top: 30px;
+}
+
 .page__caption
 {
   font-weight: bold;
   font-size: 16px;
   line-height: 150%;
+  padding: 20px 40px;
 }
 
 .page__back-button
@@ -74,6 +80,12 @@
   font-weight: normal;
   font-size: 16px;
   line-height: 150%;
+  text-align: left;
+}
+
+.page__tip-box
+{
+  margin-bottom: 20px;
 }
 
 .page__tips
@@ -111,10 +123,16 @@
   font-size: 14px;
   line-height: 22px;
   padding: 4px 40px;
+  color: #4B5B7E;
 
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
+}
+
+.page__notes-item--empty
+{
+  text-transform: initial;
 }
 
 .react-calendar {

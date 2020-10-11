@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { COLORS } from '../../../src/enums/colors'
+import TipBox from '../../components/tip-box';
+import { items } from '../../data/redeemItems';
+import RedeemCard from '../../components/redeem/components/redeem-card'
 
 import './style/self-check.css';
 
@@ -22,7 +25,7 @@ function NotesItem(props) {
 function SelfCheck(props) {
   const { goBack } = props.history;
 
-  const { currentUser, selfCheckNotes } = props;
+  const { currentUser, selfCheckNotes, tips } = props;
   const weeklyData = currentUser ? currentUser[0] && currentUser[0].weeklyData : [];
 
   const notes = selfCheckNotes && selfCheckNotes.notes;
@@ -112,6 +115,29 @@ function SelfCheck(props) {
 
   const nextMonth = (new Date().getMonth()+1)%12 + 1;
 
+  const nextPath = (path) => {
+    props.history.push(path);
+  }
+
+  const handleOnClick = (filteredItem) => {
+    nextPath('/redeem');
+  }
+
+  const imageMap = {
+    1: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/fitbit_y0swh4.jpg',
+    2: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
+    3: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349684/Mobile_Mammogram_cohiay.jpg',
+    4: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349680/Yoga_lihfpp.jpg',
+    5: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/gym_wtht2n.jpg',
+    6: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
+    7: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/physcial_therapy_cgf8ls.jpg',
+    8: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/nutritionist_kyjhk8.jpg',
+    9: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/therapy_bbcmit.png',
+    10: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216384/blue_apron_kniyzk.jpg',
+    11: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmstand_zqn6dc.jpg',
+    12: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216386/social_work_jtharl.png'
+  }
+  
   return (
     <div className="page">
       <div className="page__progess">
@@ -120,7 +146,7 @@ function SelfCheck(props) {
           onClick={() => goBack()}
         >
           <i
-            class="fa fa-angle-left"
+            className="fa fa-angle-left"
             style={{
               fontSize:'36px',
               color: "#4B5B7E", 
@@ -150,27 +176,55 @@ function SelfCheck(props) {
             />
           )
         }): (
-          <div className="page__notes-item">Write something</div>
+          <div className="page__notes-item page__notes-item--empty">
+            Next time you perform a self-check, feel free to jot down any notes you'd like. And we will save them here for your record.
+          </div>
         )}
       </div>
       <div 
-          className="page__tips-perks"
-          style={{background: COLORS.SELF_CHECK}}
-        >
-          <div className='page__tips'>
-            <div className='page__tips-header'>tips header</div>
-            Tips stuff
-          </div>
+        className="page__tips-perks"
+        style={{background: COLORS.SELF_CHECK}}
+      >
+        <div className="page__tip-box">
+          <TipBox 
+              style={{
+                border: '4px solid white',
+                color: 'white',
+              }}
+              title={tips.title}
+              text={tips.text}
+              link={tips.link}
+            />
+        </div>
 
-          <div 
-            className="page__perks"
-            style={{color: COLORS.SELF_CHECK}}
-          >
-            <div className="page__perks-header">
-              perks header
-            </div>
-            Perks stuff
+        <div 
+          className="page__perks"
+          style={{color: COLORS.SELF_CHECK}}
+        >
+          <div className="page__perks-header">
+            WHAT ABOUT SOME PERKS?
           </div>
+          
+          {items.filter(item => {
+            if(
+              item.type.includes('SELF_CHECK') || 
+              item.type.includes('MAMMOGRAM')
+            ) {
+              return item;
+            }
+          }).map(filteredItem => {
+            return(
+              <RedeemCard 
+                key={`self-check-${filteredItem.id}`}
+                description={filteredItem.description}
+                onClick={()=> handleOnClick(filteredItem)}
+                title={filteredItem.title}
+                imageUrl={imageMap[filteredItem.id]}
+                style={{backgroundColor: COLORS.SELF_CHECK}}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
@@ -181,6 +235,7 @@ function mapStateToProps(state) {
     dashboardReducer,
     currentUserReducer,
     selfCheckNotesReducer,
+    tipsReducer,
   } = state;
 
   return {  
@@ -190,6 +245,7 @@ function mapStateToProps(state) {
     goals: dashboardReducer.goals,
     pointsClaimed: dashboardReducer.pointsClaimed,
     selfCheckNotes: selfCheckNotesReducer,
+    tips: tipsReducer && tipsReducer.selfCheck[0],
   }
 }
 

@@ -5,6 +5,7 @@ export const items = [
     description: 'Makes tracking your exercise minutes, heart rate and sleep effortless',
     points: 350,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/fitbit_y0swh4.jpg',
+    type: ['EXERCISE'],
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const items = [
     description: 'One Fresh fruit and vegetables delivered to your door.',
     points: 350,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
+    type: ['FRUITS_AND_VEGGIES'],
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const items = [
     description: 'Free mammogram screening at mobile locations in your area',
     points: 350,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349684/Mobile_Mammogram_cohiay.jpg',
+    type: ['MAMMOGRAM', 'SELF_CHECK'],
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const items = [
     description: '10 free classes at Yoga Studio',
     points: 750,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349680/Yoga_lihfpp.jpg',
+    type: ['EXERCISE'],
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const items = [
     description: 'Free access for a month at Gym',
     points: 750,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/gym_wtht2n.jpg',
+    type: ['EXERCISE'],
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ export const items = [
     description: 'Fresh fruit and vegetables delivered to your home for 3 months',
     points: 750,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
+    type: ['FRUITS_AND_VEGGIES']
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ export const items = [
     description: 'Meet with a Physical Therapist for an hour consultation',
     points: 1000,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/physcial_therapy_cgf8ls.jpg',
+    type: ['EXERCISE']
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ export const items = [
     description: 'Meet with a Nutritionist and discuss your goals for healthy eating',
     points: 1000,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/nutritionist_kyjhk8.jpg',
+    type: ['FRUITS_AND_VEGGIES', 'MINDFULNESS']
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ export const items = [
     description: 'Meet with a Licensed Therapist',
     points: 1000,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/therapy_bbcmit.png',
+    type: ['MINDFULNESS'],
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ export const items = [
     description: '2 serving meal kits, 3 times a week for a month delivered to your door',
     points: 1000,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216384/blue_apron_kniyzk.jpg',
+    type: ['FRUITS_AND_VEGGIES'],
   },
   {
     id: 11,
@@ -75,6 +85,7 @@ export const items = [
     description: 'Bring to your community for a day a Pop-Up Farm Stand that will also have a Mobile Mammogram',
     points: 2500,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmstand_zqn6dc.jpg',
+    type: ['FRUITS_AND_VEGGIES'],
   },
   {
     id: 12,
@@ -82,5 +93,6 @@ export const items = [
     description: 'Meet with a Social Worker who can provide you with individual counseling. He/she can even guide you through the process of applying for various funds and assistance related to breast health.',
     points: 1000,
     imageURL: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216386/social_work_jtharl.png',
+    type: ['MINDFULNESS', 'SELF_CHECK', 'MAMMOGRAM'],
   },
 ]

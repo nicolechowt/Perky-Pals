@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 
 import Calendar from 'react-calendar';
 import { COLORS } from '../../../src/enums/colors'
+import TipBox from '../../components/tip-box';
+import { items } from '../../data/redeemItems';
+import RedeemCard from '../../components/redeem/components/redeem-card'
 
 import './style/mindfulness.css';
 
 function Mindfulness(props) {
   const { goBack } = props.history;
 
-  const { currentUser } = props;
+  const { currentUser,tips } = props;
   const weeklyData = currentUser ? currentUser[0] && currentUser[0].weeklyData : [];
 
 
@@ -95,7 +98,29 @@ function Mindfulness(props) {
     })
   }
 
-  console.log('mind', mindfulWeekArr)
+  const nextPath = (path) => {
+    props.history.push(path);
+  }
+
+  const handleOnClick = (filteredItem) => {
+    nextPath('/redeem');
+  }
+
+  const imageMap = {
+    1: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/fitbit_y0swh4.jpg',
+    2: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
+    3: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349684/Mobile_Mammogram_cohiay.jpg',
+    4: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602349680/Yoga_lihfpp.jpg',
+    5: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/gym_wtht2n.jpg',
+    6: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmbox_wx7x83.png',
+    7: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216385/physcial_therapy_cgf8ls.jpg',
+    8: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/nutritionist_kyjhk8.jpg',
+    9: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/therapy_bbcmit.png',
+    10: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216384/blue_apron_kniyzk.jpg',
+    11: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216387/farmstand_zqn6dc.jpg',
+    12: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216386/social_work_jtharl.png'
+  }
+  
 
   return (
     <div>
@@ -106,7 +131,7 @@ function Mindfulness(props) {
             onClick={() => goBack()}
           >
             <i
-              class="fa fa-angle-left"
+              className="fa fa-angle-left"
               style={{
                 fontSize:'36px',
                 color: "#4B5B7E", 
@@ -121,9 +146,16 @@ function Mindfulness(props) {
           className="page__tips-perks"
           style={{background: COLORS.MINDFULNESS}}
         >
-          <div className='page__tips'>
-            <div className='page__tips-header'>tips header</div>
-            Tips stuff
+          <div className="page__tip-box">
+            <TipBox 
+              style={{
+                border: '4px solid white',
+                color: 'white',
+              }}
+              title={tips.title}
+              text={tips.text}
+              link={tips.link}
+            />
           </div>
 
           <div 
@@ -131,9 +163,28 @@ function Mindfulness(props) {
             style={{color: COLORS.MINDFULNESS}}
           >
             <div className="page__perks-header">
-              perks header
+              WHAT ABOUT SOME PERKS?
             </div>
-            Perks stuff
+            
+            {items.filter(item => {
+              if(
+                item.type.includes('MINDFULNESS')
+              ) {
+                return item;
+              }
+            }).map(filteredItem => {
+              return(
+                <RedeemCard 
+                  key={`mindfulness-${filteredItem.id}`}
+                  description={filteredItem.description}
+                  onClick={()=> handleOnClick(filteredItem)}
+                  title={filteredItem.title}
+                  imageUrl={imageMap[filteredItem.id]}
+                  style={{backgroundColor: COLORS.MINDFULNESS}}
+                />
+              );
+            })}
+
           </div>
         </div>
       </div>
@@ -149,7 +200,7 @@ function Mindfulness(props) {
     if(view === 'month' && mindfulWeekArr.includes(processedDateString)){
       return(
         <i
-          class="fa fa-check-circle"
+          className="fa fa-check-circle"
           style={{
             fontSize:'24px',
             color: COLORS.MINDFULNESS, 
@@ -160,7 +211,7 @@ function Mindfulness(props) {
     }
     return(
       <i
-        class="fa fa-circle"
+        className="fa fa-circle"
         style={{
           fontSize:'18px',
           color: "#DEDEDE", 
@@ -179,6 +230,7 @@ function mapStateToProps(state) {
   const { 
     dashboardReducer,
     currentUserReducer,
+    tipsReducer,
   } = state;
 
   return {  
@@ -187,6 +239,7 @@ function mapStateToProps(state) {
     exerciseMinutes: dashboardReducer.exercise,
     goals: dashboardReducer.goals,
     pointsClaimed: dashboardReducer.pointsClaimed,
+    tips: tipsReducer && tipsReducer.mindfulness[0],
   }
 }
 

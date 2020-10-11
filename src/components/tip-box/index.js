@@ -8,6 +8,7 @@ function TipBox(props) {
     link,
     text,
     title,
+    style,
   } = props;
 
   const nextPath = (path) => {
@@ -15,28 +16,48 @@ function TipBox(props) {
   }
 
   return (
-    <div className="tip-box">
-      <div className="tip-box__title">{title}</div>
-      <div className="tip-box__text">{text}</div>
+    <div 
+      className="tip-box"
+      style={style && {border: `${style.border}`}}
+    >
+      <div 
+        className="tip-box__title"
+        style={style && {color: `${style.color}`}}
+      >
+        {title}
+      </div>
 
       <div 
-        className="tip-box__button"
-        onClick={(event)=>{
-          event.stopPropagation();
-          nextPath(link);
-        }}
+        className="tip-box__text"
+        style={style && {color: `${style.color}`}}
       >
-        {link && (
-          <i
-            class="fa fa-chevron-circle-right" 
-            style={{
-              fontSize:'22px',
-              color: "#F55F15", 
-              padding: '4px'
-            }}
-          />
-        )}
+        {text}
       </div>
+
+      {(()=>{
+        if(!link) return;
+        
+        return (
+          <div 
+            className="tip-box__button"
+            onClick={(event)=>{
+              event.stopPropagation();
+              nextPath(link);
+            }}
+          >
+            {link && (
+              <i
+                className="fa fa-chevron-circle-right" 
+                style={{
+                  fontSize:'22px',
+                  color: `${style ? style.color : "#F55F15"}`, 
+                  padding: '4px'
+                }}
+              />
+            )}
+          </div>
+        );
+      })()}
     </div>
   );
 }
