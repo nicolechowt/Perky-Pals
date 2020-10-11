@@ -49,7 +49,12 @@ function Appointment(props) {
   }
 
   return (
-    <div className="appointment">
+    <div 
+      className="appointment"
+      onClick={(event)=> {
+        event.stopPropagation();
+      }}
+    >
       <div className="appointment__header">
         make an appointment
       </div>

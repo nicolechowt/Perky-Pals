@@ -13,6 +13,8 @@ function HelpOverlay(props) {
   const [mammogramIsFetched, setMammogramIsFetched] = useState(false);
   const [mammogramIsFetching, setMammogramIsFetching] = useState(false);
 
+  const [zipcode, setZipcode] = useState('');
+
   const setLoad = () => {
     setMammogramIsFetched(true);
     setMammogramIsFetching(false);
@@ -50,7 +52,11 @@ function HelpOverlay(props) {
   ];
 
   return (
-    <div>
+    <div
+      onClick={(event)=> {
+        event.stopPropagation();
+      }}
+    >
       <div 
         className="activity-form-overlay__top"
         style={{backgroundColor: COLORS.MAMMOGRAM}}
@@ -69,7 +75,15 @@ function HelpOverlay(props) {
         >  
           <label htmlFor="activity">WHAT'S YOUR ZIPCODE'?</label>
           <div>
-            <input type="text" name="zipcode" value="94103" />
+            <input 
+              type="text" 
+              name="zipcode" 
+              onChange={(event)=> {
+                setZipcode(event.target.value);
+                event.stopPropagation();
+              }}
+              value={zipcode} 
+            />
             <button 
               className="activity-form__button"
               onClick={(event)=> {
