@@ -25,7 +25,7 @@ export default function HamburgerMenu() {
                     <div>EDIT GOALS</div>             
                     <i 
                       aria-hidden="true"
-                      class="fa fa-angle-right" 
+                      className="fa fa-angle-right" 
                       style={{
                         fontSize:'18px',
                         color: COLORS.NAVY_BLUE, 
@@ -43,7 +43,7 @@ export default function HamburgerMenu() {
                     <div>REDEEM POINTS</div>
                     <i 
                       aria-hidden="true"
-                      class="fa fa-angle-right" 
+                      className="fa fa-angle-right" 
                       style={{
                         fontSize:'18px',
                         color: COLORS.NAVY_BLUE, 
@@ -59,7 +59,7 @@ export default function HamburgerMenu() {
                     <div>LIBRARY</div>
                     <i 
                       aria-hidden="true"
-                      class="fa fa-angle-right" 
+                      className="fa fa-angle-right" 
                       style={{
                         fontSize:'18px',
                         color: COLORS.NAVY_BLUE, 
@@ -76,7 +76,7 @@ export default function HamburgerMenu() {
             <button onClick={()=> setIsMenuOpen(true)}>
               <i 
                 aria-hidden="true"
-                class="fa fa-bars" 
+                className="fa fa-bars" 
                 style={{
                   fontSize:'18px',
                   color: COLORS.NAVY_BLUE, 

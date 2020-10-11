@@ -53,7 +53,7 @@ function ActivityBox(props) {
       >
         {!hideAdd && (
           <i
-            class="fa fa-plus-circle"
+            className="fa fa-plus-circle"
             style={{
               fontSize:'22px',
               color: "#FFFFFF", 

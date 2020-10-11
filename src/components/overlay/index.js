@@ -28,7 +28,7 @@ export default function Overlay(props) {
           style={{ zIndex: 3 }}
         >
           <i
-            class="fa fa-angle-left"
+            className="fa fa-angle-left"
             style={{
               fontSize:'36px',
               color: "#4B5B7E", 
@@ -66,7 +66,7 @@ export default function Overlay(props) {
                 style={{ zIndex: 3 }}
               >
                 <i  
-                  class="fa fa-times"
+                  className="fa fa-times"
                   style={{
                     fontSize:'12px',
                     color: "#4B5B7E", 

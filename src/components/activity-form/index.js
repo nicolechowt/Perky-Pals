@@ -403,7 +403,7 @@ function ActivityForm(props) {
                 onClick={onClose}
               >
                 <i
-                  class="fa fa-times"
+                  className="fa fa-times"
                   style={{
                     fontSize:'12px',
                     color: 'white',
@@ -425,7 +425,7 @@ function ActivityForm(props) {
                 onClick={onClose}
               >
                 <i
-                  class="fa fa-times"
+                  className="fa fa-times"
                   style={{
                     fontSize:'12px',
                     color: 'white',
@@ -447,7 +447,7 @@ function ActivityForm(props) {
                 onClick={onClose}
               >
                 <i
-                  class="fa fa-times"
+                  className="fa fa-times"
                   style={{
                     fontSize:'12px',
                     color: 'white',
@@ -728,7 +728,7 @@ function ActivityForm(props) {
                         <div className="activity-form-overlay__spinner">
                           <i 
                             aria-hidden="true"
-                            class="fa fa-spinner fa-spin" 
+                            className="fa fa-spinner fa-spin" 
                             style={{
                               fontSize:'18px',
                               color: COLORS.NAVY_BLUE, 

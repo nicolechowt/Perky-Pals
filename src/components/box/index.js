@@ -51,7 +51,7 @@ function Box(props) {
       >
         {!hideAdd && (
           <i
-            class="fa fa-chevron-circle-right" 
+            className="fa fa-chevron-circle-right" 
             style={{
               fontSize:'22px',
               color: "#FFFFFF", 

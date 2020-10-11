@@ -25,7 +25,7 @@ export default function Friend(props) {
     if(rest[prop]) {
       checks.push(
         <i
-          class="fa fa-check-circle"
+          className="fa fa-check-circle"
           style={{
             fontSize:'28px',
             color: colorMap[prop], 
@@ -36,7 +36,7 @@ export default function Friend(props) {
     } else {
       checks.push(
         <i
-          class="fa fa-circle"
+          className="fa fa-circle"
           style={{
             fontSize:'18px',
             color: "#C4C4C4", 
