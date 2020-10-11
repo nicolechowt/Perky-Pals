@@ -4,9 +4,6 @@
   padding: 36px;
   display: flex;
   flex-direction: column;
-
-  height: 100%;
-  overflow: scroll;
 }
 
 .appointment__header
