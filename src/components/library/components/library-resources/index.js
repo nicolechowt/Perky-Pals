@@ -77,6 +77,19 @@ const BreastHealthContent = () => {
       <p>BreastCancer.org has a more detailed description for performing a <a href="https://www.breastcancer.org/symptoms/testing/types/self_exam" target="_blank" className="breasthealth-content">self exam</a>.</p>
 
       <p>Need free or low-cost screenings? Get help from the <a href="https://www.cdc.gov/cancer/nbccedp/screenings.htm" target="_blank" className="breasthealth-content">CDC</a>.</p>
+
+      <h3 className="breasthealth-content">Feeling generous?</h3>
+      <p>
+        <i>If you have a few bucks to spare...</i><br />
+        <b>American Cancer Society</b> invites you to <a href="https://secure.acsevents.org/site/SPageServer/?pagename=strides_msabc" target="_blank" className="breasthealth-content">Join the Movement, Fund the Future</a>
+      </p>
+
+      <p>
+        <i>If you have some time to spare...</i><br />
+        These <b>research and clinical trials</b> are looking for volunteers. One way to improve cancer detection, prevention, and treatment is through research. People participating in research contribute to medical knowledge and have opportunity to receive cutting-edge care.
+      </p>
+      <p><a href="https://www.facingourrisk.org/research-clinical-trials/featured" target="_blank" className="breasthealth-content">Find out more at here.</a></p>
+
     </div>
   );
 }
