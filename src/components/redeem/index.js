@@ -124,9 +124,24 @@ function Redeem(props) {
         className="redeem__point-header"
         style={{color: COLORS.REDEEM}}
       >
-        1000+ points
+        1000 points
       </div>
-      {items.filter(item => item.points>=1000).map(filteredItem => (
+      {items.filter(item => item.points===1000).map(filteredItem => (
+        <RedeemCard 
+          description={filteredItem.description}
+          onClick={()=> handleOnClick(filteredItem)}
+          title={filteredItem.title}
+          imageUrl={imageMap[filteredItem.id]}
+        />
+      ))}
+
+      <div 
+        className="redeem__point-header"
+        style={{color: COLORS.REDEEM}}
+      >
+        2500 points
+      </div>
+      {items.filter(item => item.points===2500).map(filteredItem => (
         <RedeemCard 
           description={filteredItem.description}
           onClick={()=> handleOnClick(filteredItem)}
