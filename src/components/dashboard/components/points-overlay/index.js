@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import { ADD_MODAL } from '../../../../reducers/actions'
 import { COLORS } from '../../../../enums/colors'
 
+import {
+  withRouter,
+} from "react-router-dom";
+
 import './style/points-overlay.css';
 
 function PointsOverlay(props) {
@@ -12,9 +16,13 @@ function PointsOverlay(props) {
     number,
     body2,
     footer,
+    link,
   } = props;
 
-  console.log('title', title)
+  const nextPath = (path) => {
+    props.history.push(path);
+  }
+
   return (
     <div className="points-overlay">
 
@@ -48,7 +56,22 @@ function PointsOverlay(props) {
       {title==='YAY!'? (
         <div className="points-overlay__footer points-overlay__footer--orange">{footer}</div>
       ): 
-        <div className="points-overlay__footer">{footer}</div>
+        <div 
+          className="points-overlay__footer points-overlay__footer--link"
+          onClick={(event)=>{
+            event.stopPropagation();
+            link && nextPath(link);
+          }}
+        >
+          {footer}
+          <i
+            className="fa fa-chevron-circle-right" 
+            style={{
+              fontSize:'22px',
+              padding: '4px'
+            }}
+          />
+        </div>
       }
     </div>
   );
@@ -70,7 +93,9 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(PointsOverlay)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(PointsOverlay)
+);

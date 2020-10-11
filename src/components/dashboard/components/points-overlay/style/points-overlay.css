@@ -98,3 +98,8 @@
 {
   color: #FF8500;
 }
+
+.points-overlay__footer--link
+{
+  cursor: pointer;
+}
