@@ -15,6 +15,7 @@ function RedeemPreview(props) {
     imageURL,
   } = props;
   const [viewState, setViewState] = useState('PREVIEW');
+  const [isImageDoneLoading, setisImageDoneLoading]=useState(false);
 
   const categoriesEnums = ["EXERCISE","MINDFULNESS","SLEEP","WATER","FRUITS_AND_VEGGIES","SELF_CHECK", "MAMMOGRAM"];
 
@@ -25,15 +26,19 @@ function RedeemPreview(props) {
   return (
     <div className="redeem-preview">
       {viewState==='PREVIEW' && 
-        <div className="redeem-preview__container">
+        <div className="redeem-preview__top">
           <div className="redeem-preview__header"> REDEEM </div>
-          <img className="redeem-preview__image" src={imageURL} />
+          <img 
+            className={isImageDoneLoading ? "redeem-preview__image" : "redeem-preview__image--loading"}
+            onLoad={()=>setisImageDoneLoading(true)}
+            src={imageURL} 
+          />
           <div className="redeem-preview__title">{title} </div>
           <div className="redeem-preview__description">{description}</div>
           <div className="redeem-preview__points">{points} PERKS</div>
       
           <button 
-            className="button--pill-yellow redeem__button"
+            className="redeem__button redeem__button--long"
             onClick={()=>{
               if(userCurrentPoints-points>0) {
                 setViewState('CHECKOUT');
@@ -48,7 +53,7 @@ function RedeemPreview(props) {
       }
 
       {viewState==='CHECKOUT' && 
-        <div className="redeem-preview__container">
+        <div className="redeem-preview__bottom">
           <div className="redeem-preview__header"> CHECKOUT </div>
           <div className="redeem-preview__checkout-item">
             <div>Current Perks Balance</div>
@@ -68,7 +73,7 @@ function RedeemPreview(props) {
           </div>
       
           <button 
-            className="button--pill-yellow redeem__button"
+            className="redeem__button redeem__button--long"
             onClick={()=>{
               redeemItem(points);
               handleCancelClick()
@@ -84,7 +89,7 @@ function RedeemPreview(props) {
       }
 
       {viewState==='SORRY' && 
-        <div className="redeem-preview__container">
+        <div className="redeem-preview__top">
           <div className="redeem-preview__title">
             WE ARE SORRY.
           </div>
@@ -116,7 +121,7 @@ function RedeemPreview(props) {
           })()}
           <button 
             onClick={handleCancelClick}
-            className="button--pill-yellow redeem__button redeem__button--long"
+            className="redeem__button redeem__button--long"
           >
             SOUNDS GOOD
           </button>

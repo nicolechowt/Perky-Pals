@@ -1,8 +1,15 @@
 .redeem-preview
 {
+  display: flex;
   height: 100%;
-  width: 100%;
-  text-align: left;
+  overflow-y: scroll;
+  position: relative;
+  flex-direction: column;
+}
+
+.redeem-preview__top
+{
+  padding: 36px;
 }
 
 .redeem-preview__header
@@ -16,7 +23,16 @@
 
 .redeem-preview__image
 {
-  max-width: 350px;
+  max-width: 100%;
+}
+
+.redeem-preview__image--loading
+{
+  max-width: 100%;
+  border-radius: 4px 4px 0 0;
+  margin-bottom: -7px;
+  background:  #EFEFEF;
+  align-self: stretch;
 }
 
 .redeem-preview__title
@@ -26,6 +42,7 @@
   font-size: 20px;
   color: #0DB39E; 
   padding-top: 28px;
+  text-align: left;
 }
 
 .redeem-preview__description
@@ -46,16 +63,15 @@
   padding-top: 32px;
 }
 
-.redeem-preview__container
-{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
 .redeem__button
 {
   align-self: center;
+  background: #FEBE3E;
+  border-radius: 28px;
+  color: #4B5B7E;
+  height: 42px;
+  margin: 8px;
+  width: 110px;
 }
 
 .redeem__button--long
