@@ -1,18 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { ADD_EXERCISE_MINUTES } from '../../reducers/actions'
 import { withRouter } from "react-router-dom";
-
-import Box from '../box';
-import Button from '../button';
 
 import './style/activity-box.css';
 
 function ActivityBox(props) {
   const { 
-    addExerciseMinute,
     children,
-    display,
     frequency,
     goal,
     header,
@@ -39,7 +32,8 @@ function ActivityBox(props) {
       {(()=>{
         let emptyStateText = '';
 
-        if(goal) {
+        if(goal && header!=="SELF-CHECK" && header!=="MAMMOGRAM") {
+          // goals for everything but self-check and mammogram
           return (
             <div>
               <div className="activity-box__header">{header}</div>
@@ -50,7 +44,20 @@ function ActivityBox(props) {
               {children && <div>{children}</div>}
             </div>
           );
+        } else if (
+          goal && 
+          (header==="SELF-CHECK" || header==="MAMMOGRAM")
+        ){
+          // goal for self-check or mammogram
+          return (
+            <div>
+              <div className="activity-box__header">{header}</div>
+              {title && <span className="activity-box__title"> {title}</span>}
+              {children && <div>{children}</div>}
+            </div>
+          );
         } else {
+          // empty state
           if(header==='EXERCISE') {
             emptyStateText='There are so many ways to get a little more active. Yes - you can.'; 
           } else if(header==='MINDFULNESS') {
@@ -74,7 +81,6 @@ function ActivityBox(props) {
           )
         }
       })()}
-
 
       <div 
         className="activity-box__plus"
