@@ -40,7 +40,7 @@ function RedeemPreview(props) {
           <button 
             className="redeem__button redeem__button--long"
             onClick={()=>{
-              if(userCurrentPoints-points>0) {
+              if(userCurrentPoints-points>=0) {
                 setViewState('CHECKOUT');
               } else {
                 setViewState('SORRY');
