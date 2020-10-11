@@ -11,7 +11,8 @@ export default function Overlay(props) {
 
   const [isOverlayOpen, setIsOverlayOpen] = useState(true);
 
-  const handleOnClick = () => {
+  const handleOnClick = (event) => {
+    event.stopPropagation();
     setIsOverlayOpen(false);
     onClose && onClose();
   }

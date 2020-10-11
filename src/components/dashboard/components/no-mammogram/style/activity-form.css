@@ -1,0 +1,112 @@
+.activity-form .react-calendar__month-view__days__day abbr {
+  display: block;
+}
+
+.activity-form
+{
+  border-radius: 20px 20px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 58%;
+}
+
+.activity-form__header
+{
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  border-radius: 20px 20px 0 0;
+  position: relative;
+}
+
+.activity-form__header-text
+{
+  border-radius: 20px 20px 0 0;
+  padding: 20px 20px 4px 20px;
+  text-align: center;
+  color: white;
+}
+
+.activity-form__item
+{
+  padding: 8px 0;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.activity-form__content
+{
+  margin: 20px;
+}
+
+.activity-form__close
+{
+  position: absolute;
+  top: -10px;
+  right: 10px;
+}
+
+.activity-form__comment
+{
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: initial;
+}
+
+.activity-form__box
+{
+  min-height: 60px;
+}
+
+.activity-form-overlay__top 
+{
+  color: white;
+  font-size: 16px;
+  padding: 36px;
+  text-transform: initial;
+}
+
+.activity-form-overlay__bottom
+{
+}
+
+.activity-form-overlay__spinner
+{
+  text-align: center;
+  padding: 20px;
+}
+.activity-form-overlay__header
+{
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  padding-bottom: 24px;
+}
+
+.activity-form-overlay__subheader
+{
+  font-weight: bold;
+  font-size: 16px;
+  padding: 20px 20px 0 20px;
+  text-transform: uppercase;
+}
+
+.activity-form__link:hover
+{
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.activity-form__button
+{
+  background: #FEBE3E;
+  color: #4B5b7e;
+  font-weight: 700;
+  height: 24px;
+  margin: 10px;
+  width: 80px;
+  border-radius: 28px;
+}

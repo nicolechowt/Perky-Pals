@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 import { COLORS } from '../../../src/enums/colors'
@@ -16,9 +15,12 @@ import {
   ADD_WATER_OZ,
 } from '../../reducers/actions'
 
-import './style/activity-form.css';
-import Overlay from '../overlay';
+import HelpOverlay from '../help-overlay';
 import MammogramHelp from '../mammogram-help';
+import Overlay from '../overlay';
+
+import './style/activity-form.css';
+
 
 function ActivityForm(props) {
   const minutes = [];
@@ -66,7 +68,6 @@ function ActivityForm(props) {
   } = props;
 
   // calculate weekly goals
-  
   const weeklyData = currentUser ? currentUser[0] && currentUser[0].weeklyData : [];
 
   let exerciseWeek = 0;
@@ -106,37 +107,6 @@ function ActivityForm(props) {
   const doneSelfCheckThisMonth = dashboard && dashboard.doneSelfCheckThisMonth;
   const scheduledMammogram = dashboard && dashboard.scheduledMammogram;
 
-  const mammogramHelp = [
-    {
-      header: 'Haight ashbury free clinics',
-      address: '1553 Mission St., San Francisco, ca 94103',
-      phone: '(415) 746-1967',
-      website: 'www.google.com',
-      miles: '1.2 MILES AWAY'
-    },
-    {
-      header: 'San Francisco Free Clinic',
-      address: '4900 California St., San Francisco, ca 94118 ',
-      phone: '(415) 750-9894',
-      website: 'www.google.com',
-      miles: '1.5 MILES AWAY'
-    },
-    {
-      header: 'San Francisco City Clinic',
-      address: '356 7th St., San Francisco, CA 94105 ',
-      phone: '(415) 887-5500',
-      website: 'www.google.com',
-      miles: '2 MILES AWAY'
-    },
-    {
-      header: 'Healthright 360',
-      address: '1563 Mission St., San Francisco, CA 94105',
-      phone: '(415) 762-3700',
-      website: 'www.google.com',
-      miles: '3 MILES AWAY'
-    },
-  ]
-
   const [redirect, setRedirect] = useState(false);
   const [activityType, setActivityType] = useState('Walk');
   const [activityMin, setActivityMin] = useState(1);
@@ -146,14 +116,6 @@ function ActivityForm(props) {
   const [mammogramDate, setMammogramDate] = useState(new Date());
   const [helpOverlay, setHelpOverlay] = useState(false);
   const [selfCheckNotes, setSelfCheckNotes] = useState('');
-
-  const [mammogramIsFetched, setMammogramIsFetched] = useState(false);
-  const [mammogramIsFetching, setMammogramIsFetching] = useState(false);
-
-  const setLoad = () => {
-    setMammogramIsFetched(true);
-    setMammogramIsFetching(false);
-  };
 
   // for notes
   const today = new Date();
@@ -639,12 +601,17 @@ function ActivityForm(props) {
                 <div className="activity-form__item">
                     DATE: <b>{`${month}/${day}/${year}`}</b>
                 </div>
-                <div className="activity-form__item">
-                  Did you have a do a self check today?
-                </div>
 
                 <div className="activity-form__item">
                   Any notes you’d like to add?
+                </div>
+
+                <div className="activity-form__item">
+                  <input
+                    className="activity-form__box"
+                    onChange={(event)=> setSelfCheckNotes(event.target.value)}
+                    value={selfCheckNotes} 
+                  />
                 </div>
 
                 <div className="activity-form__item">
@@ -662,13 +629,7 @@ function ActivityForm(props) {
                     </button>
                   </div>
                 </div>
-                <div className="activity-form__item">
-                  <input
-                      className="activity-form__box"
-                      onChange={(event)=> setSelfCheckNotes(event.target.value)}
-                      value={selfCheckNotes} 
-                    />
-                </div>
+
                 <div style={{textAlign: 'center'}}>
                   <button 
                     className="button--pill"
@@ -684,17 +645,20 @@ function ActivityForm(props) {
             return (
               <div className="activity-form__content">
                 <div className="activity-form__item">
-                  <div className="activity-form__item">MAKE AN APPOINTMENT</div>
-                  
-                  <div>
-                    It’s so important that you get an mammograpm every year! When’s your appointment? We’ll remind you when it’s coming up.
-                  </div>
+                    DATE: <b>{`${month}/${day}/${year}`}</b>
                 </div>
 
-                <Calendar 
-                  onChange={(date)=>setMammogramDate(date)}
-                  value={mammogramDate}
-                />
+                <div className="activity-form__item">
+                  Any notes you’d like to add?
+                </div>
+
+                <div className="activity-form__item">
+                  <input
+                    className="activity-form__box"
+                    onChange={(event)=> setSelfCheckNotes(event.target.value)}
+                    value={selfCheckNotes} 
+                  />
+                </div>
                 
                 <div 
                   className="activity-form__item activity-form__link"
@@ -714,76 +678,7 @@ function ActivityForm(props) {
 
                 {helpOverlay && (
                   <Overlay onClose={()=>setHelpOverlay(false)}>
-                    <div 
-                      className="activity-form-overlay__top"
-                      style={{backgroundColor: COLORS.MAMMOGRAM}}
-                    >
-                      <div className="activity-form-overlay__header">HELP</div>
-                      <div>
-                        It’s easiest to reach out to your local healthcare provider.
-                      </div>
-                      <div>
-                        Don’t have health insurance? Don’t worry! We’ll help you find some options.
-                      </div>
-
-                      <div 
-                        className="activity-form__item"
-                        style={{paddingTop: '30px'}}
-                      >  
-                        <label htmlFor="activity">WHAT'S YOUR ZIPCODE'?</label>
-                        <div>
-                          <input type="text" name="zipcode" value="94103" />
-                          <button 
-                            className="activity-form__button"
-                            onClick={()=> {
-                              setMammogramIsFetching(true)
-                              setTimeout(setLoad, 2000)
-                            }}
-                          >
-                            SEARCH
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="activity-form-overlay__bottom">
-                      {mammogramIsFetching && (
-                        <div className="activity-form-overlay__spinner">
-                          <i 
-                            aria-hidden="true"
-                            className="fa fa-spinner fa-spin" 
-                            style={{
-                              fontSize:'18px',
-                              color: COLORS.NAVY_BLUE, 
-                              padding: '4px'
-                            }}
-                          /> 
-                        </div>
-                      )}
-
-                      {mammogramIsFetched && (
-                        <div>
-                          <div 
-                            className="activity-form-overlay__subheader"
-                            style={{color: COLORS.MAMMOGRAM}}
-                          >
-                            showing results near 94118
-                          </div>
-                        
-                          {mammogramHelp.map(item=>{
-                            return(
-                              <MammogramHelp
-                                header={item.header}
-                                address={item.address}
-                                website={item.website}
-                                miles={item.miles}
-                                phone={item.phone}
-                              />
-                            )
-                          })}
-                        </div>
-                      )}
-                    </div>
+                    <HelpOverlay />
                   </Overlay>
                 )}
               </div>

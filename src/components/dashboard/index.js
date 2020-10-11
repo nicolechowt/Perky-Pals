@@ -9,10 +9,11 @@ import {
   SAVE_CURRENT_USER,
   SAVE_TO_DASHBOARD, 
 } from '../../reducers/actions'
-import ProgressRing from '../progress-ring';
 import Friend from '../friend';
-import TipBox from '../tip-box';
+import NoMammogram from './components/no-mammogram';
 import PointsOverlay from './components/points-overlay';
+import ProgressRing from '../progress-ring';
+import TipBox from '../tip-box';
 import { COLORS } from '../../../src/enums/colors';
 
 let alertedUser=false;
@@ -452,7 +453,9 @@ function Dashboard(props) {
               )
             }
 
-            return (<div>Don’t forget about your annual mammogram</div>)
+            return (
+              <NoMammogram />
+            )
           })()}
         </ActivityBox>
       </div>
