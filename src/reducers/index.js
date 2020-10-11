@@ -147,7 +147,20 @@ function modalReducer(state={}, action) {
 
 function selfCheckNotesReducer(state={notes:[]}, action) {
   switch (action.type) {
-    case "ADD_NOTES":
+    case "ADD_SELF_CHECK_NOTES":
+      return {
+        ...state,
+        notes: [action.data,...state.notes],
+      }
+
+    default:
+      return state
+  }
+}
+
+function mammogramNotesReducer(state={notes:[]}, action) {
+  switch (action.type) {
+    case "ADD_MAMMOGRAM_NOTES":
       return {
         ...state,
         notes: [action.data,...state.notes],
@@ -265,6 +278,7 @@ const rootReducer = combineReducers({
   dashboardReducer,
   modalReducer,
   selfCheckNotesReducer,
+  mammogramNotesReducer,
   tipsReducer,
   logReducer,
 })

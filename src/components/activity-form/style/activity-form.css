@@ -12,7 +12,7 @@
   text-transform: uppercase;
   margin-bottom: 8px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  width: 58%;
+  margin: 12%;
 }
 
 .activity-form__header
@@ -27,7 +27,7 @@
 .activity-form__header-text
 {
   border-radius: 20px 20px 0 0;
-  padding: 20px 20px 4px 20px;
+  padding: 40px 20px 4px 20px;
   text-align: center;
   color: white;
 }
@@ -41,7 +41,7 @@
 
 .activity-form__content
 {
-  margin: 20px;
+  margin: 10px 20px;
 }
 
 .activity-form__close

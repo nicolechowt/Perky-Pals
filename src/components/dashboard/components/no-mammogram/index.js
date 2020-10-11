@@ -6,14 +6,16 @@ import HelpOverlay from '../../../help-overlay';
 import Overlay from '../../../overlay';
 import Appointment from './components/appointment';
 
+import './style/no-mammogram.css';
+
 function NoMammogram(props) {
   const [overlayView, setOverlayView] = useState(null);
 
   return (
-    <div className="">
+    <div className="no-mammogram">
       <div>Don’t forget about your annual mammogram</div>
       <div 
-        className=""
+        className="no-mammogram__circle-right"
         onClick={(event)=>{
           event.stopPropagation();
           setOverlayView('APPOINTMENT')

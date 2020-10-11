@@ -48,7 +48,8 @@ function ActivityForm(props) {
     addMammogram,
     addMindfulnessTimes, 
     addModal, 
-    addNotes,
+    addSelfCheckNotes,
+    addMammogramNotes,
     addPoints,
     addPointsDetails,
     addSelfCheckTimes,
@@ -116,6 +117,7 @@ function ActivityForm(props) {
   const [mammogramDate, setMammogramDate] = useState(new Date());
   const [helpOverlay, setHelpOverlay] = useState(false);
   const [selfCheckNotes, setSelfCheckNotes] = useState('');
+  const [mammogramNotes, setMammogramNotes] = useState('');
 
   // for notes
   const today = new Date();
@@ -348,7 +350,7 @@ function ActivityForm(props) {
 
       case "SELF_CHECK":
         addSelfCheckTimes(1);
-        addNotes({
+        addSelfCheckNotes({
           date: `${year}-${month}-${day}`,
           content: selfCheckNotes,
         });
@@ -360,6 +362,10 @@ function ActivityForm(props) {
           mammogram: 1,
           date: mammogramDate,
         })
+        addMammogramNotes({
+          date: `${year}-${month}-${day}`,
+          content: mammogramNotes,
+        });
         setRedirect(true);
         break;
       
@@ -655,8 +661,8 @@ function ActivityForm(props) {
                 <div className="activity-form__item">
                   <input
                     className="activity-form__box"
-                    onChange={(event)=> setSelfCheckNotes(event.target.value)}
-                    value={selfCheckNotes} 
+                    onChange={(event)=> setMammogramNotes(event.target.value)}
+                    value={mammogramNotes} 
                   />
                 </div>
                 
@@ -719,7 +725,8 @@ function mapDispatchToProps(dispatch) {
     addPointsDetails: (data) => dispatch({ type:"ADD_POINTS_DETAILS", data}),
     addSelfCheckTimes:(data) => dispatch({ type: "ADD_SELF_CHECK_TIMES", data}),
     addMammogram:(data) => dispatch({ type: "ADD_MAMMOGRAM", data}),
-    addNotes:(data) => dispatch({ type: "ADD_NOTES", data}),
+    addSelfCheckNotes:(data) => dispatch({ type: "ADD_SELF_CHECK_NOTES", data}),
+    addMammogramNotes:(data) => dispatch({ type: "ADD_MAMMOGRAM_NOTES", data}),
     incrementExerciseCount: (data) => dispatch({ type: "INCREMENT_EXERCISE_COUNT"}),
     incrementMindfulnessCount: (data) => dispatch({ type: "INCREMENT_MINDFULNESS_COUNT"}),
     incrementWaterCount: (data) => dispatch({ type: "INCREMENT_WATER_COUNT"}),

@@ -22,15 +22,14 @@ function NotesItem(props) {
   );
 }
 
-function SelfCheck(props) {
+function Mammogram(props) {
   const { goBack } = props.history;
 
-  const { currentUser, selfCheckNotes, tips } = props;
+  const { currentUser, mammogramNotes, tips } = props;
   const weeklyData = currentUser ? currentUser[0] && currentUser[0].weeklyData : [];
 
-  const notes = selfCheckNotes && selfCheckNotes.notes;
+  const notes = mammogramNotes && mammogramNotes.notes;
 
-  
   const month = new Date().getMonth()+1;
   const today = new Date().getDate();
 
@@ -234,7 +233,7 @@ function mapStateToProps(state) {
   const { 
     dashboardReducer,
     currentUserReducer,
-    selfCheckNotesReducer,
+    mammogramNotesReducer,
     tipsReducer,
   } = state;
 
@@ -244,7 +243,7 @@ function mapStateToProps(state) {
     exerciseMinutes: dashboardReducer.exercise,
     goals: dashboardReducer.goals,
     pointsClaimed: dashboardReducer.pointsClaimed,
-    selfCheckNotes: selfCheckNotesReducer,
+    mammogramNotes: mammogramNotesReducer,
     tips: tipsReducer && tipsReducer.mammogram[0],
   }
 }
@@ -257,4 +256,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(SelfCheck)
+)(Mammogram)

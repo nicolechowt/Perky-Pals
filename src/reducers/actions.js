@@ -83,8 +83,12 @@ export function redeemItem(data) {
   return {type: REDEEM_ITEM, data}
 }
 
-export function addNotes(data) {
-  return {type: "ADD_NOTES", data}
+export function addSelfCheckNotes(data) {
+  return {type: "ADD_SELF_CHECK_NOTES", data}
+}
+
+export function addMammogramNotes(data) {
+  return {type: "ADD_MAMMOGRAM_NOTES", data}
 }
 
 export function saveExerciseTips(data) {
