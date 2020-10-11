@@ -1,0 +1,86 @@
+.sleep-content, a.sleep-content:visited {
+  color:#49D07F;
+}
+
+.exercise-content, a.exercise-content:visited {
+  color:#F55F15;
+}
+
+.mindfulness-content, a.mindfulness:visited {
+  color:#FF8500;
+}
+
+.breasthealth-content, a.breasthealth-content:visited {
+  color:#FF9900;
+}
+
+.healthy-content, a.healthy-content:visited {
+  color:#FF9900;
+}
+
+.sleep-content-wrapper
+.exercise-content-wrapper 
+.mindfulness-content-wrapper
+.breasthealth-content-wrapper
+.healthy-content-wrapper
+h3 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 150%;
+  /* or 30px */
+  letter-spacing: 0.01em;
+}
+
+.sleep-content-wrapper 
+.exercise-content-wrapper
+.mindfulness-content-wrapper
+.breasthealth-content-wrapper
+.healthy-content-wrapper
+p {
+  color: #4B5B7E;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 150%;
+  /* or 24px */
+  letter-spacing: 0.01em;
+}
+
+.sleep-content-wrapper 
+.exercise-content-wrapper
+.mindfulness-content-wrapper
+.breasthealth-content-wrapper
+.healthy-content-wrapper
+li {
+  color: #4B5B7E;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 150%;
+  /* or 24px */
+  letter-spacing: 0.01em;
+}
+
+.sleep-content-wrapper 
+.exercise-content-wrapper
+.mindfulness-content-wrapper
+.breasthealth-content-wrapper
+.healthy-content-wrapper
+a {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 150%;
+  /* or 24px */
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}	
+
+.source, a.source:visited {
+  color: #C4C4C4; 
+}
