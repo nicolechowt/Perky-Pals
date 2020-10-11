@@ -173,7 +173,7 @@
     "age": 36,
     "gender": "female",
     "ethnicity": "hispanic",
-    "points": 2480,
+    "points": 2489,
     "goals": {
       "exercise": 400,
       "mindfulness": 7,
@@ -405,12 +405,12 @@
     "points": 990,
     "goals": {
       "exercise": 180,
-      "mindfulness": 5,
+      "mindfulness": 0,
       "sleep": 7,
       "fruitsAndVeggies": 5,
       "water": 50,
       "selfCheck": 1,
-      "mammogram": 1
+      "mammogram": 0
     },
     "friendsWith": [
       {
@@ -529,7 +529,7 @@
         "date": "fourDaysAgo",
         "exercise": 0,
         "exercises": [],
-        "mindfulness": 1,
+        "mindfulness": 0,
         "sleep": 5,
         "water": 45,
         "fruitsAndVeggies": 3,
