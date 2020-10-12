@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import './style/library.css';
 import Box from '../box';
+import ScrollToTop from '../scroll-to-top';
 import { 
   ADD_MODAL,
   REMOVE_MODAL,
@@ -31,6 +32,7 @@ function Library(props) {
 
   return (
     <div className="library">
+      <ScrollToTop />
       <div 
         className="library__box"
         style={{backgroundColor: `${COLORS.EXERCISE}`}}

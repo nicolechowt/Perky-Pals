@@ -11,6 +11,7 @@ import { items } from '../../data/redeemItems';
 import Overlay from '../overlay';
 import RedeemCard from './components/redeem-card';
 import RedeemPreview from './components/redeem-preview';
+import ScrollToTop from '../scroll-to-top';
 
 import './style/redeem.css';
 import { COLORS } from '../../enums/colors';
@@ -60,6 +61,7 @@ function Redeem(props) {
   
   return (
     <div className="redeem">
+      <ScrollToTop />
       {(()=> {
         if(!content) return;
 
