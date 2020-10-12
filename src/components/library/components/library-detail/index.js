@@ -34,27 +34,28 @@ function LibraryDetail(props){
 
   return (
     <div className="library-detail">
-      <div 
-        className="library-detail__back-button"
-        onClick={()=> goBack()}
-        style={{ zIndex: 3 }}
-      >
-        <i
-          className="fa fa-angle-left"
-          style={{
-            fontSize:'36px',
-            color: "#4B5B7E", 
-            padding: '4px',
-          }}
-        />
-      </div>
-
       <div className="library-detail__header-section">
-        <div className="library-detail__header">
-          {name}
+        <div className="library-detail__back-button-title-container">
+          <div 
+            className="library-detail__back-button"
+            onClick={()=> goBack()}
+          >
+            <i
+              className="fa fa-angle-left"
+              style={{
+                fontSize:'36px',
+                color: "#4B5B7E", 
+                padding: '4px',
+              }}
+            />
+          </div>
+
+          <div className="library-detail__header">
+            {name}
+          </div>
         </div>
 
-        <div className="library-detail__section-header">
+        <div className="library-detail__nav">
           <button 
             className="library-detail__button"
             style={libraryDetailView==="INTRO" ? {borderBottom: `.4rem solid ${color}`}: {}}
@@ -96,7 +97,6 @@ function LibraryDetail(props){
 
             // show mammogram and self check for breasst health
           })()}
-
 
           <button 
             style={libraryDetailView==="RESOURCES" ? {borderBottom: `.4rem solid ${color}`}: {}}

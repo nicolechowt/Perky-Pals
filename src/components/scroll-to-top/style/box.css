@@ -1,0 +1,23 @@
+.box
+{
+  position: relative;
+  border-radius: 9px;
+  box-sizing: border-box;
+  /* padding: 16px; */
+  min-height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-transform: uppercase;
+  height: 100%;
+  position: relative;
+}
+
+.box__add
+{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+}

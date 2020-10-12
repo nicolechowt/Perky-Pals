@@ -4,12 +4,24 @@
 
 .library-detail__header-section
 {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
+  overflow: hidden;
   background: white;
-  height: 110px;
+  position: fixed;
+  top: 0;
+  height: 100px;
+  width: 100%;
+}
+
+.library-detail__back-button-title-container
+{
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 20px 20px 0;
+}
+
+.library-detail__back-button
+{
 }
 
 .library-detail__header
@@ -18,12 +30,14 @@
   font-size: 24px;
   line-height: 36px;
   text-align: center;
-  padding-top: 20px;
+  margin: 0 auto;
 }
 
-.library-detail__section-header
+.library-detail__nav
 {
   padding: 0 20px 20px;
+  white-space: nowrap;
+  overflow-x: scroll;
 }
 
 .library-detail__button :active{
@@ -38,9 +52,4 @@
   padding: 0 20px;
 }
 
-.library-detail__back-button
-{
-  position: absolute;
-  top: 8px;
-  left: 20px;
-}
+

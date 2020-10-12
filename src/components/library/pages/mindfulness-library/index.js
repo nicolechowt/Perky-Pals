@@ -7,16 +7,21 @@ import LibraryResources from "../../components/library-resources";
 
 import LibraryDetail from '../../components/library-detail';
 
-import { COLORS } from '../../../../enums/colors'
+import { COLORS } from '../../../../enums/colors';
+import ScrollToTop from '../../../scroll-to-top';
 
 export default function MindfulnessLibrary(props) {
   return (
-    <LibraryDetail
-      name='MINDFULNESS'
-      color={COLORS.MINDFULNESS}
-      intro={<LibraryIntro name='MINDFULNESS' />}
-      tips={<LibraryTips name='MINDFULNESS' />}
-      resources={<LibraryResources name='MINDFULNESS' />}
-    />
+    <React.Fragment>
+      <ScrollToTop />
+
+      <LibraryDetail
+        name='MINDFULNESS'
+        color={COLORS.MINDFULNESS}
+        intro={<LibraryIntro name='MINDFULNESS' />}
+        tips={<LibraryTips name='MINDFULNESS' />}
+        resources={<LibraryResources name='MINDFULNESS' />}
+      />
+    </React.Fragment>
   );
 }

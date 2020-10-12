@@ -7,16 +7,21 @@ import LibraryResources from "../../components/library-resources";
 
 import LibraryDetail from '../../components/library-detail';
 
-import { COLORS } from '../../../../enums/colors'
+import { COLORS } from '../../../../enums/colors';
+import ScrollToTop from '../../../scroll-to-top';
 
 export default function ExerciseLibrary(props) {
   return (
-    <LibraryDetail
-      name='EXERCISE'
-      color={COLORS.EXERCISE}
-      intro={<LibraryIntro name='EXERCISE' />}
-      tips={<LibraryTips name='EXERCISE' />}
-      resources={<LibraryResources name='EXERCISE' />}
-    />
+    <React.Fragment>
+      <ScrollToTop />
+
+      <LibraryDetail
+        name='EXERCISE'
+        color={COLORS.EXERCISE}
+        intro={<LibraryIntro name='EXERCISE' />}
+        tips={<LibraryTips name='EXERCISE' />}
+        resources={<LibraryResources name='EXERCISE' />}
+      />
+    </React.Fragment>
   );
 }
