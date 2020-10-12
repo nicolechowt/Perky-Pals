@@ -16,7 +16,6 @@ import {
 } from '../../reducers/actions'
 
 import HelpOverlay from '../help-overlay';
-import MammogramHelp from '../mammogram-help';
 import Overlay from '../overlay';
 
 import './style/activity-form.css';

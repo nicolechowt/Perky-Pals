@@ -194,7 +194,7 @@ function Mammogram(props) {
               }}
               title={tips.title}
               text={tips.text}
-              link={tips.link}
+              hasHelpOverlay
             />
         </div>
 

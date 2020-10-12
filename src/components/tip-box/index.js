@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from "react-router-dom";
 
 import './style/tip-box.css';
+import Overlay from '../overlay';
+import HelpOverlay from '../help-overlay';
 
 function TipBox(props) {
   const { 
@@ -9,11 +11,14 @@ function TipBox(props) {
     text,
     title,
     style,
+    hasHelpOverlay,
   } = props;
 
   const nextPath = (path) => {
     props.history.push(path);
   }
+
+  const [isHelpOverlayActive, setIsHelpOverlayActive] = useState(false);
 
   return (
     <div 
@@ -35,17 +40,40 @@ function TipBox(props) {
       </div>
 
       {(()=>{
-        if(!link) return;
+        if(!link && !hasHelpOverlay) return;
         
+        if(link) {
+          return (
+            <div 
+              className="tip-box__button"
+              onClick={(event)=>{
+                event.stopPropagation();
+                nextPath(link);
+              }}
+            >
+              {link && (
+                <i
+                  className="fa fa-chevron-circle-right" 
+                  style={{
+                    fontSize:'22px',
+                    color: `${style ? style.color : "#F55F15"}`, 
+                    padding: '4px'
+                  }}
+                />
+              )}
+            </div>
+          );
+        }
+
         return (
-          <div 
-            className="tip-box__button"
-            onClick={(event)=>{
-              event.stopPropagation();
-              nextPath(link);
-            }}
-          >
-            {link && (
+          <React.Fragment>
+            <div 
+              className="tip-box__button"
+              onClick={(event)=>{
+                event.stopPropagation();
+                setIsHelpOverlayActive(true);
+              }}
+            >
               <i
                 className="fa fa-chevron-circle-right" 
                 style={{
@@ -54,8 +82,14 @@ function TipBox(props) {
                   padding: '4px'
                 }}
               />
+            </div>
+
+            {isHelpOverlayActive && (
+              <Overlay onClose={()=>setIsHelpOverlayActive(false)}>
+                <HelpOverlay />
+              </Overlay>
             )}
-          </div>
+          </React.Fragment>
         );
       })()}
     </div>

@@ -89,7 +89,7 @@ function HelpOverlay(props) {
               onClick={(event)=> {
                 event.stopPropagation();
                 setMammogramIsFetching(true)
-                setTimeout(setLoad, 2000)
+                setTimeout(setLoad, 1000)
               }}
             >
               SEARCH
