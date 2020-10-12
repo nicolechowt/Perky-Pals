@@ -6,7 +6,8 @@ import TipBox from '../../components/tip-box';
 import BarGraph from '../../components/bar-graph';
 import { COLORS } from '../../../src/enums/colors'
 import { items } from '../../data/redeemItems';
-import RedeemCard from '../../components/redeem/components/redeem-card'
+import RedeemCard from '../../components/redeem/components/redeem-card';
+import ScrollToTop from '../../components/scroll-to-top';
 
 function Sleep(props) {
   const { goBack } = props.history;
@@ -53,6 +54,7 @@ function Sleep(props) {
 
   return (
     <div className="page">
+      <ScrollToTop />
       <div className="page__progess">
         <div          
           className="page__back-button"

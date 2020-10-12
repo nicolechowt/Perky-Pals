@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { COLORS } from '../../../src/enums/colors'
 import TipBox from '../../components/tip-box';
 import { items } from '../../data/redeemItems';
-import RedeemCard from '../../components/redeem/components/redeem-card'
+import RedeemCard from '../../components/redeem/components/redeem-card';
+import ScrollToTop from '../../components/scroll-to-top';
 
 import './style/water.css';
 
@@ -56,6 +57,7 @@ function Water(props) {
 
   return (
     <div className="page">
+      <ScrollToTop />
       <div className="page__progess">
         <div          
           className="page__back-button"

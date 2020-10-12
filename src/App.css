@@ -117,7 +117,7 @@
   padding: 12px;
 }
 
-.page__activity-item, .page__notes-item
+.page__activity-item
 {
   font-weight: normal;
   font-size: 14px;
@@ -128,6 +128,22 @@
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
+}
+
+.page__notes-item
+{
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #4B5B7E;
+
+  text-transform: initial;
+  display: flex;
+  flex-direction: column;
+
+  border-bottom: 1px solid #EFEFEF;
+  margin: 0px 40px;
+  padding: 20px 0;
 }
 
 .page__notes-item--empty
