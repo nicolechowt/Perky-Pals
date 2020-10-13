@@ -16,6 +16,7 @@ function Appointment(props) {
     pointsClaimed,
 
     addMammogram,
+    addMammogramNotes,
     addModal, 
     addPoints,
     addPointsDetails,
@@ -25,6 +26,13 @@ function Appointment(props) {
 
   const mammogramGoal = goals && goals.mammogram;
   const scheduledMammogram = dashboard && dashboard.scheduledMammogram;
+
+
+  const year = mammogramDate.getFullYear();
+  const month = mammogramDate.getMonth()+1;
+  const day = mammogramDate.getDate();
+
+  const mammogramScheduledPast = mammogramDate  < new Date();
 
   const handleOnDone = (event) => {
     event.stopPropagation();
@@ -43,7 +51,13 @@ function Appointment(props) {
         number: '+120 perks',
         footer:  'Keep up the good work!',
       });
-      addPointsDetails('MAMMOGRAM')
+      addPointsDetails('MAMMOGRAM');
+      if(mammogramScheduledPast) {
+        addMammogramNotes({
+          date: `${year}-${month}-${day}`,
+          content: 'No notes were added.',
+        });
+      }
     }
     onDone && onDone();
   }
@@ -56,15 +70,19 @@ function Appointment(props) {
       }}
     >
       <div className="appointment__header">
-        make an appointment
+        When's your mammogram?
       </div>
 
       <div className="appointment__text">
-        It’s important to get a mammogram every year - early detection leads to better treatmeant options and outcomes. You’re not alone. Many women feel intimidated, but we’ll let you know what to expect.
+        It’s important to get a mammogram every year - early detection leads to better treatmeant options and outcomes.
       </div>
 
       <div className="appointment__text">
-        When’s your appointment? We’ll send you a rememinder when it’s coming up.
+        Already had your mammogram for the year? High five! Let us know below by selecting the date you had your mammogram so we can remind you when you're due for your next one.
+      </div>
+
+      <div className="appointment__text">
+        Have one scheduled for later? No worries, put it down on the calendar and we will send you a reminder prior to the appointment.
       </div>
 
       <div 
@@ -79,7 +97,7 @@ function Appointment(props) {
         />
       </div>
 
-      <div className="appointment__help">
+      {/* <div className="appointment__help">
         NEED help making an apointment or finding a clinic?
 
         <button 
@@ -91,7 +109,7 @@ function Appointment(props) {
         >
           GET HELP
         </button>
-      </div>
+      </div> */}
 
       <div className="appointment__action-buttons">
         <button 
@@ -120,6 +138,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return { 
     addMammogram:(data) => dispatch({ type: "ADD_MAMMOGRAM", data}),
+    addMammogramNotes:(data) => dispatch({ type: "ADD_MAMMOGRAM_NOTES", data}),
     addPoints: (data) => dispatch({ type: "ADD_POINTS", data}),
     addPointsDetails: (data) => dispatch({ type:"ADD_POINTS_DETAILS", data}),
     addModal: (data) => dispatch({ type: 'ADD_MODAL', data}),

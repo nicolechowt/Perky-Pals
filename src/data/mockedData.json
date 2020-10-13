@@ -62,8 +62,8 @@
       "link": "/library/breast-health?view=self-check"
     }],
     "mammogramTip": [{
-      "title": "Not sure where to start? We got you!",
-      "text": "Head to our help section to learn more about setting up an appointment.",
+      "title": "When's the right time to get a mammorgram?",
+      "text": "We are glad you asked! Find out here!",
       "link": "/library/breast-health?view=mammogram"
     }],
     "doneSelfCheckThisMonth": false,
@@ -229,12 +229,12 @@
       "link": ""
     }],
     "mammogramTip": [{
-      "title": "Your next appointment is on 12/27",
-      "text": "We’re proud of you for making your mammogram appointment. Encourage your friends to get theirs.",
-      "link": ""
+      "title": "When's the right time to get a mammorgram?",
+      "text": "We are glad you asked! Find out here!",
+      "link": "/library/breast-health?view=mammogram"
     }],
     "doneSelfCheckThisMonth": false,
-    "scheduledMammogram": "2020-12-27",
+    "scheduledMammogram": false,
     "previousSelfCheckNotes": [
       {
         "date": "2020-05-01",
@@ -406,7 +406,7 @@
       "fruitsAndVeggies": 5,
       "water": 50,
       "selfCheck": 1,
-      "mammogram": 0
+      "mammogram": 1
     },
     "friendsWith": [
       {
@@ -454,8 +454,8 @@
       "link": "/library/breast-health?view=self-check"
     }],
     "mammogramTip": [{
-      "title": "Not sure where to start? We got you!",
-      "text": "Head to our help section to learn more about setting up an appointment.",
+      "title": "When's the right time to get a mammorgram?",
+      "text": "We are glad you asked! Find out here!",
       "link": "/library/breast-health?view=mammogram"
     }],
     "doneSelfCheckThisMonth": false,

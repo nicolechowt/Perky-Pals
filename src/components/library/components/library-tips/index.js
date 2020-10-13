@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import HelpOverlay from '../../../help-overlay';
+import Overlay from '../../../overlay';
 import './style/index.css';
 
 const SleepContent = () => {
@@ -184,39 +185,7 @@ const BreastHealthSelfCheckContent = () => {
   );
 }
 
-const BreastHealthMammogramContent = () => {
-  return(
-    <div className="breasthealth-mammogram-content-wrapper">
-      <h3 className="breasthealth-mam-content">When’s the right time to get a mammogram?</h3>
-      <p>No matter your age, the most important time to seek medical care is when you notice a change in your breasts. Don’t wait! Talk to your health care provider right away.</p>
 
-      <h3 className="breasthealth-mam-content">What to expect at your appointment</h3>
-      <p>If you’ve never had a mammogram before, knowing what to expect can smooth the process and ease anxiety.</p>
-
-      <p>Here are some things it’s good to know beforehand.</p>
-
-      <p>If you have a regular cycle, you may want to <b>schedule your appointment in the week after an upcoming period.</b> Your breasts should be less tender at that time.</p>
-
-      <p>If you’ve had a mammogram before and are going to a new center, it’s best to arrange to <b>transfer previous results before your appointment or bring them with you</b> when you go to your exam. You’ll have to sign a release to get the results, which may be shared by film, CD or electronically. Some centers have nurse navigators who can help you with the transfer.</p>
-
-      <p><b>It’s a good idea to keep a record of every mammogram for future reference.</b> Make sure to note the name and address of the center and the date you had the mammogram done. (You can do that here in this app!)</p>
-
-      <p>The mammography center will likely ask you for the name of your doctor so they can share your results in case any follow-up is recommended.</p>
-
-      <p>You can expect a screening mammogram to take about <b>15 minutes</b>.</p>
-
-      <p>To get the mammogram you’ll need to <b>undress from the waist up</b>, so it’s a good idea to wear a shirt you can remove easily.</p>
-
-      <p><b>Avoid using deodorants, antiperspirants, perfumes, powders or lotions on your breasts and underarm areas</b> on the day of the exam. Ingredients in these products can show up on a mammogram and make it harder to read. (If you forget and wear one of these products, many mammography centers will give you wipes so you can remove it before the test.)</p>
-
-      <p>During the exam, <b>each breast is pressed between two plates</b> and an X-ray image is made. Two views of each breast are taken, one from top to bottom and the other from side to side.</p>
-
-      <p><b>Sometimes, the pressure from the plates can be uncomfortable, but it only lasts for a few seconds.</b> If you have concerns, talk with your doctor about taking acetaminophen (eg. Tylenol) or ibuprofen (eg. Advil, Motrin) about an hour before the exam. You can also talk to the technologist before your exam if you’re worried about pain. The technologist can work with you to make you as comfortable as possible while still getting a good quality image.</p>
-
-      <p className="source">Adapted from <a className="source" href="https://knowyourgirls.org/resources/mammogram-faqs/" target="_blank">Know Your Girls</a></p>
-    </div>
-  );
-}
 const HealthyEatingContent = () => {
   return(
     <div className="healthy-eating-content-wrapper">
@@ -226,6 +195,51 @@ const HealthyEatingContent = () => {
 }
 
 function LibraryTips(props){
+  const [overlayView, setOverlayView] = useState(null);
+
+  const BreastHealthMammogramContent = () => {
+    return(
+      <div className="breasthealth-mammogram-content-wrapper">
+        <h3 className="breasthealth-mam-content">When’s the right time to get a mammogram?</h3>
+        <p>No matter your age, the most important time to seek medical care is when you notice a change in your breasts. Don’t wait! Talk to your health care provider right away.</p>
+  
+        <h3 className="breasthealth-mam-content">What to expect at your appointment</h3>
+        <p>If you’ve never had a mammogram before, knowing what to expect can smooth the process and ease anxiety.</p>
+  
+        <p>Here are some things it’s good to know beforehand.</p>
+  
+        <p>If you have a regular cycle, you may want to <b>schedule your appointment in the week after an upcoming period.</b> Your breasts should be less tender at that time.</p>
+  
+        <p>If you’ve had a mammogram before and are going to a new center, it’s best to arrange to <b>transfer previous results before your appointment or bring them with you</b> when you go to your exam. You’ll have to sign a release to get the results, which may be shared by film, CD or electronically. Some centers have nurse navigators who can help you with the transfer.</p>
+  
+        <p><b>It’s a good idea to keep a record of every mammogram for future reference.</b> Make sure to note the name and address of the center and the date you had the mammogram done. (You can do that here in this app!)</p>
+  
+        <p>The mammography center will likely ask you for the name of your doctor so they can share your results in case any follow-up is recommended.</p>
+  
+        <p>You can expect a screening mammogram to take about <b>15 minutes</b>.</p>
+  
+        <p>To get the mammogram you’ll need to <b>undress from the waist up</b>, so it’s a good idea to wear a shirt you can remove easily.</p>
+  
+        <p><b>Avoid using deodorants, antiperspirants, perfumes, powders or lotions on your breasts and underarm areas</b> on the day of the exam. Ingredients in these products can show up on a mammogram and make it harder to read. (If you forget and wear one of these products, many mammography centers will give you wipes so you can remove it before the test.)</p>
+  
+        <p>During the exam, <b>each breast is pressed between two plates</b> and an X-ray image is made. Two views of each breast are taken, one from top to bottom and the other from side to side.</p>
+  
+        <p><b>Sometimes, the pressure from the plates can be uncomfortable, but it only lasts for a few seconds.</b> If you have concerns, talk with your doctor about taking acetaminophen (eg. Tylenol) or ibuprofen (eg. Advil, Motrin) about an hour before the exam. You can also talk to the technologist before your exam if you’re worried about pain. The technologist can work with you to make you as comfortable as possible while still getting a good quality image.</p>
+  
+        <p className="source">Adapted from <a className="source" href="https://knowyourgirls.org/resources/mammogram-faqs/" target="_blank">Know Your Girls</a></p>
+      
+        <h3 className="breasthealth-mam-content">Get an inside look</h3>
+        <p>
+          The CDC recommends the average woman start a yearly mammogram routine at age 40. This age can vary based on ethnicity and family history. Talk with your health care provider to figure our your best routine. Don’t have a health care provider? Get connected 
+            <span 
+              onClick={()=>setOverlayView('HELP')}
+              className="breasthealth-mam-content"
+            > here</span>.
+          </p>
+      </div>
+    );
+  }
+
   return(
     <div>
       {(()=> {
@@ -255,12 +269,6 @@ function LibraryTips(props){
           )
         }
 
-        // if(props.name==='BREAST HEALTH'){
-        //   return (
-        //     <BreastHealthContent />
-        //   )
-        // }
-
         if(props.name==='BREAST HEALTH SELF CHECK'){
           return (
             <BreastHealthSelfCheckContent/>
@@ -273,8 +281,14 @@ function LibraryTips(props){
           )
         }
       })()}
+
+      {overlayView=== 'HELP' && (
+        <Overlay onClose={()=>setOverlayView(null)}>
+          <HelpOverlay />
+        </Overlay>
+      )}   
     </div>
-  )
+  );
 }
 
 export default(LibraryTips)

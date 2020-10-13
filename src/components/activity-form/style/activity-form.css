@@ -113,3 +113,10 @@
   width: 80px;
   border-radius: 28px;
 }
+
+.activity-form__input
+{
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 60px;
+}

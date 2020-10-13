@@ -56,8 +56,8 @@ function RedeemPreview(props) {
         <div className="redeem-preview__bottom">
           <div className="redeem-preview__header"> CHECKOUT </div>
           <div className="redeem-preview__checkout-item">
-            <div>Current Perks Balance</div>
-            <div>{userCurrentPoints}</div>
+            <div className="redeem-preview__current-balance">Current Perks Balance</div>
+            <div className="redeem-preview__current-balance"><b>{userCurrentPoints}</b></div>
           </div>
 
           <div className="redeem-preview__checkout-item">
@@ -72,19 +72,24 @@ function RedeemPreview(props) {
             <div>{userCurrentPoints-points}</div>
           </div>
       
-          <button 
-            className="redeem__button redeem__button--long"
-            onClick={()=>{
-              redeemItem(points);
-              handleCancelClick()
-            }}
-          >
-            CONFIRM
-          </button>
-              
-          <button onClick={handleCancelClick}>
-            Cancel
-          </button>
+          <div className="redeem-preview__buttons">
+            <button 
+              className="redeem__button redeem__button--long"
+              onClick={()=>{
+                redeemItem(points);
+                handleCancelClick()
+              }}
+            >
+              CONFIRM
+            </button>
+                
+            <button 
+              className="redeem__cancel-button"
+              onClick={handleCancelClick}
+            >
+              CANCEL
+            </button>
+          </div>
         </div>
       }
 

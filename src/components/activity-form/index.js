@@ -276,7 +276,6 @@ function ActivityForm(props) {
   }, [addModal, addPoints, addPointsDetails, fruitsAndVeggies, fruitsAndVeggiesGoal, pointsClaimed, type]);
 
   useEffect(() => {
-    if(!selfCheckGoal) return;
     if(
       type==='SELF_CHECK' &&
       doneSelfCheckThisMonth &&
@@ -294,7 +293,6 @@ function ActivityForm(props) {
   }, [addModal, addPoints, addPointsDetails, doneSelfCheckThisMonth, pointsClaimed, type, selfCheckGoal]);
 
   useEffect(() => {
-    if(!mammogramGoal) return;
     if(
       type==='MAMMOGRAM' &&
       scheduledMammogram &&
@@ -351,7 +349,7 @@ function ActivityForm(props) {
         addSelfCheckTimes(1);
         addSelfCheckNotes({
           date: `${year}-${month}-${day}`,
-          content: selfCheckNotes,
+          content: selfCheckNotes ? selfCheckNotes : 'No notes were added.',
         });
         setRedirect(true);
         break;
@@ -363,7 +361,7 @@ function ActivityForm(props) {
         })
         addMammogramNotes({
           date: `${year}-${month}-${day}`,
-          content: mammogramNotes,
+          content: mammogramNotes ? mammogramNotes : 'No notes were added.',
         });
         setRedirect(true);
         break;
@@ -580,7 +578,7 @@ function ActivityForm(props) {
                     DATE: <b>{`${month}/${day}/${year}`}</b>
                 </div>
                 <div className="activity-form__item">
-                  <label htmlFor="volume">HOW MUCH DID YOU EAT</label>
+                  <label htmlFor="volume">HOW MANY SERVINGS DID YOU HAVE?</label>
 
                   <div className="activity-form__item">
                     <select name="servings" id="servings" value={fvServings} onChange={(event)=>setFvServings(parseInt(event.target.value))}>
@@ -608,13 +606,14 @@ function ActivityForm(props) {
                 </div>
 
                 <div className="activity-form__item">
-                  Any notes you’d like to add?
-                </div>
+                  <div className="activity-form__item">
+                    Any Notes you'd like to add from your self-check today?
+                  </div>
 
-                <div className="activity-form__item">
                   <input
                     className="activity-form__box"
                     onChange={(event)=> setSelfCheckNotes(event.target.value)}
+                    placeholder="Jot them down here!"
                     value={selfCheckNotes} 
                   />
                 </div>
@@ -654,24 +653,16 @@ function ActivityForm(props) {
                 </div>
 
                 <div className="activity-form__item">
-                  Any notes you’d like to add?
+                  Any Notes you'd like to add from your appointment today?
                 </div>
 
-                <div className="activity-form__item">
-                  <input
-                    className="activity-form__box"
-                    onChange={(event)=> setMammogramNotes(event.target.value)}
-                    value={mammogramNotes} 
-                  />
-                </div>
-                
-                <div 
-                  className="activity-form__item activity-form__link"
-                  style={{color: COLORS.MAMMOGRAM}}
-                  onClick={()=>setHelpOverlay(true)}
-                >
-                  Not sure where to make an appointment? We’re here to help.
-                </div>
+                <input
+                  className="activity-form__input"
+                  onChange={(event)=> setMammogramNotes(event.target.value)}
+                  placeholder="Jot them down here!"
+                  value={mammogramNotes} 
+                />
+
                 <div style={{textAlign: 'center'}}>
                   <button 
                     className="button--pill"
@@ -681,11 +672,6 @@ function ActivityForm(props) {
                   </button>
                 </div>
 
-                {helpOverlay && (
-                  <Overlay onClose={()=>setHelpOverlay(false)}>
-                    <HelpOverlay />
-                  </Overlay>
-                )}
               </div>
             );
         

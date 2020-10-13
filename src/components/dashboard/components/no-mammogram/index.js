@@ -21,7 +21,7 @@ function NoMammogram(props) {
           setOverlayView('APPOINTMENT')
         }}
       >
-        MAKE AN APPOINTMENT
+        Have an appointment?
         <i
           className="fa fa-chevron-circle-right" 
           style={{

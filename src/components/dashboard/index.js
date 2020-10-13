@@ -11,6 +11,7 @@ import {
 } from '../../reducers/actions'
 import Friend from '../friend';
 import NoMammogram from './components/no-mammogram';
+import ScheduledMammogramComp from './components/scheduled-mammogram-comp';
 import PointsOverlay from './components/points-overlay';
 import ProgressRing from '../progress-ring';
 import TipBox from '../tip-box';
@@ -299,6 +300,7 @@ function Dashboard(props) {
             length={exerciseWeek+exercise || 0}
             unit="minutes"
             frequency="weekly"
+            hideAdd={!exerciseGoal}
           />
         </div>
 
@@ -310,6 +312,7 @@ function Dashboard(props) {
             length={mindfullnessWeek+mindfulness || 0}
             unit="times"
             frequency="weekly"
+            hideAdd={!mindfulnesseGoal}
           />
         </div>
 
@@ -331,6 +334,7 @@ function Dashboard(props) {
             length={water}
             unit="oz"
             frequency="daily"
+            hideAdd={!waterGoal}
           />
         </div>
 
@@ -342,6 +346,7 @@ function Dashboard(props) {
             length={fruitsAndVeggies}
             unit="servings"
             frequency="daily"
+            hideAdd={!fruitsAndVeggiesGoal}
           />
         </div>
 
@@ -425,43 +430,77 @@ function Dashboard(props) {
         </ActivityBox>
       </div>
 
-      <div className="dashboard__mammogram">
-        <ActivityBox 
-          color={COLORS.MAMMOGRAM}
-          goal={mammogramGoal}
-          header="MAMMOGRAM"
-          hideAdd={mammogram}
-        >
-          {(()=> {
-            let mammogramDateObj;
+      {(()=> {
+        if(currentUserName==='Bella') return;
 
-            if(mammogram) {
-              if(typeof mammogram==='string'){
-                mammogramDateObj = new Date(mammogram);
+        return (
+          <div className="dashboard__mammogram">
+            <ActivityBox 
+              color={COLORS.MAMMOGRAM}
+              goal={mammogramGoal}
+              header="MAMMOGRAM"
+            >
+              {(()=> {
+                let mammogramDateObj;
+
+                if(mammogram) {
+                  if(typeof mammogram==='string'){
+                    mammogramDateObj = new Date(mammogram);
+
+                    const scheduledMammogramYear = mammogramDateObj.getFullYear();
+                    const scheduledMammogramMonth = mammogramDateObj.getMonth()+1;
+                    const scheduledMammogramDay = mammogramDateObj.getDate();
+                    // this is hardcoded from mockedData
+                    return (
+                      <ScheduledMammogramComp 
+                        year={scheduledMammogramYear}
+                        month={scheduledMammogramMonth}
+                        day={scheduledMammogramDay}
+                        future
+                      />
+                    );
+                  }
+
+                  // through app flow
+                  const mammogramScheduledPast = mammogram  < new Date();
+                  const mammogramScheduledFuture = mammogram  > new Date();
+
+                  const year = mammogram.getFullYear();
+                  const month = mammogram.getMonth()+1;
+                  const day = mammogram.getDate();
+
+                  if(mammogramScheduledFuture) {
+                    return (
+                      <ScheduledMammogramComp 
+                        year={year}
+                        month={month}
+                        day={day}
+                        future
+                      />
+                    );
+                  }
+
+                  return (
+                    <ScheduledMammogramComp 
+                      year={year}
+                      month={month}
+                      day={day}
+                      future={false}
+                    />
+                  );
+                }
 
                 return (
-                  <div>yay scheduled for {
-                    mammogramDateObj.getMonth()+1}/{mammogramDateObj.getDate()
-                  } </div>
+                  <NoMammogram />
                 )
-              }
-
-              return (
-                <div>yay scheduled for {
-                  mammogram.getMonth()+1}/{mammogram.getDate()
-                } </div>
-              )
-            }
-
-            return (
-              <NoMammogram />
-            )
-          })()}
-        </ActivityBox>
-      </div>
-      </div>
+              })()}
+            </ActivityBox>
+          </div>
+        );
+      })()}
     </div>
-  );
+  </div>
+);
 }
 
 function mapStateToProps(state) {

@@ -26,7 +26,7 @@ function NotesItem(props) {
 function Mammogram(props) {
   const { goBack } = props.history;
 
-  const { currentUser, mammogramNotes, tips } = props;
+  const { currentUser, mammogramNotes, tips, dashboard } = props;
   const weeklyData = currentUser ? currentUser[0] && currentUser[0].weeklyData : [];
 
   const notes = mammogramNotes && mammogramNotes.notes;
@@ -138,6 +138,30 @@ function Mammogram(props) {
     12: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216386/social_work_jtharl.png'
   }
   
+  let scheduledMammogram = dashboard && dashboard.scheduledMammogram;
+
+  // hardcoded from mockedData
+  if(typeof scheduledMammogram==='string') {
+    scheduledMammogram = new Date(scheduledMammogram);
+  }
+
+  const mammogramScheduledFuture =  scheduledMammogram  &&  scheduledMammogram > new Date();
+
+  let mammogramMonth;
+  let day;
+
+  if(scheduledMammogram) {
+    if(typeof scheduledMammogram==='string'){
+      mammogramMonth = scheduledMammogram.getMonth()+1
+      day = scheduledMammogram.getDate();
+    }
+
+    else {
+      mammogramMonth = scheduledMammogram && scheduledMammogram.getMonth()+1;
+      day = scheduledMammogram && scheduledMammogram.getDate();
+    }
+  }
+
   return (
     <div className="page">
       <ScrollToTop />
@@ -159,12 +183,14 @@ function Mammogram(props) {
         <div className="page__header">MAMMOGRAMS</div>
         <div className="page__sub-header">LOG</div>
 
-        <div 
-          className="page__upcoming"
-          style={{background: COLORS.MAMMOGRAM}}
-        >
-          upcoming appointment : {nextMonth}/1
-        </div>
+        {mammogramScheduledFuture && (
+          <div 
+            className="page__upcoming"
+            style={{background: COLORS.MAMMOGRAM}}
+          >
+            upcoming appointment : {mammogramMonth}/{day}
+          </div>
+        )}
       </div>
 
       <div>
@@ -178,7 +204,7 @@ function Mammogram(props) {
           )
         }): (
           <div className="page__notes-item page__notes-item--empty">
-            Next time you get a mammogram, feel free to jot down any notes you'd like. And we will save them here for your record.
+            When you are ready to log a mammogram, feel free to jot down any notes you'd like. And we will save them here for your record.
           </div>
         )}
       </div>
@@ -187,15 +213,26 @@ function Mammogram(props) {
         style={{background: COLORS.MAMMOGRAM}}
       >
         <div className="page__tip-box">
-          <TipBox 
-              style={{
-                border: '4px solid white',
-                color: 'white',
-              }}
-              title={tips.title}
-              text={tips.text}
-              hasHelpOverlay
-            />
+          {scheduledMammogram ? (
+            <TipBox 
+            style={{
+              border: '4px solid white',
+              color: 'white',
+            }}
+            title="We’re proud of you for taking care of yourself!"
+            text="Perhaps you can be a champion today and encourage your friends to schedule their mammogram, too."
+          />
+          ): (
+            <TipBox 
+            style={{
+              border: '4px solid white',
+              color: 'white',
+            }}
+            title={tips.title}
+            text={tips.text}
+            link={tips.link}
+          />
+          )}
         </div>
 
         <div 

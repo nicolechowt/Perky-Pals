@@ -45,7 +45,6 @@ function ActivityBox(props) {
             </div>
           );
         } else if (
-          goal && 
           (header==="SELF-CHECK" || header==="MAMMOGRAM")
         ){
           // goal for self-check or mammogram
@@ -68,10 +67,6 @@ function ActivityBox(props) {
             emptyStateText='How about grabbing an apple on the way out the door today?';
           } else if(header==="SLEEP") {
             emptyStateText='We all sleep anyway, why not set a goal to earn some perks? ;)';
-          } else if(header==="SELF-CHECK") {
-            emptyStateText='Get to know your boobs, set up a monthly goal to perform a self-check. We will even remind you!';
-          } else if(header==="MAMMOGRAM") {
-            emptyStateText='We get it, no one loves getting a mammogram. But studies show early detection is key. Setting a goal is half the bettle.' ;
           }
 
           return (

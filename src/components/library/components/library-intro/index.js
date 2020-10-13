@@ -124,9 +124,6 @@ const BreastHealthContent = () => {
 
       <p className="source">Source: Center for <a href="https://www.cdc.gov/cancer/breast/young_women/bringyourbrave/take_action/healthy_behaviors.htm" target="_blank">Disease Control and Prevention</a></p>
 
-      <h3 className="breasthealth-content">Get an inside look</h3>
-      <p>The CDC recommends the average woman start a yearly mammogram routine at age 40. This age can vary based on ethnicity and family history. Talk with your health care provider to figure our your best routine. Don’t have a health care provider, get connected <a href="--link to help page--" target="_blank" className="breasthealth-content">here</a>.</p>
-
       <p>Unsure about what to expect? Check our our Mammogram section for more info.</p>
     </div>
   );
