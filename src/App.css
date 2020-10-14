@@ -170,6 +170,17 @@
   font-size: 1rem;
 }
 
+.minfulness-calendar .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+  color: #FEBE3E;
+  font-weight: 700;
+}
+
+.minfulness-calendar .react-calendar__month-view__weekdays__weekday
+{
+  padding: 0;
+}
+
 .page__notes-item__header
 {
   font-weight: bold;

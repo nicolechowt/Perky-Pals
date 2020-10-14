@@ -50,10 +50,31 @@ export default function Friend(props) {
   return (
     <div className="friend">
       <div className="friend__header">
-        {name}'S DAILY PROGRESS
+        {name}'S PROGRESS
       </div>
       <div className="friend__checks">{checks}</div>
-      <div className="friend__text">Let her know she’s doing a good job!</div>
+      {(()=>{
+        if(name==='Juliana') {
+          return (
+            <div className="friend__text">
+              Let her know she’s doing a good job!
+            </div>
+          );
+        } else if(name==='Bella') {
+          return (
+            <div className="friend__text">
+              Bella might need a little nudge to reach her goals this week.
+            </div>
+          )
+        } else if(name==='Carol') {
+          return (
+            <div className="friend__text">
+              Cheer her on to the finish line! Carol has met her exercise and water goal for the day!
+            </div>
+          )
+        }
+      })()}
+
     </div>
   );
 }

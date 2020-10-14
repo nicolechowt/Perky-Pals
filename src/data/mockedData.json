@@ -270,7 +270,7 @@
         "date": "yesterday",
         "exercise": 0,
         "exercises": [],
-        "mindfulness": 0,
+        "mindfulness": 1,
         "sleep": 7,
         "water": 84,
         "fruitsAndVeggies": 3,
@@ -306,7 +306,7 @@
             "duration": 20
           }
         ],
-        "mindfulness": 0,
+        "mindfulness": 1,
         "sleep": 7,
         "water": 92,
         "fruitsAndVeggies": 6,
@@ -326,7 +326,7 @@
             "duration": 20
           }
         ],
-        "mindfulness": 0,
+        "mindfulness": 1,
         "sleep": 9,
         "water": 120,
         "fruitsAndVeggies": 4,
