@@ -674,6 +674,17 @@ function ActivityForm(props) {
                         }
                       })()}
                     </button>
+
+                    {isShared && (
+                      <i
+                        className="fa fa-check-circle"
+                        style={{
+                          fontSize:'24px',
+                          color: COLORS.SELF_CHECK, 
+                          padding: '4px'
+                        }}
+                      />
+                    )}
                   </div>
                 </div>
 
