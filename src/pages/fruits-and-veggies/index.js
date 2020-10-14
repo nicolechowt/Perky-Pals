@@ -28,7 +28,7 @@ function FruitsAndVeggies(props) {
     }
   });
 
-  fruitsAndVeggiesArr.unshift(todaysFruitsAndVeggies);  
+  fruitsAndVeggiesArr.push(todaysFruitsAndVeggies);  
 
   const nextPath = (path) => {
     props.history.push(path);

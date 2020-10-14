@@ -28,7 +28,7 @@ function Water(props) {
     }
   });
 
-  waterArr.unshift(todaysWater);
+  waterArr.push(todaysWater);
 
   const nextPath = (path) => {
     props.history.push(path);

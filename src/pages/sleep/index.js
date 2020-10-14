@@ -27,7 +27,7 @@ function Sleep(props) {
     }
   });
 
-  sleepArr.unshift(todaysSleep);
+  sleepArr.push(todaysSleep);
 
   const nextPath = (path) => {
     props.history.push(path);

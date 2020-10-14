@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
 import * as d3 from "d3";
 
+import './style/bar-graph.css';
+
 function BarGraph(props) {
   const { color, data } = props;
 
@@ -14,15 +16,14 @@ function BarGraph(props) {
 
       const xAxis = g => g
       .attr("transform", `translate(0,${height - margin.bottom})`)
-      .call(d3.axisBottom(x).tickFormat(i => xAxisTickNames[i]).tickSizeOuter(0))
-
+      .call(d3.axisBottom(x).tickFormat(i => xAxisTickNames[i]))
+    
       const yAxis = g => g
       .attr("transform", `translate(${margin.left},0)`)
       .call(d3.axisLeft(y).ticks(2))
       .call(g => g.append("text")
         .attr("x", -margin.left)
         .attr("fill", "currentColor")
-        // .attr("text-anchor", "start")
         .text(data)
       )    
 
@@ -53,7 +54,18 @@ function BarGraph(props) {
       .attr("fill", color)
 
       svg.append("g")
-      .call(xAxis);
+      .call(xAxis)
+      .selectAll("g")
+      .attr('color', (d,i) => {
+        if(d===7) {
+          return color
+        }
+      })
+      .attr('class', (d,i) => {
+        if(d===7) {
+          return 'today'
+        }
+      })
 
       svg.append("g")
       .call(yAxis);  
