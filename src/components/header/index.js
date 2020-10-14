@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 
 import './style/header.css';
 
-import HamburgerMenu from '../hamburger-menu';
-
 function Header(props) {
   const currentUser = props && props.currentUser;
 
@@ -22,8 +20,6 @@ function Header(props) {
           </div> 
           <div className="header__points">{points} POINTS</div>
         </div>
-
-        <HamburgerMenu />
       </div>
     </div>
   );
