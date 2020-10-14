@@ -8,7 +8,7 @@ function BarGraph(props) {
 
   useEffect(()=>{
     if(data.length>0) {
-      const width = 300;
+      const width = 320;
       const height = 350;
       
       const margin = ({top: 30, right: 0, bottom: 30, left: 20});
