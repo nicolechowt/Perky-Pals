@@ -5,19 +5,23 @@ import Calendar from 'react-calendar';
 import { COLORS } from '../../../src/enums/colors'
 import TipBox from '../../components/tip-box';
 import { items } from '../../data/redeemItems';
-import RedeemCard from '../../components/redeem/components/redeem-card'
+import RedeemCard from '../../components/redeem/components/redeem-card';
+import ScrollToTop from '../../components/scroll-to-top';
 
 import './style/mindfulness.css';
 
 function Mindfulness(props) {
   const { goBack } = props.history;
 
-  const { currentUser,tips } = props;
+  const { currentUser,tips, dashboard } = props;
   const weeklyData = currentUser ? currentUser[0] && currentUser[0].weeklyData : [];
 
+  const todaysMindfulness = dashboard.mindfulness || [];
 
-  const month = new Date().getMonth()+1;
-  const today = new Date().getDate();
+
+  const date = new Date();
+  const month = date.getMonth()+1;
+  const today = date.getDate();
 
   const daysInMonth = (monthNum) => {
     if(
@@ -98,6 +102,12 @@ function Mindfulness(props) {
     })
   }
 
+  if(todaysMindfulness) {
+    mindfulWeekArr.push(date.toString().substring(0,15));  
+  }
+
+  console.log('mindfulWeekArr', mindfulWeekArr);
+
   const nextPath = (path) => {
     props.history.push(path);
   }
@@ -121,10 +131,30 @@ function Mindfulness(props) {
     12: 'https://res.cloudinary.com/dbnasq0ef/image/upload/v1602216386/social_work_jtharl.png'
   }
   
+  const formatDate = (date)=>{
+    const day = date.getDay();
+
+    if(day===0) {
+      return 'S';
+    } else if(day===1){
+      return 'M';
+    } else if(day===2){
+      return 'T';
+    } else if(day===3){
+      return 'W';
+    } else if(day===4){
+      return 'T';
+    } else if(day===5){
+      return 'F';
+    } else if(day===6) {
+      return 'S'
+    }
+  }
 
   return (
     <div>
     <div className="page">
+      <ScrollToTop />
       <div className="page__progess">
           <div          
             className="page__back-button"
@@ -142,6 +172,39 @@ function Mindfulness(props) {
 
         <div className="page__header">MINDFULNESS</div>
         <div className="page__sub-header">YOUR WEEK SO FAR</div>
+
+        <Calendar 
+          className="minfulness-calendar"
+          formatShortWeekday={(locale, date) => formatDate(date)}
+          showNavigation={false}
+          tileContent={({ activeStartDate, date, view }) => {
+            const dateString = date.toString();
+            const processedDateString = dateString.substring(0,15)
+
+            if(view === 'month' && mindfulWeekArr.includes(processedDateString)){
+              return(
+                <i
+                  className="fa fa-check-circle"
+                  style={{
+                    fontSize:'24px',
+                    color: COLORS.MINDFULNESS, 
+                    padding: '4px'
+                  }}
+                />
+              );
+            }
+            return(
+              <i
+                className="fa fa-circle"
+                style={{
+                  fontSize:'18px',
+                  color: "#DEDEDE", 
+                  padding: '4px'
+                }}
+              />
+            )
+          }}
+/>
         <div 
           className="page__tips-perks"
           style={{background: COLORS.MINDFULNESS}}
@@ -189,38 +252,6 @@ function Mindfulness(props) {
         </div>
       </div>
     </div>
-
-
-<Calendar 
-  className="minfulness-calendar"
-  tileContent={({ activeStartDate, date, view }) => {
-    const dateString = date.toString();
-    const processedDateString = dateString.substring(0,15)
-
-    if(view === 'month' && mindfulWeekArr.includes(processedDateString)){
-      return(
-        <i
-          className="fa fa-check-circle"
-          style={{
-            fontSize:'24px',
-            color: COLORS.MINDFULNESS, 
-            padding: '4px'
-          }}
-        />
-      );
-    }
-    return(
-      <i
-        className="fa fa-circle"
-        style={{
-          fontSize:'18px',
-          color: "#DEDEDE", 
-          padding: '4px'
-        }}
-      />
-    )
-  }}
-/>
 </div>
 
   );
