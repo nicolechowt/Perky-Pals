@@ -16,6 +16,7 @@
   display: inline-block;
 }
 
-.exercise {
+.activity-item__activity
+{
+  font-weight: 700;
 }
-

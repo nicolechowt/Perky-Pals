@@ -14,8 +14,9 @@ import RedeemCard from '../../components/redeem/components/redeem-card'
 function ActivityItem(props) {
   const { 
     activity, 
-    duration, 
     day, 
+    duration, 
+    index,
     key, 
   } = props;
 
@@ -69,7 +70,7 @@ function ActivityItem(props) {
   return (
     <div 
       className="page__activity-item"
-      style={ key%2===0 ? 
+      style={index%2===0 ? 
         {color: COLORS.EXERCISE} : 
         {color: COLORS.EXERCISE_ALT}
       }
@@ -79,9 +80,9 @@ function ActivityItem(props) {
         <div>{month}/{today}</div>
       }
       {activity && 
-        <div> {activity} </div>
+        <div className="activity-item__activity"> {activity} </div>
       }
-      {duration && <div>{duration}</div>}
+      {duration && <div>{duration} MIN</div>}
     </div>
 
   )
@@ -187,12 +188,10 @@ function Exercise(props) {
       </div>
         {/* adding the rest of this week's to render the list of activities */}
         <div>
-          {weeklyData.map(day=>{
+          {weeklyData.map((day,weeklyIndex)=>{
             return (
               <div>
                 {day.exercises.length>0 && day.exercises.map((item,index) => {
-
-                  console.log('item', item)
                   // see if key already exists
                   // if so add to val
                   if(obj[item.activity]) {
@@ -205,7 +204,8 @@ function Exercise(props) {
 
                   return (
                     <ActivityItem
-                      ikey={index} 
+                      index={weeklyIndex}
+                      key={index} 
                       day={day.date}
                       activity={item.activity} 
                       duration={item.duration} 
