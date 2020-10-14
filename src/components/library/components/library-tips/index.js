@@ -190,6 +190,9 @@ const HealthyEatingContent = () => {
   return(
     <div className="healthy-eating-content-wrapper">
       <p><b>Here are some tips to work more fruits, veggies, and water into your everday life.</b></p>
+      <img src="https://res.cloudinary.com/dbnasq0ef/image/upload/v1602649875/DrinkWater_h94l9v.png" />
+      <img src="https://res.cloudinary.com/dbnasq0ef/image/upload/v1602649877/ImmuneFoods_exnfe0.png" />
+      <img src="https://res.cloudinary.com/dbnasq0ef/image/upload/v1602649872/HealthySnacks_ulyr6k.png" />
     </div>
   );
 }
