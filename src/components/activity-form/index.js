@@ -243,7 +243,7 @@ function ActivityForm(props) {
         number: `${waterGoal-water}`,
         body2: 'oz away from meeting your goal',
         footer:  'Check out our library for tips on adding water to your lifestyle',
-        link: '/library/water?view=tips',
+        link: '/library/healthy-eating?view=tips',
       });
     }
   }, [addModal, addPoints, addPointsDetails, pointsClaimed, type, water, waterGoal]);
