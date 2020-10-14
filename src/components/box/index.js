@@ -34,6 +34,10 @@ function Box(props) {
     <div 
       className="box"
       style={{background: color}}
+      onClick={(event)=>{
+        event.stopPropagation();
+        onClick();
+      }}
     >
       <div className="box__header">{header}</div>
       {length>=0 && <span className="box__length"> {length}</span>}
@@ -44,10 +48,6 @@ function Box(props) {
 
       <div 
         className="box__add"
-        onClick={(event)=>{
-          event.stopPropagation();
-          onClick();
-        }}
       >
         {!hideAdd && (
           <i

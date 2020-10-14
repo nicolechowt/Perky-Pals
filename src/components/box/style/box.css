@@ -12,6 +12,7 @@
   text-transform: uppercase;
   height: 100%;
   position: relative;
+  cursor: pointer;
 }
 
 .box__add

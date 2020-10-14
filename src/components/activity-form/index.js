@@ -118,6 +118,9 @@ function ActivityForm(props) {
   const [selfCheckNotes, setSelfCheckNotes] = useState('');
   const [mammogramNotes, setMammogramNotes] = useState('');
 
+  const [isShareFetching, setIsShareFetching] = useState(false);
+  const [isShared, setIsShared] = useState(false);
+
   // for notes
   const today = new Date();
   const year = today.getFullYear();
@@ -368,6 +371,16 @@ function ActivityForm(props) {
       
       default:
     }
+  }
+
+  const setLoad = () => {
+    setIsShared(true);
+    setIsShareFetching(false);
+  };
+
+  const handleShareCallback = () => {
+    setIsShareFetching(true);
+    setTimeout(setLoad, 1500);
   }
 
   if(redirect) {
@@ -626,10 +639,40 @@ function ActivityForm(props) {
 
                   <div>
                     <button 
-                      className="button--pill"
-                      // onClick={onClick}
+                      className="button--pill activity-form__share-button"
+                      disabled={isShared}
+                      onClick={handleShareCallback}
                     >
-                      SHARE
+                      {(()=>{
+                        if(isShareFetching && !isShared) {
+                          return(
+                            <React.Fragment>
+                              <i 
+                                aria-hidden="true"
+                                className="fa fa-spinner fa-spin" 
+                                style={{
+                                  fontSize:'12px',
+                                  color: 'white', 
+                                  padding: '0 6px',
+                                }}
+                              />
+                            SHARING
+                          </React.Fragment>                            
+                          );
+                        } else if (!isShareFetching && isShared) {
+                          return (
+                            <React.Fragment>
+                              SHARED
+                            </React.Fragment>
+                          )
+                        } else {
+                          return (
+                            <React.Fragment>
+                              SHARE
+                            </React.Fragment>
+                          )
+                        }
+                      })()}
                     </button>
                   </div>
                 </div>

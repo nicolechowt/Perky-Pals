@@ -9,7 +9,6 @@
   top: 0;
   width: 100%; 
   z-index: 2; 
-  overflow: scroll;
 }
 
 .overlay__links
@@ -41,7 +40,6 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   box-sizing: border-box;
   margin: 20px;
-  overflow-y: scroll;
   padding: 90px 50px;
   position: relative;
   text-transform: uppercase;
