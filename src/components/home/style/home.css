@@ -1,9 +1,31 @@
 .home
 {
-  height: 80vh;
+  height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  background: #F55F15;
+  color: white;
+}
+
+
+.home__perky
+{
+  color: #FFFDFD;
+}
+.home__meetgoals
+{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.home__earn
+{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
 }
