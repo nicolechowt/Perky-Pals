@@ -48,6 +48,7 @@ function dashboardReducer(state={}, action) {
         doneSelfCheckThisMonth: action.data.doneSelfCheckThisMonth,
         scheduledMammogram: action.data.scheduledMammogram,
         previousSelfCheckNotes: action.data.previousSelfCheckNotes,
+        previousMammogramNotes: action.data.previousMammogramNotes,
       }
 
     case ADD_EXERCISE_MINUTES:

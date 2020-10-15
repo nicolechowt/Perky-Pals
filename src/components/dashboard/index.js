@@ -21,8 +21,9 @@ let alertedUser=false;
 
 function Dashboard(props) {
   const { 
-    addSelfCheckNotes,
+    addMammogramNotes,
     addModal,
+    addSelfCheckNotes,
     removeModal,
     saveCurrentUser,
     saveExerciseTips,
@@ -64,6 +65,7 @@ function Dashboard(props) {
   const scheduledMammogramInitial = currentUser[0] && currentUser[0].scheduledMammogram;
 
   const previousSelfCheckNotesInitial = currentUser[0] && currentUser[0].previousSelfCheckNotes;
+  const previousMammogramNotesInitial = currentUser[0] && currentUser[0].previousMammogramNotes;
 
 
   // saving tips for details page
@@ -150,6 +152,10 @@ function Dashboard(props) {
         addSelfCheckNotes(note);
       })
 
+      previousMammogramNotesInitial && previousMammogramNotesInitial.map(note=>{
+        addMammogramNotes(note);
+      }) 
+
       saveExerciseTips(exerciseTipInitial[0]);
       saveMindfulnessTips(mindfulnessTipInitial[0]);
       saveWaterTips(waterTipInitial[0]);
@@ -159,6 +165,7 @@ function Dashboard(props) {
       saveMammogramTips(mammogramTipInitial[0]);
     }
   }, [ 
+    addMammogramNotes,
     addSelfCheckNotes,
     dashboard, 
     dashboardTipInitial,
@@ -170,6 +177,7 @@ function Dashboard(props) {
     mammogramTipInitial,
     mindfulnessTipInitial,
     points, 
+    previousMammogramNotesInitial,
     previousSelfCheckNotesInitial, 
     saveExerciseTips,
     saveFruitsAndVeggiesTips,
@@ -523,6 +531,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return { 
+    addMammogramNotes:(data) => dispatch({ type: "ADD_MAMMOGRAM_NOTES", data}),
     addSelfCheckNotes:(data) => dispatch({ type: "ADD_SELF_CHECK_NOTES", data}),
     addModal: (data) => dispatch({ type: ADD_MODAL, data}),
     removeModal: () => dispatch({ type: 'REMOVE_MODAL'}),

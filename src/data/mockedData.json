@@ -69,6 +69,7 @@
     "doneSelfCheckThisMonth": false,
     "scheduledMammogram": false,
     "previousSelfCheckNotes": [],
+    "previousMammogramNotes": [],
     "data": [
       {
         "date": "09/24/2020",
@@ -251,6 +252,12 @@
       {
         "date": "2020-09-01",
         "content": "Still good! Posted a self-check selfie today and I think I inspired Bella to finally check her girls too! ;)"
+      }
+    ],
+    "previousMammogramNotes": [
+      {
+        "date": "2019-11-29",
+        "content": "Results came back normal."
       }
     ],
     "data": [
@@ -470,6 +477,7 @@
         "content": "That wasn't too bad."
       }
     ],
+    "previousMammogramNotes": [],
     "data": [
       {
         "date": "09/24/2020",
