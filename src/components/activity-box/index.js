@@ -36,7 +36,12 @@ function ActivityBox(props) {
           // goals for everything but self-check and mammogram
           return (
             <div>
-              <div className="activity-box__header">{header}</div>
+              {
+                header==='FRUITS-AND-VEGGIES' ?
+                <div className="activity-box__header">Fruits And Veggies</div> :
+                <div className="activity-box__header">{header}</div>
+              }
+
               {length>=0 && <span className="activity-box__length"> {length}</span>}
               {title && <span className="activity-box__title"> {title}</span>}
               {unit && <span className="activity-box__unit"> {unit}</span>}

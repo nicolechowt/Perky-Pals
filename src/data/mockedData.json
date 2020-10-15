@@ -112,7 +112,7 @@
         "mindfulness": 0,
         "sleep": 6,
         "water": 48,
-        "fruitsAndVeggies": 3,
+        "fruitsAndVeggies": 1,
         "selfCheck": 0,
         "mammogram": 0
       },
@@ -128,7 +128,7 @@
         "mindfulness": 0,
         "sleep": 4,
         "water": 56,
-        "fruitsAndVeggies": 3,
+        "fruitsAndVeggies": 0,
         "selfCheck": 0,
         "mammogram": 0
       },
@@ -139,7 +139,7 @@
         "mindfulness": 0,
         "sleep": 5,
         "water": 64,
-        "fruitsAndVeggies": 3,
+        "fruitsAndVeggies": 2,
         "selfCheck": 0,
         "mammogram": 0
       },
@@ -150,7 +150,7 @@
         "mindfulness": 0,
         "sleep": 5,
         "water": 61,
-        "fruitsAndVeggies": 3,
+        "fruitsAndVeggies": 1,
         "selfCheck": 0,
         "mammogram": 0
       },
@@ -161,7 +161,7 @@
         "mindfulness": 0,
         "sleep": 6,
         "water": 69,
-        "fruitsAndVeggies": 3,
+        "fruitsAndVeggies": 2,
         "selfCheck": 0,
         "mammogram": 0
       }

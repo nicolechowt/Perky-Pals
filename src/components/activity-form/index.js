@@ -22,10 +22,7 @@ import './style/activity-form.css';
 
 
 function ActivityForm(props) {
-  const minutes = [];
-  for (let i = 1; i <= 150; i++) {
-    minutes.push(i);
-  }
+  const minutes = [10, 15, 20, 30, 45, 90];
 
   const hours = [];
   for(let i=1; i<=8;i++) {

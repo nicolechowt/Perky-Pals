@@ -156,7 +156,7 @@ function mapStateToProps(state) {
   return {   
     currentUser: currentUserReducer.currentUser,
     dashboard: dashboardReducer,
-    tips: tipsReducer && tipsReducer.water[0],
+    tips: tipsReducer && tipsReducer.fruitsAndVeggies[0],
   }
 }
 
