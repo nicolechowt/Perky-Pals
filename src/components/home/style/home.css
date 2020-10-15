@@ -11,9 +11,17 @@
   color: white;
 }
 
+.home__title
+{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 54px;
+  }
 
 .home__perky
 {
+  padding-top: 16px;
   color: #FFFDFD;
 }
 .home__meetgoals
@@ -28,4 +36,23 @@
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
+}
+
+.home__login--bella
+{
+  background: #FEBE3E;
+  border-radius: 28px;
+  color: #4B5B7E;
+  height: 42px;
+  margin: 8px;
+  width: 220px;
+  margin-top: 20px;
+}
+
+.home__login
+{
+  color: white;
+  padding-top: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
 }

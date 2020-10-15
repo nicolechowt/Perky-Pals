@@ -9,7 +9,7 @@ function Home(props) {
 
   return (
     <div className="home">
-      <h2>Perky Pals</h2>
+      <div className="home__title">Perky Pals</div>
 
       <div className="home__perky">
         <div className="home__meetgoals">
@@ -23,10 +23,24 @@ function Home(props) {
 
 
       <button
-        className="button--pill-yellow"
+        className="home__login--bella"
         onClick={()=>{nextPath('/dashboard')}}
       >
-        Login
+        LOGIN AS BELLA
+      </button>
+
+      <button
+        className="home__login"
+        onClick={()=>{nextPath('/dashboard?user=2')}}
+      >
+        Login as Juliana
+      </button>
+
+      <button
+        className="home__login"
+        onClick={()=>{nextPath('/dashboard?user=3')}}
+      >
+        Login as Angie
       </button>
     </div>
   );
