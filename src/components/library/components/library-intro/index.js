@@ -166,7 +166,7 @@ const HealthyEatingContent = () => {
 }
 function LibraryIntro(props){
   return(
-    <div>
+    <div className="library-intro">
       {(()=> {
         if(props.name==='SLEEP'){
           return(

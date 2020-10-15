@@ -1,3 +1,7 @@
+.library-intro
+{
+  color: #4B5B7E;
+}
 .sleep-content, a.sleep-content:visited {
   color:#49D07F;
 }
@@ -11,7 +15,7 @@
 }
 
 .breasthealth-content, a.breasthealth-content:visited {
-  color:#FF9900;
+  color:#0DB39E;
 }
 
 .healthy-content, a.healthy-content:visited {
@@ -22,6 +26,7 @@
 .exercise-content-wrapper 
 .mindfulness-content-wrapper
 .breasthealth-content-wrapper
+.breasthealth-self-check-content-wrapper
 .healthy-content-wrapper
 h3 {
   font-family: Poppins;
@@ -38,6 +43,7 @@ h3 {
 .mindfulness-content-wrapper
 .breasthealth-content-wrapper
 .healthy-content-wrapper
+.breasthealth-self-check-content-wrapper
 p {
   color: #4B5B7E;
   font-family: Poppins;
@@ -54,6 +60,7 @@ p {
 .mindfulness-content-wrapper
 .breasthealth-content-wrapper
 .healthy-content-wrapper
+.breasthealth-self-check-content-wrapper
 li {
   color: #4B5B7E;
   font-family: Poppins;
@@ -70,6 +77,7 @@ li {
 .mindfulness-content-wrapper
 .breasthealth-content-wrapper
 .healthy-content-wrapper
+.breasthealth-self-check-content-wrapper
 a {
   font-family: Poppins;
   font-style: normal;

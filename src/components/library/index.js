@@ -54,7 +54,7 @@ function Library(props) {
 
       <div 
         className="library__box library__box-breast"
-        style={{backgroundColor: `${COLORS.MAMMOGRAM}`}}
+        style={{backgroundColor: `${COLORS.SELF_CHECK}`}}
       >
         <Box onClick={()=>nextPath(`${url}/breast-health`)}>
           BREAST HEALTH

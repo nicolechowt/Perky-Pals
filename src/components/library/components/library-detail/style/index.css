@@ -1,5 +1,6 @@
 .library-detail
 {
+  color: #4B5B7E;
 }
 
 .library-detail__header-section
@@ -37,7 +38,8 @@
 {
   padding: 0 20px 20px;
   white-space: nowrap;
-  overflow-x: scroll;
+  overflow-x: scroll;  
+  color:#EBEBEB;
 }
 
 .library-detail__button :active{

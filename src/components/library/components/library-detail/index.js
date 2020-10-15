@@ -58,7 +58,11 @@ function LibraryDetail(props){
         <div className="library-detail__nav">
           <button 
             className="library-detail__button"
-            style={libraryDetailView==="INTRO" ? {borderBottom: `.4rem solid ${color}`}: {}}
+            style={libraryDetailView==="INTRO" ? {
+              borderBottom: `.4rem solid ${color}`,
+              color: `#0B1E48`,
+              fontWeight: 700,
+            }: {}}
             onClick={()=> setLibraryDetailView("INTRO")}
           >
             INTRO
@@ -70,7 +74,11 @@ function LibraryDetail(props){
             if(name!=="BREAST HEALTH") {
               return (
                 <button 
-                  style={libraryDetailView==="TIPS" ? {borderBottom: `.4rem solid ${color}`}: {}}
+                  style={libraryDetailView==="TIPS" ? {
+                    borderBottom: `.4rem solid ${color}`,
+                    color: `#0B1E48`,
+                    fontWeight: 700,
+                  }: {}}
                   onClick={()=> setLibraryDetailView("TIPS")}
                 >
                   TIPS
@@ -80,13 +88,21 @@ function LibraryDetail(props){
               return (
                 <React.Fragment>
                 <button 
-                  style={libraryDetailView==="SELF-CHECK" ? {borderBottom: `.4rem solid ${color}`}: {}}
+                  style={libraryDetailView==="SELF-CHECK" ? {
+                    borderBottom: `.4rem solid ${color}`,
+                    color: `#0B1E48`,
+                    fontWeight: 700,
+                  }: {}}
                   onClick={()=> setLibraryDetailView("SELF-CHECK")}
                 >
                   SELF CHECK
                 </button>
                 <button 
-                  style={libraryDetailView==="MAMMOGRAM" ? {borderBottom: `.4rem solid ${color}`}: {}}
+                  style={libraryDetailView==="MAMMOGRAM" ? {
+                    borderBottom: `.4rem solid ${color}`,
+                    color: `#0B1E48`,
+                    fontWeight: 700,
+                  }: {}}
                   onClick={()=> setLibraryDetailView("MAMMOGRAM")}
                 >
                   MAMMOGRAM
@@ -99,7 +115,11 @@ function LibraryDetail(props){
           })()}
 
           <button 
-            style={libraryDetailView==="RESOURCES" ? {borderBottom: `.4rem solid ${color}`}: {}}
+            style={libraryDetailView==="RESOURCES" ? {
+              borderBottom: `.4rem solid ${color}`,
+              color: `#0B1E48`,
+              fontWeight: 700,
+            }: {}}
             onClick={()=> setLibraryDetailView("RESOURCES")}
           >
             RESOURCES

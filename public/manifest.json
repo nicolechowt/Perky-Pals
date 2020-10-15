@@ -3,7 +3,7 @@
   "name": "Tatas App PWA",
   "icons": [
     {
-      "src": "/images/logo.png",
+      "src": "/images/Icon.png",
       "type": "image/png",
       "sizes": "1024x1024"
     }
