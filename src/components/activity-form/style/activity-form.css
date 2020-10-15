@@ -128,3 +128,7 @@
   color: #4B5b7e;
   margin: 8px 0;
 }
+
+select {
+  font-size: 16px;
+}
