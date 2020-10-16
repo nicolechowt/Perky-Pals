@@ -29,19 +29,23 @@ function Home(props) {
         LOGIN AS BELLA
       </button>
 
+    <div>
       <button
-        className="home__login"
-        onClick={()=>{nextPath('/dashboard?user=2')}}
-      >
+          className="home__login"
+          onClick={()=>{nextPath('/dashboard?user=2')}}
+        >
         Login as Juliana
       </button>
 
-      <button
-        className="home__login"
-        onClick={()=>{nextPath('/dashboard?user=3')}}
-      >
-        Login as Angie
-      </button>
+      <span style={{color: '#4B5B7E' }}>||</span>
+        <button
+          className="home__login"
+          onClick={()=>{nextPath('/dashboard?user=3')}}
+        >
+          Login as Angie
+        </button>
+    </div>
+
     </div>
   );
 }

@@ -477,7 +477,7 @@ function ActivityForm(props) {
                       <option value="Run">Run</option>
                       <option value="Yoga">Yoga</option>
                       <option value="Weights">Weights</option>
-                      <option value="HIIT<">HIIT</option>
+                      <option value="HIIT">HIIT</option>
                     </select>
                   </div>
                 </div>

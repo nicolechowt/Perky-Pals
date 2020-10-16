@@ -11,8 +11,9 @@ const ActivityRing = props => {
     .arc()
     .innerRadius(props.innerRadius)
     .outerRadius(props.outerRadius)
+
   const colors = (i) => {
-    const selections = ['#f89b54', '#56c4d3', '#3777FF', '#F278C3', '#ce4257', '#ebebeb', 'gray'];
+    const selections = ['#F55F15', '#FF8500', '#FF9900', '#FEBE3E', '#E4AB37'];
 
     return selections[i];
   } ;
@@ -38,7 +39,13 @@ const ActivityRing = props => {
       path
         .attr("class", "arc")
         .attr("d", createArc)
-        .attr("fill", (d, i) => colors(i))
+        .attr("fill", (d, i) => {
+          if(d.data.activity==='left') {
+            return '#efefef';
+          }
+
+          return colors(i);
+        })
         .attr("stroke-linejoin", "round");
 
       const text = groupWithUpdate
@@ -52,8 +59,9 @@ const ActivityRing = props => {
         .style("fill", "white")
         .style("font-size", 10)
         .text(d => {
-          console.log('d', d.data.activity)
-          return (d.data.activity)
+          if(d.data.activity!=='left') {
+            return d.data.activity;
+          }
         });
     },
     [props.data]
