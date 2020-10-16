@@ -3,7 +3,7 @@
 
 Perky pals is a wellness tracker that continuously motivates you to create and build healthy habits to reduce your overall risks of breast cancer.  We remove barriers to resources by allowing our users to earn points for healthy food, time-saving meals, and pro-bono medical care for reaching their goals. 
 
-Our colors are vibrant to convey energy and positivity. The font is strong and curvy to reflect the women who use the Perky Pals. We write in a voice that is casual and upbeat to connect with women in a positive way, driving good results.
+Our colors are vibrant to convey energy and positivity. The font is strong and curvy to reflect the women who use Perky Pals. We write in a voice that is casual and upbeat to connect with women in a positive way, driving good results.
 
 ## User Journeys
 We organized the results of our analysis into 3 personas and catered the app to solve the pains for these personas.
