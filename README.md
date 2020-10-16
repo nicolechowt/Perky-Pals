@@ -32,6 +32,19 @@ We have included a few flows of our app to give you a sense of how our users mig
 Using the goals set by the individual user (goal setting feautre is not yet implemented), we provide users a graphical view of their progress. 
 ![](https://res.cloudinary.com/dbnasq0ef/image/upload/v1602879420/dashboard_tvtbtr.gif)
 
+### Log an activity
+![](https://res.cloudinary.com/dbnasq0ef/image/upload/v1602879545/loggingExercise_rbbhlq.gif)
+
+### Weekly view
+To encourage users to keep up their streak, we provide a weekly view of how they are doing.
+
+![](https://res.cloudinary.com/dbnasq0ef/image/upload/v1602879609/weeklyView_wh2hh8.gif)
+
+### Friend view
+Accountable is key. We have a friend view to allow users to see how their friend is doing with regards to their goals.
+
+![](https://res.cloudinary.com/dbnasq0ef/image/upload/v1602879650/friend_wl2psj.gif)
+
 
 ### Self Check
 We provide the option for users to keep a log of their monthly self checks. We encourage them to join the movement to share a selfie to raise awareness.
