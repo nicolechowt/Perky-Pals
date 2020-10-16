@@ -78,7 +78,7 @@ function Appointment(props) {
       </div>
 
       <div className="appointment__text">
-        Already had your mammogram for the year? High five! Let us know below by selecting the date you had your mammogram so we can remind you when you're due for your next one.
+        Already had your mammogram for the year? High five! Let us know below by selecting the date you had your appointment so we can remind you when you're due for your next one.
       </div>
 
       <div className="appointment__text">
