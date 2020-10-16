@@ -90,6 +90,17 @@ const BreastHealthContent = () => {
       </p>
       <p><a href="https://www.facingourrisk.org/research-clinical-trials/featured" target="_blank" className="breasthealth-content">Find out more at here.</a></p>
 
+      <h3 className="breasthealth-content">The latest news in Breast Health</h3>
+      <a href="https://www.sciencedaily.com/releases/2020/01/200115090957.htm" target="_blank">
+        <img src="https://res.cloudinary.com/dbnasq0ef/image/upload/v1602872687/omar-lopez-auEe5lKHZCw-unsplash_fhgplq.jpg" style={{maxWidth: '100%', borderRadius: '9px'}} />
+
+        <p>
+          <div style={{padding: '10px 0'}}>
+            <b>DNA Damage to Breast Cells from Chemicals in Some Cosmetics, Sunscreens</b><br />
+          </div>
+          Oct. 15, 2020 — A new approach to studying the effects of two common chemicals used in cosmetics and sunscreens found they can cause DNA damage in breast cells at surprisingly low concentrations, while the same dose ...
+        </p>
+      </a>
     </div>
   );
 }
