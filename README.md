@@ -9,7 +9,7 @@ Juliana - Our super User, using app, recruited bella, has history in family of b
 Angie - Originally joined Perky Pals because she needs an app to motivate her to workout. She Has earned points to redeem.  Anxious, trouble sleeping.  Afraid of getting mammogram because of the pain and cost.
 
 ### LIVE DEMO
-Based on the user journeys above, we have loaded hardcoded data onto each profile to help you visual their experience.
+Based on the user journeys above, we have loaded hardcoded data onto each profile to help you visualize their experience.
 
 Bella - https://amazing-stonebraker-19f8f7.netlify.app/
 Jualiana - https://amazing-stonebraker-19f8f7.netlify.app/dashboard?user=2
@@ -19,5 +19,8 @@ Angie - https://amazing-stonebraker-19f8f7.netlify.app/dashboard?user=3
 ### ENTRY POINT
 For the app to load properly, please enter through one of the entry points via the links provided above.
 
+### PROGRESSIVE WEB APP
+App was designed with a mobile first experience. To download the PWA, follow these steps.
+
 ### TO RUN APP LOCALLY
-`npm start`
+App was built with reactjs, and can be run locally using `npm start`

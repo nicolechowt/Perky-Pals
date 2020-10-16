@@ -13,7 +13,7 @@ const ActivityRing = props => {
     .outerRadius(props.outerRadius)
 
   const colors = (i) => {
-    const selections = ['#F55F15', '#FF8500', '#FF9900', '#FEBE3E', '#E4AB37'];
+    const selections = ['#F55F15', '#FF8500', '#FF9900', '#FEBE3E', '#E4AB37', '#ffd900'];
 
     return selections[i];
   } ;
