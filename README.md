@@ -16,7 +16,7 @@ Since she is still in her 20s, she has never even thought about breast health.
 
 ---
 
-<strong>Juliana</strong>  - our super user, and Bella's good friend. She has a history in family of breast cancer and is looking for reducing her risk.  Champion for organizing events - Juliana has been earning points for healthy eating, exercise, self checks and scheduling a mammogram. Although she is not in need of the resources herself, she has decided to save her points for a community farm stand with mobile mammogram for an underserved community.
+<strong>Juliana</strong>  - our super user, and Bella's good friend. Her family has a history of breast cancer and she is looking for reducing her risk.  Champion for organizing events - Juliana has been earning points for healthy eating, exercise, self checks and scheduling a mammogram. Although she is not in need of the resources herself, she has decided to save her points for a community farm stand with mobile mammogram for an underserved community.
 
 ---
 
