@@ -14,7 +14,11 @@ She comes to the app for tips and and resources to stay motivated with her worko
 
 Since she is still in her 20s, she has never even thought about breast health. 
 
+---
+
 <strong>Juliana</strong>  - our super user, and Bella's good friend. She has a history in family of breast cancer and is looking for reducing her risk.  Champion for organizing events - Juliana has been earning points for healthy eating, exercise, self checks and scheduling a mammogram. Although she is not in need of the resources herself, she has decided to save her points for a community farm stand with mobile mammogram for an underserved community.
+
+---
 
 <strong>Angie</strong>  - joined Perky Pals because she needed an app to motivate her to workout. With all the recent events in her personal and work life, she has been feeling anxious and having trouble with sleep. She's been wanting to see a therapist for her anxiety but does not have the funds to do so.
 
@@ -26,7 +30,6 @@ We have included a few flows of our app to give you a sense of how our users mig
 
 ### Dashboard view
 Using the goals set by the individual user (goal setting feautre is not yet implemented), we provide users a graphical view of their progress. 
-
 ![](https://res.cloudinary.com/dbnasq0ef/image/upload/v1602879420/dashboard_tvtbtr.gif)
 
 ### Log an activity
@@ -39,11 +42,13 @@ To encourage users to keep up their streak, we provide a weekly view of how they
 
 ### Friend view
 Accountable is key. We have a friend view to allow users to see how their friend is doing with regards to their goals.
+
 ![](https://res.cloudinary.com/dbnasq0ef/image/upload/v1602879650/friend_wl2psj.gif)
 
 
 ### Self Check
 We provide the option for users to keep a log of their monthly self checks. We encourage them to join the movement to share a selfie to raise awareness.
+
 ![](https://res.cloudinary.com/dbnasq0ef/image/upload/v1602879688/selfCheck_z3xwz2.gif)
 
 
@@ -62,6 +67,14 @@ We realize many of our users may be nervous and update the customized tip accord
 ![](https://res.cloudinary.com/dbnasq0ef/image/upload/v1602879774/mammogramFuture_xs7atd.gif
 ) 
 
+
+### Help
+We envision there to be a help feature to expose available funds and/or no/low cost breast health resources to our users.
+
+Here's an example flow of our user finding a nearby mammogram provider.
+
+![](https://res.cloudinary.com/dbnasq0ef/image/upload/v1602885600/help_kraj6g.gif)
+
 ### Redeem
 A big part of our app is to remove barriers to resources for our users. By reaching their goals, our users can earn points for healthy food, time-saving meals, and pro-bono medical care.
 
@@ -79,9 +92,13 @@ Want to play around with the app?
 
 Based on the user journeys above, we have loaded hardcoded data onto each profile to help you visualize their experience.
 
-Bella - https://amazing-stonebraker-19f8f7.netlify.app/
-Jualiana - https://amazing-stonebraker-19f8f7.netlify.app/dashboard?user=2
-Angie - https://amazing-stonebraker-19f8f7.netlify.app/dashboard?user=3
+- Bella - https://amazing-stonebraker-19f8f7.netlify.app/
+
+
+- Jualiana - https://amazing-stonebraker-19f8f7.netlify.app/dashboard?user=2
+
+
+- Angie - https://amazing-stonebraker-19f8f7.netlify.app/dashboard?user=3
 
 
 > Note: 
