@@ -106,20 +106,20 @@ For the app to load properly, please enter through one of the entry points via t
 ## Progressive Web App
 Although we couldn't implement all the features of a PWA, the app was designed with a mobile-first experience. For the best viewing experience, we recommend you to do the following,
 
-iPhone/iPad -
+### iPhone/iPad -
 
 Visit the website using mobile safari
 Tap the Share button (at the browser options)
 From the options tap the Add to Home Screen option, you will see the icon of of the site added to your device’s homes creen instantly.
 
-Android -
+### Android -
 
 On your Android device, open Chrome .
 Go to a website you want to install.
 Tap Add to home screen.
 Follow the onscreen instructions to install.
 
-Chrome Browser -
+### Chrome Browser -
 
 On your computer, open Chrome.
 Go to a website you want to install.
